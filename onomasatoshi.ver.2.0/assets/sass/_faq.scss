@@ -1,0 +1,156 @@
+// 薄い青のぼかし
+.circle-blur-light-blue {
+  top: 100%;
+  left: 29%;
+  transform: translate(-50%, -50%);
+  width: 26vw;
+  height: 26vw;
+  background: rgba(0, 140, 255, 0.8);
+  filter: blur(100px);
+  @include bp-m() {
+    top: 27%;
+    left: 15%;
+    transform: none;
+    width: 19.69vw;
+    height: 19.69vw;
+    filter: blur(200px);
+  }
+}
+
+// Q&Aセクション
+.qa-section {
+  background-color: #0A2256;
+  color: #EFEFEF; // 親に色を指定
+  padding: 90px 0 85px;
+  @include bp-m() {
+    padding: 180px 0;
+  }
+
+  & .circle-arrow{
+    margin-right: 17px;
+    text-align: right;
+    @include bp-m(){
+      display: flex;
+      margin-right: unset;
+    }
+  }
+
+  & .qa-block-flex {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 0 17px;
+    align-items: end;
+    gap:0;
+
+    @include bp-m() {
+      flex-direction: unset;
+      padding: 0 100px;
+      gap: clamp(80px, 19vw, 523.5px);
+    }
+  }
+
+  & .qa-right-column {
+    width: 100%;
+    margin-bottom: 40px;
+    @include bp-m(){
+      width: 56%;
+      margin-bottom: 0;
+    }
+  }
+
+  & .qa-image{
+    width: 95vw;
+    margin-bottom: 60px;
+    @include bp-m(){
+      width: 60vw;
+      margin-bottom: 34px;
+    }
+  }
+
+  & .qa-item {
+    border-bottom: 1px solid #283551;
+
+    .qa-question {
+      font-family: 'Noto Sans JP';
+      position: relative;
+      display: block;
+      width: 100%;
+      text-align: left;
+      letter-spacing: 0.04em;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 15px;
+      border: none;
+      background: transparent;
+      color: inherit; // 親の色に従う
+      padding: 20px 35px  20px 0;
+      padding-left: 1.5em;
+      text-indent: -1.5em;    
+      @include bp-m() {
+        font-size: 16px;
+        padding: 32px 35px 32px 0;
+
+      }
+
+      &::before {
+        content: "Q";
+        padding-right: 2%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: translateY(-50%) rotate(45deg);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .qa-answer {
+      font-family: 'Noto Sans JP';
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 400;
+      background-color: #0A1836;
+      padding: 12px 11px;
+      letter-spacing: 0.04em; 
+      margin: 0 7px 20px 11px;
+      display: flex;
+      @include bp-m() {
+        font-size: 16px;
+        padding:24px 25px;
+        margin: 0 0 32px 25px;
+
+      }
+
+      &::before {
+        content: "A";
+        padding-right: 2%;
+      }
+    }
+
+    &.open {
+
+      .qa-question::after {
+        transform: translateY(-50%) rotate(-135deg);
+      }
+    }
+  }
+
+  // Q&A 内の button を親の文字色に従わせる
+  button,
+  button * {
+    color: inherit;
+  }
+  & .qa-inner{
+    display: none;
+  }
+}
+

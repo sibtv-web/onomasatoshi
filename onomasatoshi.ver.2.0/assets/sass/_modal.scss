@@ -1,0 +1,126 @@
+/* ================================
+   共通モーダルスタイル
+================================ */
+.player-modal,
+.detail-modal {
+  display: none;
+  position: fixed;
+  inset: 0; /* top/right/bottom/left 0 */
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.player-content,
+.detail-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 660px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+/* 閉じるボタン */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ================================
+   トップ用モーダル（Apple Musicプレイヤー）
+================================ */
+
+.player-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.player-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-embed {
+  width: 100%;
+}
+
+/* ================================
+   アーカイブ用モーダル（ディスコグラフィー詳細）
+================================ */
+.detail-modal {
+  .modal-jacket {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .modal-date,
+  .modal-type,
+  .modal-price {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .modal-desc {
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .modal-apple,
+  .modal-spotify,
+  .modal-viewmore {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+      background: #444;
+    }
+  }
+}

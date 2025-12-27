@@ -1,0 +1,69 @@
+// ==============================
+// Colors
+// ==============================
+
+// Text colors
+$text-main: #EFEFEF;      // 基本文字
+$text-orange: #FF8400;    // オレンジ
+
+// ==============================
+// Font family
+// ==============================
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('../../assets/font/NotoSansJP-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('../../assets/font/NotoSansJP-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pathway Gothic One';
+  src: url('../../assets/font/PathwayGothicOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+// ==============================
+// Font size
+// ==============================
+
+//(pc)
+$fs-title-pc: 36px;
+$fs-link-pc: 36px;
+$fs-banner-main-pc: 48px;
+$fs-banner-sub-pc: 20px;
+$fs-body-l-pc: 32px;
+$fs-body-s-pc: 16px;
+$fs-news-date-pc: 20px;
+$fs-news-tag-pc: 14px;
+//(sp)
+$fs-title-sp: 18px;
+$fs-link-sp: 18px;
+$fs-banner-main-sp: 24px;
+$fs-banner-sub-sp: 12px;
+$fs-body-l-sp: 20px;
+$fs-body-s-sp: 16px;
+$fs-news-date-sp: 12px;
+$fs-news-tag-sp: 12px;
+
+
+// ==============================
+// Breakpoints
+// ==============================
+
+@mixin bp-m {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
