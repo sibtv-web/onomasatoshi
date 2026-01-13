@@ -1,27 +1,248 @@
-.discography-list {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
+//ヘッダー
 
-  li {
-    width: 400px;
-    padding: 10px;
-
-    .jacket-image img {
+.discography.archive-header{
+  position: relative;
+  background-image: url('../images/bg/bg_discography_archive-sp.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+  width: 100%;
+  aspect-ratio: 750 / 540; 
+    @include bp-m(){
+      background-image: url('../images/bg/bg_discography_archive-pc.webp');
       width: 100%;
+      aspect-ratio: 1920 / 540;  
+      margin-bottom: 202px;
+  }
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(3, 18, 31, 0.48);
+    }
+  
+  & .archive-header-tx{
+    width: 89.12vw;
+    position: absolute;
+    top: 64%;
+    left: unset;
+    right: 0;    
+    @include bp-m(){
+      width: 73.18vw;
+      top: 82%;
+      left: 5.2%;
+      right: unset;    
+
+    }
+  }
+  & .circle-blur-deep-blue{
+    top: 105%;
+    left: 71%;
+    width: 52vw;
+    height: 52vw;    
+      @include bp-m{
+        top: 98%;
+        left: 9%;
+        width: 19.69vw;
+        height: 19.69vw;    
+      }
+    }
+}
+
+
+//タブ切り替え
+.news-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+
+  .news-tags {
+    cursor: pointer;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+
+    &.is-active {
+      background: #EFEFEF;
+      color: #0A1836;    
+    }
+  }
+}
+
+//タグの設定
+
+.archive-news.archive-discography {
+  .discography-list {
+    .disc-item {
+      .news-tags {
+        background-color: #EFEFEF;
+        color: #03121F;
+        width: 95px;
+        height: 17px;
+        font-size: 10px;
+        line-height: 0.68px;
+        margin-bottom: 6px;
+        padding: unset;
+
+        @include bp-m() {
+          width: 6.56vw;
+          height: 0;
+          font-size: 0.63vw;
+          line-height: 0.48px;
+          margin-bottom: unset;
+          padding: 4%;
+        }
+      }
+    }
+  }
+}
+
+.archive-discography-inner{
+  padding: unset;
+  @include bp-m(){
+    padding: 0 5.21vw;
+  }
+}
+
+//投稿の中身
+.archive-news{
+  .section-title{
+    padding-top: 20px;
+    @include bp-m(){
+      padding-top: unset;
+    }
+  }
+  .discography-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // SP：2列
+    gap: 40px 20px;
+    padding: 0 0 60px;
+    margin: 0;
+
+    @include bp-m() { 
+      grid-template-columns: repeat(5, 1fr); // PC：5列
+      gap:30px 2vw;
+      padding: 0 0 6.25vw;
+    }
+
+    .disc-item{
+      width: 42.67vw;
+      // margin: 0 auto 60px;
+      margin: 0 auto;
+      aspect-ratio: 160 / 263; // Figmaの比率
       height: auto;
-      display: block;
+      @include bp-m{
+        width: 16.25vw;
+        aspect-ratio: 312 / 480; // Figmaの比率
+        // margin: 0 auto 120px;
+      }
     }
 
-    h2 {
-      font-size: 1.2rem;
-      margin: 8px 0;
+    .jacket-image{
+      position: relative;
+      width:42.67vw ;
+      aspect-ratio: 160 / 160; // Figmaの比率
+      height: auto;
+      margin-bottom: 10px;
+      background-color: #03121F;     
+       @include bp-m{
+        width: 16.25vw;
+        aspect-ratio: 312 / 312; // Figmaの比率
+        margin-bottom: 20px;
+      }
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .release-date{
+    font-family: meno-banner, serif;
+    font-weight: 400;
+    color: #EFEFEF;
+    font-size: 14px;
+    margin-bottom: 6px;
+    @include bp-m(){
+      font-size: 0.83vw;
+      margin-bottom: unset;
+
+    }
+  }
+  .tag-date-flex{
+    display: block;
+    gap: unset;
+    margin-bottom: unset;
+    @include bp-m(){
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+  }
+  .release-contents-title{
+    letter-spacing: 0.56px;
+    font-size: 14px;
+    @include bp-m(){
+      letter-spacing: 0.64px;
+      font-size: 0.83vw;
+    }
+  }
+}
+
+//プラスボタン
+
+.jacket-image {
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .plus-btn {
+    position: absolute;
+    top: 36vw;
+    right: 2vw;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2.5vw;
+    line-height: 1;
+    font-weight: 500;
+
+    background: transparent;
+    border: 1px solid currentColor;
+    cursor: pointer;
+
+    transition: opacity 0.3s ease;
+    @include bp-m(){
+      top: 13.5vw;
+      right: 0.5vw;
+      width: 2vw;
+      height: 2vw;
+      font-size: 1vw;
+
     }
 
-    .release-date {
-      font-size: 0.9rem;
-      color: #666;
+    &:hover {
+      opacity: 0.7;
     }
+
+    &.is-white {
+      color: #EFEFEF;
+    }
+
+    &.is-black {
+      color: #03121F;
+    }
+
   }
 }

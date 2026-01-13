@@ -1,0 +1,548 @@
+//ハンバーガメニューの色
+.page-template-default.page.page-id-37 {
+  .hamburger{
+    span {
+      background: #03121F;
+    }
+  }
+}
+
+.page-template-default.page.page-id-37 {
+  .hamburger.active{
+    span{
+    background: #EFEFEF;
+    }
+  }
+}
+
+/* サンクスページのハンバーガー */
+.page-template-page-contact-thanks{
+  .hamburger span {
+    background: #03121F;
+  }
+}
+
+
+//固定ページの名前だけのヘッダー
+
+.page-container{
+  background-color: #EFEFEF;
+  padding: 0 20px;
+
+  .simple-header-black{
+    margin-bottom: 110px;/* ページに合わせて調整 */
+    @include bp-m(){
+      margin-bottom: 160px;
+    }
+    .header-name{
+      color: #03121F;
+    }
+  }
+  .page-section-title{
+    color: #496CCC;
+    font-family: meno-banner, serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 20px;
+    @include bp-m(){
+      font-size: 128px;
+      font-weight: 400;
+      margin-bottom: 40px;
+
+    }
+  }
+  .page-section-title-jp{
+    color: #496CCC;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 60px;
+    @include bp-m(){
+      font-size: 24px;
+      margin-bottom: 120px;
+    }
+  }
+  .header-title{
+    padding-left: 5.2%;
+  }
+}
+
+////メール本文////
+
+//背景設定
+.form-box{
+  background-color: #FFFFFF;
+  padding: 0 6.2vw;
+   span{
+    margin-bottom: 10px;
+   }
+   p{
+    border-bottom: 1px solid #03121F;
+    padding: 10px 0 0;
+      @include bp-m(){
+      padding: 32px 0;
+      }
+   }
+}
+
+.form-box-start{
+  padding-top: 50px;
+  @include bp-m(){
+    padding-top: 120px;
+
+  }
+}
+
+  .form-box-end{
+  padding-bottom: 50px;
+  margin-bottom: 60px;
+  @include bp-m(){
+  padding-bottom: 120px;
+  margin-bottom: 120px;
+  
+}
+
+}
+
+
+.contact-box {
+  color: #03121F;
+  // padding: unset; // フォーム全体の左右余白
+  @include bp-m() {
+    // padding: 0 5.2vw;
+  }
+
+  /* ----- CF7フォーム全体 ----- */
+  .wpcf7.js {
+    // background-color: #FFFFFF;
+    padding: 40px 0 60px;
+    @include bp-m() {
+      padding: 0 120px 120px ;
+    }
+  }
+
+  /* ----- 各入力欄のラッパー ----- */
+  .wpcf7-form-control-wrap {
+    display: block;       // 横幅を効かせるためブロック化
+    margin-bottom: 20px;  // 下に余白
+    flex: 1;              // 横並び時、残り幅を全部使う
+    @include bp-m(){
+      margin-bottom: unset;
+      }
+  }
+  /* ----- 利用規約に相違するのラッパー ----- */
+  .wpcf7-form-control-wrap[data-name="agree"]{
+    justify-content: center;
+  }
+
+  /* ----- input / textarea / select 全体 ----- */
+  
+  .form-box 
+  input,
+  textarea,
+  select {
+    width: 100%;  // size属性を無視して幅100%
+    max-width: 100%;
+    box-sizing: border-box;   // padding込みで幅を計算
+    // padding: 20px;        // 内側余白
+    font-size: 16px;   
+ 
+  }
+
+
+  
+  textarea {
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    border: 1px solid #C9C9C9; 
+    padding:  20px 0 0 11px; 
+    @include bp-m(){
+      padding: 20px 0 0 26px; 
+      }
+  }
+
+
+  /* ----- 入力例（placeholder）のスタイル ----- */
+  ::placeholder {
+    color: #B9B9B9;
+    font-size: 14px;
+    opacity: 1; // Safari対策
+  }
+
+  .wpcf7-submit{
+     background-color: #496CCC;
+    color: #EFEFEF;    
+    border: none;
+    border-radius: 40px;
+    padding: 15px 16vw;
+    cursor: pointer;
+    font-size: 3.7vw;
+    width: 76.6vw;
+    @include bp-m(){
+      padding: 15px 10.2vw 15px 9.8vw;
+      font-size: 0.83vw;
+      width: 21vw;
+    }
+  }
+
+  /* 送信ボタンを包んでいる p */
+  .wpcf7-form p:has(.wpcf7-submit) {
+    text-align: center;
+  }
+
+
+  //スピナー非表示
+
+  .wpcf7-spinner {
+  display: none;
+}
+
+  /* ----- ラベル部分 ----- */
+  .form-label {
+    width: 80vw; // ラベルの固定幅
+    @include bp-m(){
+      width:7.6vw ;
+    }
+  }
+
+  .label-text {
+    position: relative; // 必須マークの基準にする
+    display: inline-block;
+  }
+
+  /* ----- 必須項目のラベル ----- */
+  .form-item.is-required .form-label {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* ----- 必須マーク（※） ----- */
+  .form-item.is-required .label-text::after {
+    content: "※";
+    position: absolute;
+    top: -0em;     // ラベル右上に配置
+    right: -1.1em;
+    color: #FF383C;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  /* ----- テキスト入力欄の下線 ----- */
+  .wpcf7-form-control.wpcf7-text {
+
+    border: 1px solid #C9C9C9;   // 枠線
+    border-radius: 5px; // 枠線
+    background-color: #EFEFEF;
+    padding: 5px 10px;
+    @include bp-m(){
+    border-radius: 10px; // 枠線
+    padding: 17px 18px;
+    }
+
+  }
+
+
+  /* ----- 項目タイトル（form-item内pタグ） ----- */
+  .form-item p {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    flex-wrap: nowrap;
+    white-space: nowrap;    
+       @include bp-m() {
+      font-size: 16px;
+    }
+  }
+  .form-item
+  .wpcf7-form-control-wrap{
+    display: flex;
+    margin-bottom: 40px;
+  }
+  /* ----- ラジオボタンの項目テキスト ----- */
+  .wpcf7-list-item-label{
+    font-size: 15px;
+      @include bp-m(){
+        font-size: 16px;
+      }
+  }
+}
+
+/* ------------------------
+   カスタムラジオボタン
+------------------------- */
+
+
+
+
+.wpcf7-radio.radio-style {
+  display: block;             // ラジオグループ全体を横並びに
+  gap: 4.1vw;   
+
+  @include bp-m(){
+    display: flex;
+    flex-wrap: nowrap;
+
+  }             // 項目同士の間隔
+
+  .wpcf7-list-item {
+    display: flex;    // 丸とテキストを横並び
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0;
+    @include bp-m(){
+      gap:17px;
+    }
+
+    input[type="radio"] {
+      transform: scale(2);   // 1 = 標準
+      margin-right: 15px;       // 文字との距離調整    
+      appearance: none;
+      -webkit-appearance: none;
+      width: 10px !important;           // 丸のサイズ
+      height: 10px !important;
+      background-color: #EFEFEF;
+      border: 1px solid #c9c9c9; // 枠線色
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+      @include bp-m(){
+        width: 10px !important;           // 丸のサイズ
+        height: 10px !important;
+        transform: scale(2.2);   // 1 = 標準
+        margin-right: 15px;       // 文字との距離調整    
+
+        }
+
+    
+
+      &:checked::before {
+        content: '';
+        display: block;
+        width: 7px;         // 中の丸のサイズ
+        height: 7px;
+        background-color: #496CCC; // 選択時の丸の色
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+  }
+
+ /* ここでラベルの文字サイズを変える */
+    .wpcf7-list-item-label {
+      font-size: 15px !important; // 変更したいサイズにする
+      color: #03121F;
+      @include bp-m(){
+        font-size: 16px !important;
+      }
+      
+    }
+}
+
+
+/* ----------------------------
+   送信ボタン初期状態（無効）
+----------------------------- */
+.submit-btn {
+  background-color: #03121F;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+//送信→（矢印実装）
+
+/* ラッパー */
+.submit-wrap {
+  position: relative;
+  display: inline-block;
+  color: currentColor; // ボタン文字色と同期
+}
+
+
+/* 横棒 */
+.submit-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2em; //横の位置
+  width: 9vw;      // 長さ
+  height: 1px;// 太さ
+  background-color: currentColor;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #EFEFEF;
+  @include bp-m(){
+  width: 3.2vw;      // 長さ
+  }
+}
+
+/* 矢印先端 */
+.submit-wrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2em; //横の位置
+  width: 0.3em;// 長さ
+  height: 0.3em;// 長さ
+  border-top: 1px solid currentColor;//太さ
+  border-right: 1px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+  color: #EFEFEF;
+}
+
+
+
+
+/* 利用規約チェックボックス */
+.agree-label {
+  color: #03121F;
+  font-size: 14px;
+  display: flex;       // チェックボックスとテキストを横並び
+  align-items: center; // 高さを中央揃え
+  gap: 8px;            // チェックボックスと文字の間隔
+  cursor: pointer;     // クリックできるように
+  margin: 0 auto 40px;
+  justify-content: center;
+  @include bp-m(){
+    font-size: 16px;
+  }
+
+
+  input[type="checkbox"] {
+    flex-shrink: 0;      // 横幅縮小を防ぐ
+    width: 16px !important;          // チェックボックスの横幅
+    height: 16px;         // チェックボックスの高さ
+    margin: 0;            // デフォ余白を消す
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  span {
+    font-size: 15px;
+    @include bp-m(){
+      font-size: 16px;
+    }
+  }
+
+  
+}
+
+
+/* ----------------------------
+   サンクスページ
+----------------------------- */
+.sec-contact-thanks {
+  padding-bottom: 60px;
+  @include bp-m(){
+    padding-bottom: 120px;
+  }
+  .thanks-inner {
+    color: #03121F;
+    padding-bottom: 60px;
+    @include bp-m(){
+      padding-bottom: 120px;
+    }
+
+  }
+  .thanks-title{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    text-align: center;
+      @include bp-m(){
+    font-size: 36px;
+    margin-bottom: 120px;
+
+    }
+  }
+  .thanks-message{
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    display: block;
+      @include bp-m(){
+    font-size: 16px;
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: center;
+  }
+}
+  .thanks-notice{
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #fff;
+    border: 1px solid #fff;
+    padding: 20px;
+    width: unset;
+    letter-spacing: 0.4px;
+    line-height: 1.6;
+      @include bp-m(){
+      font-size: 16px;
+      padding: 42px 32px;
+      width: 43.5vw;
+      margin: auto;
+      letter-spacing: 0.64px;
+
+    }
+  }
+} 
+
+//前に戻るボタン
+
+.btn-back {
+  position: relative;
+  display: block;
+  width: 76.6vw;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 14px 7vw;
+  font-size: 14px;
+  color: #EFEFEF;
+  background-color: #496CCC;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+
+  @include bp-m() {
+    font-size: 0.8vw;
+    width: 21vw;
+    max-width: unset;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background-image: url('../images/parts/arrow-back.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+      @include bp-m(){
+        right: 2.1vw;
+        width: 0.83vw;
+        height: 0.89vw;
+      }
+  }
+}
+
+
+

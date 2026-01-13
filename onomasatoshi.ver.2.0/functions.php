@@ -278,3 +278,32 @@ function my_theme_scripts() {
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
 
+
+////プロフィールページ釣り針ボタン切り替え////
+
+function enqueue_profile_assets() {
+    if (is_page_template('profile.php')) {
+        wp_enqueue_style('profile-style', get_theme_file_uri('/assets/css/profile-style.css'));
+        wp_enqueue_script('profile-switch', get_theme_file_uri('/assets/js/profile-switch.js'), array(), false, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_profile_assets');
+
+
+//サンクスページ
+add_action('wpcf7mailsent', function($contact_form){
+    $form_id = $contact_form->id();
+
+    // 通常お問い合わせフォームID
+    if ($form_id == 123) {
+        wp_safe_redirect(home_url('/contact-thanks/'));
+        exit;
+    }
+
+    // QAフォームID
+    if ($form_id == 456) {
+        wp_safe_redirect(home_url('/qa-thanks/'));
+        exit;
+    }
+});
+

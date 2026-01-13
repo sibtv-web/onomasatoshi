@@ -1,0 +1,89 @@
+.page-template-page-privacy .site-header .hamburger span{
+  background: #03121F;
+}
+
+.page-template-page-privacy .site-header .hamburger.active span{
+  background: #EFEFEF;
+}
+
+
+
+.privacy-container{
+  &.page-container{
+    padding: 0 20px;
+      @include bp-m(){
+      padding: unset;
+    }
+   } 
+
+  .privacy-inner{
+    color: #03121F;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1.12px;
+    line-height: 1.6;
+    padding: 0 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+     @include bp-m(){
+      font-size: 16px;
+      letter-spacing: 0.64px;
+      padding: 0 5.2vw 120px;
+      gap:40px;
+    }
+  }
+  .simple-header-black{
+    margin-bottom: 85px;
+    @include bp-m(){
+      margin-bottom: 160px;
+    }
+  }
+  .header-title{
+    padding-left: 0;
+    @include bp-m(){
+      padding-left: 5.2vw;
+    }
+  }
+
+  .privacy-lead{
+    margin-bottom: 30px;
+    @include bp-m(){
+      margin-bottom: 80px;
+    }
+  }
+
+  h2{
+    font-weight: 700;
+  }
+
+/* h2直後のp */
+  h2 + p {
+    padding-left: 1.4em;
+  }
+  /* h2直後のul */
+  h2 + ul {
+    padding-left: 1.1em;
+  }
+  /* h3 を1文字分下げる */
+  h3 {
+    padding-left: 1em;
+  }
+  /* h3直後のpは本文として字下げ */
+  h3 + p {
+    padding-left: 1.2em;
+  }
+  .indent + div,.indent + p{
+    padding-left: 1.9em;
+  }
+
+  .browser-list {
+  li {
+    .underline {
+      text-decoration: underline;
+      text-underline-offset: 0.15em; // 下線を少し下げる
+    }
+  }
+}
+
+}

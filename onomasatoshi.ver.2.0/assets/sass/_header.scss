@@ -1,0 +1,41 @@
+
+
+
+//名前だけのヘッダーの<div>
+
+.simple-header{
+  height: 45px;
+  @include bp-m(){
+    height: 90px;
+  }
+}
+
+//名前だけのヘッダー固定ページ用（color: #03121F）
+
+.simple-header-black{
+  height: 45px;
+  color: #03121F;
+  @include bp-m(){
+    height: 90px;
+  }
+}
+
+
+//アーカイブ、シングル、ページのヘッダーの名前の<div>
+
+.header-name{
+    position: absolute;
+    top: 22px;
+    left: 5.2%;
+    color: #FFFFFF;
+    font-family: meno-banner, serif;
+    font-weight: 600;
+    font-size: 16px;
+    left: 4.6%;
+      @include bp-m(){
+        font-size: 1.67vw;
+        top: 37px;
+        left: 5.2%;
+
+      }
+}

@@ -1,3 +1,35 @@
+
+// ==============================
+// Breakpoints
+// ==============================
+
+@mixin bp-m {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+
+// ==============================
+// 改行
+// ==============================
+
+/* SP（デフォルト） */
+.pc {
+  display: none;
+  @include bp-m(){
+    display: inline;
+  }
+}
+
+.sp {
+  display: inline;
+  @include bp-m(){
+    display: none;
+  }
+}
+
+
 // ==============================
 // Colors
 // ==============================
@@ -58,12 +90,17 @@ $fs-news-date-sp: 12px;
 $fs-news-tag-sp: 12px;
 
 
-// ==============================
-// Breakpoints
-// ==============================
 
-@mixin bp-m {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
+// // SP〜タブレット手前（今まで通りSP用）
+// @mixin bp-mid {
+//   @media (min-width: 768px) and (max-width: 1023px) {
+//     @content;
+//   }
+// }
+
+// // PC（今まで通り）
+// @mixin bp-m {
+//   @media (min-width: 1024px) {
+//     @content;
+//   }
+// }

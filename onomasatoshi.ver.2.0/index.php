@@ -99,9 +99,9 @@
     <!-- News -->
     <section class="news-section">
       <div class="inner">
-        <div class="news-image-wrap fade-anime" data-fade="fade-up">
+        <div class="news-image-wrap fade-anime" data-fade="fade-right">
           <div class="inner-image">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bg/h_news_left.webp" alt="">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_left.webp" alt="">
             <!-- <img class="animation-image" src="images/bg/bg-animation.webp" alt="">           -->
           </div>
           <div class="circle-blur-deep-blue"></div>        
@@ -219,16 +219,16 @@
     <!-- Q&A -->
     <section class="qa-section">
       <div class="inner">
-        <div class="qa-image-wrap fade-anime" data-fade="fade-up">
+        <div class="qa-image-wrap fade-anime" data-fade="fade-left">
           <div class="qa-image">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bg/h_q&a.webp" alt="">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_q&a.webp" alt="">
           </div>
           <div class="circle-blur-light-blue"></div>
         </div>
 
         <div class="qa-block-flex fade-anime" data-fade="fade-up">
           <div class="circle-arrow">
-            <a href="<?php echo esc_url($latest_url); ?>">Send a Question<span class="arrow"></span></a>
+            <a href="<?php echo esc_url(home_url('/qa/')); ?>">Send a Question<span class="arrow"></span></a>
           </div>
 
           <div class="qa-right-column">
@@ -265,7 +265,7 @@
 <!-- Player Modal -->
 <div class="player-modal top-player">
   <div class="player-content">
-    <span class="close-btn">&times;</span>
+    <span class="modal-close-btn">&times;</span>
     <div class="modal-embed"></div>
   </div>
 </div>

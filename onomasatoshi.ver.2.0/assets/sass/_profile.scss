@@ -1,0 +1,351 @@
+////////通常バージョン////////
+
+//ヘッダー
+
+.profile.archive-header{
+  position: relative;
+  background-image: url('../images/bg/bg_profile_page-sp.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+  width: 100%;
+  aspect-ratio: 750 / 540; 
+    @include bp-m(){
+      background-image: url('../images/bg/bg_profile_page-pc.webp');
+      width: 100%;
+      aspect-ratio: 1920 / 540;  
+      margin-bottom: 202px;
+  }
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(3, 18, 31, 0.48);
+    }
+  
+  & .archive-header-tx{
+    width: 100.05vw;
+    position: absolute;
+    top: 88%;
+    left: 2%;
+    @include bp-m(){
+      width: 62.47vw;
+      top: 82%;
+      left: 5.2%;
+
+    }
+  }
+  & .circle-blur-deep-blue{
+    top: 105%;
+    left: 71%;
+    width: 52vw;
+    height: 52vw;    
+      @include bp-m{
+        top: 98%;
+        left: 9%;
+        width: 19.69vw;
+        height: 19.69vw;    
+      }
+    }
+}
+
+//メイン
+
+.profile-inner{
+  padding: 0 0 60px;
+  @include bp-m(){
+    padding: 0 100px 120px;
+  }
+  .main-img{
+     width:100% ;
+     margin: 0 auto 30px;
+    @include bp-m(){
+      width: 40vw;
+      margin: 0 auto 60px;
+    }
+  }
+  .profile-name{
+    text-align: center;
+    font-size: 20px;
+    font-family: "din-2014", sans-serif;
+    margin-bottom: 16px;
+    @include bp-m(){
+      margin-bottom: 32px;
+    }
+
+    @include bp-m(){
+      font-size: 32px;
+    }
+  }
+  .profile-birthday{
+    font-size: 10px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 16px;
+
+    @include bp-m(){
+      font-size: 16px;
+      margin-bottom: 32px;
+
+    }
+  }
+  .profile-text{
+    padding:0 0 120px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+    @include bp-m(){
+      padding: 0 0 120px;
+      font-size: 16px;
+      line-height: unset;
+
+    }
+  }
+}
+
+//年表
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    row-gap: 20px;
+    column-gap: 12px;
+    margin-bottom: 40px;
+
+    @include bp-m() {
+      display: flex;
+      gap: 35px;
+      align-items: flex-start;
+    }
+  }
+
+  .timeline-year {
+    grid-column: 1 / -1; // ★ SPでは全幅を使う
+    font-family: 'Pathway Gothic One';
+    color: #496CCC;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: right;
+
+    // ★ SP：年＋棒を1行で
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%; // ← グリッド幅いっぱい使う
+    position: relative;
+
+    &::after {
+      content: '';
+      height: 1px;
+      background-color: #283551;
+      flex: 1;        // ← 残り幅を全部使う（最重要）
+      min-width: 0;
+    }
+
+    @include bp-m() {
+      width: auto;
+      font-size: 36px;
+      line-height: unset;
+      gap: 24px;
+
+      &::after {
+        flex: 0 0 101px; // PCは固定長
+      }
+    }
+  }
+
+  .timeline-text {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+
+    @include bp-m() {
+      grid-column: auto;
+      font-size: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+  }
+}
+
+////////釣りバージョン////////
+
+//ヘッダー
+.profile-panel--fishing{
+.profile.archive-header{
+  position: relative;
+  background-image: url('../images/bg/bg_profile_fishing-sp.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 60px;
+  width: 100%;
+  aspect-ratio: 750 / 540; 
+    @include bp-m(){
+      background-image: url('../images/bg/bg_profile_fishing-pc.webp');
+      width: 100%;
+      aspect-ratio: 1920 / 540;  
+      margin-bottom: 202px;
+  }
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(135, 70, 0, 0.46);
+    }
+  
+  & .archive-header-tx{
+    width: 100.05vw;
+    position: absolute;
+    top: 88%;
+    left: 2%;
+    @include bp-m(){
+      width: 62.47vw;
+      top: 82%;
+      left: 5.2%;
+
+    }
+  }
+  & .circle-blur-deep-blue{
+    top: 105%;
+    left: 71%;
+    width: 52vw;
+    height: 52vw;    
+      @include bp-m{
+        top: 98%;
+        left: 9%;
+        width: 19.69vw;
+        height: 19.69vw;    
+      }
+    }
+  }
+  .archive-container{
+    background-color:#AF5700;
+  }
+}
+
+
+//オレンジのぼかし
+.circle-blur-orange {
+  // SP
+  top: 85%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+
+  width: 26vw;
+  height: 26vw;
+
+  background: rgba(175, 87, 0, 0.46);
+  filter: blur(80px);
+  border-radius: 50%;
+  position: absolute;
+
+  @include bp-m() {
+    top: 90%;
+    left: 10%;
+    transform: none;
+
+    width: 19.69vw;
+    height: 19.69vw;
+
+    filter: blur(100px);
+  }
+}
+
+//切り替えボタン
+
+// /* 釣りプロフィールは非表示でスタート */
+// .profile-panel[data-profile="fishing"] {
+//   display: none;
+// }
+
+/* ボタンは固定表示 */
+.profile-switcher {
+  position: fixed;
+  // top: 400px;
+  // right: 5%;
+  z-index: 100;
+  right: clamp(20px, 5vw, 50px);
+  bottom: calc(env(safe-area-inset-bottom) + clamp(20px, 5vw, 50px));  @include bp-m(){
+    // top: 600px;
+    // right: 4.5vw;    
+  }
+
+
+  .btn-profile {
+    width: 50px; // 好きなサイズに調整
+    height: auto;
+    cursor: pointer;
+    @include bp-m(){
+      width: 7.4vw;
+
+    }
+  }
+}
+
+.profile-panel--fishing{
+  .section-title{
+    color: #EFEFEF;
+
+    &::before{
+    border-top: 1.5px solid #EFEFEF;
+    }
+  }
+  .timeline-year{
+    color: #EFEFEF;
+    &::after{
+    background-color: #EFEFEF;
+    }
+  }
+}
+
+.profile-flip {
+  position: relative;
+  perspective: 1400px;
+}
+
+/* 共通 */
+.profile-panel {
+  position: absolute;   /* ★これが必須 */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease, visibility 0s linear 0.45s;
+}
+
+/* 表 */
+.is-front {
+  position: relative;   /* ★これも必須 */
+  transform: rotateY(0deg);
+  visibility: visible;
+}
+
+/* 裏 */
+.is-back {
+  transform: rotateY(180deg);
+  visibility: hidden;
+}
+
+/* フリップ後 */
+.profile-flip.is-flipped .is-front {
+  transform: rotateY(-180deg);
+  visibility: hidden;
+}
+
+.profile-flip.is-flipped .is-back {
+  transform: rotateY(0deg);
+  visibility: visible;
+  transition-delay: 0s;
+}
+

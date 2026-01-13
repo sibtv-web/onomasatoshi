@@ -1,3 +1,5 @@
+////トップページのfaqセクション////
+
 // 薄い青のぼかし
 .circle-blur-light-blue {
   top: 100%;
@@ -32,6 +34,12 @@
     @include bp-m(){
       display: flex;
       margin-right: unset;
+    }
+  }
+
+  .section-title{
+    @include bp-m(){
+      text-indent: -0.7em;
     }
   }
 
@@ -79,7 +87,7 @@
       text-align: left;
       letter-spacing: 0.04em;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 500;
       cursor: pointer;
       font-size: 15px;
       border: none;
@@ -97,6 +105,7 @@
       &::before {
         content: "Q";
         padding-right: 2%;
+        font-weight: 500;
       }
 
       &::after {
@@ -153,4 +162,268 @@
     display: none;
   }
 }
+
+////faqのフォーム////
+
+//ヘッダー//
+
+
+  .page-qa.archive-header{
+    position: relative;
+    background-image: url('../images/bg/bg_qa_page-sp.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 100px;
+    width: 100%;
+    aspect-ratio: 750 / 540; 
+      @include bp-m(){
+        background-image: url('../images/bg/bg_qa_page-pc.webp');
+        width: 100%;
+        aspect-ratio: 1920 / 540;  
+        margin-bottom: 202px;
+    }
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: rgba(3, 18, 31, 0.48);
+      }
+    
+    & .archive-header-tx{
+      width: 83.3vw;
+      position: absolute;
+      top: 87%;
+      left: unset;
+      right: 0;    
+      @include bp-m(){
+        width: 51.98vw;
+        top: 82%;
+        left: 5.2%;
+        right: unset;    
+
+      }
+    }
+    & .circle-blur-deep-blue{
+      top: 103%;
+      left: 71%;
+      width: 52vw;
+      height: 52vw;    
+        @include bp-m{
+          top: 98%;
+          left: 9%;
+          width: 19.69vw;
+          height: 19.69vw;    
+        }
+      }
+  }
+
+  //中身//
+
+.qa-containe{
+  background-color: #0A1836;
+
+  //入力ボックス背景設定
+  .form-box{
+    background-color: #0A2256;
+    padding: 0 6.2vw;
+    span{
+      margin-bottom: 10px;
+    }
+    p{
+      border-bottom: 1px solid #EFEFEF;
+      padding: 10px 0 0;
+        @include bp-m(){
+        padding: 32px 0;
+        }
+    }
+  }
+
+}
+
+.sec-qa{
+  padding: 0 20px;
+    @include bp-m(){
+    padding:0;
+    }
+  .section-title{
+    padding: 0 20px;
+    @include bp-m(){
+    padding:0 120px;
+    }
+  }
+  .qa-info{
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: unset;
+    margin-bottom: 60px;
+    padding: 0;
+
+    @include bp-m(){
+      font-size: 16px;
+      letter-spacing: 0.64px;
+      margin-bottom: 120px;
+      padding: 0 120px;
+    }
+  }
+  .contact-box{
+    color: #EFEFEF;
+
+  .form-box-start{
+  padding-top: 40px;
+  @include bp-m(){
+    padding-top: 88px;
+
+  }
+}
+  .form-box-end{
+  padding-bottom: 50px;
+  margin-bottom: 60px;
+  @include bp-m(){
+  padding-bottom: 120px;
+  margin-bottom: 120px;
+  
+  }
+  }
+  .agree-label{
+    color: #EFEFEF;
+  }
+  }
+  /* 利用規約チェック全体を中央に */
+  .wpcf7-form-control-wrap[data-name="agree"] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    @include bp-m(){
+    }
+  }
+
+  /* チェックボックス＋テキストを横並び＆中央揃え */
+  .wpcf7-checkbox label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* □とテキストの間隔 */
+  }
+}
+
+
+
+/* ----------------------------
+   サンクスページ
+----------------------------- */
+
+.qa-thanks-containe{
+  background-color: #0A1836;
+  padding: 0 20px;
+  @include bp-m(){
+    padding: 0 110px;
+  }
+
+  .simple-header{
+    margin-bottom: 110px;
+    @include bp-m(){
+      margin-bottom: 160px;
+    }
+  }
+  .sec-contact-thanks {
+    padding-bottom: 60px;
+    @include bp-m(){
+      padding-bottom: 120px;
+    }
+    .thanks-inner {
+      color: #EFEFEF;
+      padding-bottom: 60px;
+      @include bp-m(){
+        padding-bottom: 120px;
+      }
+
+    }
+    .thanks-title{
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 60px;
+      text-align: center;
+        @include bp-m(){
+      font-size: 36px;
+      margin-bottom: 120px;
+
+      }
+    }
+    .thanks-message{
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 60px;
+      display: block;
+        @include bp-m(){
+      font-size: 16px;
+      margin-bottom: 120px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+    .thanks-notice{
+      font-size: 12px;
+      font-weight: 500;
+      background-color: #0A2256;
+      border: 1px solid #0A2256;
+      color: #EFEFEF;
+      padding: 20px;
+      width: unset;
+      letter-spacing: 0.4px;
+      line-height: 1.6;
+        @include bp-m(){
+        font-size: 16px;
+        padding: 42px 32px;
+        width: 43.5vw;
+        margin: auto;
+        letter-spacing: 0.64px;
+
+      }
+    }
+  } 
+
+  //前に戻るボタン
+
+  .btn-back {
+    position: relative;
+    display: block;
+    width: 76.6vw;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 14px 7vw;
+    font-size: 14px;
+    color: #EFEFEF;
+    background-color: #496CCC;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    @include bp-m() {
+      font-size: 0.8vw;
+      width: 21vw;
+      max-width: unset;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 35px;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background-image: url('../images/parts/arrow-back.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+        @include bp-m(){
+          right: 2.1vw;
+          width: 0.83vw;
+          height: 0.89vw;
+        }
+    }
+  }
+
+}
+
+
 

@@ -52,7 +52,7 @@ p {
   font-family: 'Pathway Gothic One';
   font-size: 18px;
     @include bp-m(){
-      font-size: 36px;
+      font-size: 32px;
     }
 }
 
@@ -67,7 +67,7 @@ p {
 
 
 // -------------------------------
-// 丸から水平矢印
+// 丸から水平矢印（ 右向き→）
 // -------------------------------
 
 
@@ -164,6 +164,102 @@ p {
 }
 
 // -------------------------------
+// 丸から水平矢印（← 左向き）
+// -------------------------------
+
+.circle-arrow--left a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #EFEFEF;
+  transition: opacity .3s ease;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+/* ===== arrow（SP） ===== */
+.circle-arrow--left .arrow {
+  position: relative;
+  width: 35px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: transparent;
+}
+
+/* 横棒（右→左） */
+.circle-arrow--left .arrow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 31px;
+  height: 1px;
+  background: currentColor;
+  transform: translateY(-50%);
+  transition: transform .3s ease;
+}
+
+/* 先端（左向き） */
+.circle-arrow--left .arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(50% + 25px);
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform .3s ease;
+}
+
+/* ===== hover（SP） ===== */
+.circle-arrow--left a:hover {
+  opacity: 0.6;
+}
+
+.circle-arrow--left a:hover .arrow::before {
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.circle-arrow--left a:hover .arrow::after {
+  transform: translateY(-50%) translateX(-4px) rotate(-45deg);
+}
+
+/* ===== PC ===== */
+@include bp-m() {
+  .circle-arrow--left a {
+    gap: 16px;
+  }
+
+  .circle-arrow--left .arrow {
+    width: 70px;
+  }
+
+  .circle-arrow--left .arrow::before {
+    width: 62px;
+  }
+
+  .circle-arrow--left .arrow::after {
+    right: calc(50% + 55px);
+    width: 6px;
+    height: 6px;
+  }
+
+  /* PCは少し動かす */
+  .circle-arrow--left a:hover .arrow::before {
+    transform: translateY(-50%) translateX(-10px);
+  }
+
+  .circle-arrow--left a:hover .arrow::after {
+    transform: translateY(-50%) translateX(-10px) rotate(-45deg);
+  }
+}
+
+
+// -------------------------------
 // 丸いボカシ
 // -------------------------------
 
@@ -232,12 +328,14 @@ p {
     display: inline-block;
     z-index: 1;
     isolation: isolate;
-    line-height: 0.9;
+    line-height: 0.8;
     font-family: meno-banner, serif;
     font-weight: 600;
     font-style: normal;
     font-size: clamp(80px, 10.4vw, 10.4vw);
     letter-spacing: -0.1em;
+    color: #C9C9C9;
+    letter-spacing: -0.05em;
 
     @include bp-m() {
     }
@@ -356,6 +454,7 @@ p {
   &-description {
     font-size: 15px;
     margin-bottom: 60px;
+    line-height: 1.6;
 
     @include bp-m() {
       font-size: 16px;
@@ -373,7 +472,7 @@ p {
 
 .playBtn {
   position: absolute;
-  right: 38vw; 
+  right: 0; 
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -528,18 +627,21 @@ p {
   }
 }
 .news {
+  //トップページ一覧のタグ
   &-tags {
-    background-color: #EFEFEF;
+    background-color: #03121f;
+    border: 1px solid #EFEFEF;
     border-radius: 40px;
     width: 156px;
     height: 19px;
-    color: #03121F;
+    color: #EFEFEF;
     font-size: 12px;
-    text-align: center;
     font-weight: 500;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s, color 0.5s;
     @include bp-m() {
-      font-size: 14px;
       width: 126px;
       height: 24px;
     }
@@ -554,6 +656,8 @@ p {
     .news-link {
       display: block;
       transition: background-color 0.5s;
+      padding: 0 10px;
+
       @include bp-m(){
         padding: 0 20px;
       }
@@ -561,6 +665,12 @@ p {
 
     &:hover .news-link {
       background-color: #0A1836;
+    }
+    //トップページ一覧のタグホバー
+    &:hover .news-tags {
+      background-color:#0A1836;
+      color: #efefef;
+
     }
   }
 
@@ -586,7 +696,7 @@ p {
   }
 
   &-date {
-    font-size: 12px;
+    font-size: 14px;
     font-family: meno-banner, serif;
     color: #C9C9C9;
 
@@ -680,20 +790,6 @@ p {
       color: #fff;
     }
   }
-
-
-.news-tags {
-  .tag {
-    display: inline-block;
-    background: #eee;
-    color: #333;
-    padding: 2px 6px;
-    margin-right: 4px;
-    border-radius: 3px;
-    font-size: 12px;
-  }
-}
-
 
 
 // -------------------------------
@@ -1127,16 +1223,22 @@ background-color: #0A1836;
   right: -100%;
   width: 100%;
   height: 100vh;
-  background: #000;
+  background-image: url('../images/bg/bg_release_sp.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: right 0.3s ease;
   z-index: 999;
+  @include bp-m(){
+  background-image: url('../images/bg/bg_release_pc.webp');
+  }
 
   a {
-    color: #fff;
+    color: #EFEFEF;
     text-decoration: none;
     font-size: 24px;
     margin: 15px 0;
@@ -1144,5 +1246,6 @@ background-color: #0A1836;
 
   &.active {
     right: 0;
+    position: fixed;
   }
 }

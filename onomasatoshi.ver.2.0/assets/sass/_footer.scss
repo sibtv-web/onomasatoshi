@@ -16,8 +16,7 @@
     display: flex;
     padding-bottom: 112px;
     max-width: 1129px;
-    padding: 0 0 112px 10.4%;
-    margin: 0;
+    padding: 0 0 193px 10.4%;
   }
   & a{
     transition: opacity 0.5s ease; 
@@ -50,7 +49,7 @@
     font-style: normal;
     color: #283551;
     letter-spacing: -0.08em;
-    font-size: clamp(47px, 6.25vw, 120px);
+    font-size: clamp(43px, 6.25vw, 120px);
     text-align: center;
     padding: 50px 0 47px 0;
     @include bp-m(){

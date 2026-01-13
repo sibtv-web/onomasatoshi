@@ -1,42 +1,47 @@
 /* ================================
    共通モーダルスタイル
 ================================ */
-.player-modal,
-.detail-modal {
-  display: none;
-  position: fixed;
-  inset: 0; /* top/right/bottom/left 0 */
-  background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  padding: 20px;
 
-  &.active {
-    display: flex;
-  }
-}
-
-.player-content,
-.detail-content {
-  background: #fff;
-  padding: 20px;
-  max-width: 660px;
-  width: 100%;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+body.is-modal-open {
   overflow: hidden;
 }
 
+
+.player-modal,
+.detail-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  padding: 20px;
+
+  justify-content: center;
+
+overflow: hidden;
+}
+
+
+
 /* 閉じるボタン */
-.close-btn {
+.modal-close-btn {
   position: absolute;
   top: 12px;
   right: 12px;
-  font-size: 24px;
+  font-size: 11px;
   cursor: pointer;
-  color: #333;
+  color: #EFEFEF;
+  background-color: #283551; /* 背景色 */
+  width: 22px;               /* 丸のサイズ */
+  height: 22px;
+  border-radius: 50%;        /* 丸にする */
+  display: flex;             /* 中央揃え */
+  align-items: center;
+  justify-content: center;
+    @include bp-m(){
+    width: 45px;               /* 丸のサイズ */
+    height: 45px;
+    font-size: 22px;
+    }
 }
 
 /* ================================
@@ -47,7 +52,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background:  rgba(3, 18, 31, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 999;
@@ -57,13 +62,35 @@
   }
 }
 
-.player-content {
-  background: #fff;
-  padding: 20px;
-  max-width: 480px;
-  width: 90%;
-  position: relative;
+.player-modal {
+  .player-content {
+    /* 共通 */
+  }
+  &.top-player {
+    .player-content {
+    position: relative;
+    background: #0A2256;
+
+    width: 94vw ;
+    max-height: 90dvh;
+    padding: 24px;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    @include bp-m {
+      width: 80vw;
+      max-width: 900px;
+      padding: 40px;
+    }
+    }
+  }
+
+  .modal-embed{
+    text-align: center;
+  }
 }
+
 
 .close-btn {
   position: absolute;
@@ -80,47 +107,263 @@
 /* ================================
    アーカイブ用モーダル（ディスコグラフィー詳細）
 ================================ */
-.detail-modal {
-  .modal-jacket {
+.detail-modal.player-modal.active{
+  padding: 0 10vw;
+  font-size: 14px;
+  @include bp-m(){
+    font-size: 16px;
+  }
+
+  .player-content {
+  width: 100%;                          // SPは画面幅基準
+  background: #0A2256;
+  overflow-y: auto;                      // 中身がはみ出たらスクロール
+  padding: 30px 20px 60px;
+  position: relative;
+  margin-top: 105px;
+  max-height: calc(100dvh - 105px);      // SP上余白考慮
+  -webkit-overflow-scrolling: touch;     // SPでスムーズスクロール
+
+  @include bp-m{
+    width: 66.6vw;
+    padding: 60px 4.17vw;
+    margin-top: unset;
+    max-height: calc(100vh - 210px);
+
+  }
+}
+  .modal-body-flex{
+    display: block;
     width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    margin-bottom: 15px;
+    @include bp-m(){
+    display: flex;
+    gap:3%
+    }
+  }
+
+  .modal-body-left{
+    width: 100%;
+    @include bp-m(){
+      width: 45%;
+    }
+  }
+
+  .modal-body-right{
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    width: 100%;
+    @include bp-m(){
+      width: 55%;
+    }
+  }
+
+  .tag-date-flex{
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+    @include bp-m(){
+      gap: 10px;
+    }
+  }
+
+  .modal-type{
+    font-size: 12px;
+    letter-spacing: 0.96px;  
+    width: 112px;  
+    height: 19px;
+    @include bp-m(){
+      font-size: 16px;
+      letter-spacing: 0.64px;   
+      width: 168px;
+      height: 32px; 
+      line-height: 1.8;
+    }
+  }
+
+  .modal-date{
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.96px;    
+    @include bp-m(){
+      font-size: 16px;
+      letter-spacing: 0.64px;    
+    }
+  }
+
+  .number-price-flex{
+    display: flex;
+    margin-bottom: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    @include bp-m(){
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
   }
 
   .modal-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    @include bp-m(){
+      padding: 20px 0;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    }
 
-  .modal-date,
-  .modal-type,
-  .modal-price {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 4px;
+  .modal-image{
+    // width: 69.3vw;
+    aspect-ratio: 260 / 260;
+    margin: 0 auto 20px;
+      @include bp-m(){
+      // width: 23.9vw;
+      aspect-ratio: 460 / 460;
+      margin: 0 auto 40px;
+      }
+        img{
+        object-fit: contain;
+        height: 100%;
+        }
+      }
+
+  .modal-links{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2カラム
+    gap: 8px 8px; // 縦 横
+    margin-bottom: 30px;
+      @include bp-m() {
+        gap: 12px 16px;
+        margin-bottom: unset;
+
+      }
+    }
+  
+  .modal-links .news-tags{
+    background-color: #0A2256;
+    color: #EFEFEF;
+    border: 1px solid #EFEFEF;
+    font-size: 10px;
+    width: 126px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Inter_-Medium.woff";
+    width: 100%;
+    transition: opacity 0.3s ease;
+
+    @include bp-m(){
+      font-size: 16px;
+      width: 223px;
+      height: 76px;
+      width: 100%;
+
+    }
+      &:hover{
+        opacity: 0.6;
+      }
+
+    a{
+      display: flex;        // もしくは block
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      @include bp-m(){
+        gap:17px
+      }
+
+      img{
+        width: 12px;
+        height: auto;
+        @include bp-m(){
+          width: 24px;
+        }
+      }
+    }
   }
 
   .modal-desc {
-    margin-top: 12px;
     line-height: 1.6;
+    margin-bottom: 58px;
+    @include bp-m(){
+      margin-bottom: 98px;
+    }
   }
 
   .modal-apple,
   .modal-spotify,
-  .modal-viewmore {
+  .modal-line {
     display: inline-block;
-    margin-top: 10px;
-    padding: 6px 12px;
-    background: #000;
-    color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.9rem;
 
-    &:hover {
-      background: #444;
+  }
+  .modal-songs{
+    position: relative;
+      &::before{
+      content: '【収録曲】';
+      position: absolute;
+      font-size: 14px;
+      top: -2em;   // 好みで調整
+      left: 0;
+      white-space: nowrap;
+      @include bp-m(){
+        top: -2.3em;
+        font-size: 16px;
+      }
     }
+  }
+
+  .disc-1{
+    margin-bottom: 20px;
+    @include bp-m(){
+      margin-bottom: 40px;
+    }
+  }
+
+  .sale-links{
+    display: flex;
+    flex-direction: column;    
+    position: relative;
+    gap: 11px 0;
+    margin: 50px 0 30px;
+    @include bp-m(){
+      flex-direction: row;
+      gap: 0 1vw;
+      margin: 70px 0 60px;
+    }
+ &::before {
+    content: '【販売場所】';
+    position: absolute;
+    font-size: 14px;
+    top: -2em;   // 好みで調整
+    left: 0;
+    white-space: nowrap;
+    @include bp-m(){
+      top: -2.3em;
+      font-size: 16px;
+    }
+  }
+  }
+  .modal-tour{
+    position: relative;
+    &::before {
+        content: '【ツアー情報】';
+        position: absolute;
+        font-size: 14px;
+        top: -2em;   // 好みで調整
+        left: 0;
+        white-space: nowrap;
+        @include bp-m(){
+          top: -2.3em;
+          font-size: 16px;
+        }
+      }
+
   }
 }
