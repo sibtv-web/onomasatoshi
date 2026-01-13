@@ -8,6 +8,7 @@ body{
   font-family: 'Noto Sans JP';
   font-weight: 700;
   background-color: #03121F;
+  overflow-x: hidden;
 }
 
 img{
@@ -551,21 +552,8 @@ p {
     }
   }
   & .inner-image{
-    // position: relative;
     margin-bottom: 60px;
     width: 420px;
-    // height: 410px;
-    // overflow: hidden;
-    // background-image: url(../images/bg/bg-animation.webp);
-    // background-image:radial-gradient(circle closest-corner, #ff8800, #0D30B8);
-    // background-size:100%;
-    // background-position:-70% -95%;
-    // background-size: 100%;
-    // -webkit-mask-image: url(../images/bg/h_news_left.webp);
-    // -webkit-mask-repeat: no-repeat;
-    // -webkit-mask-position: center;
-    // -webkit-mask-size: contain;   
-    // animation: bg-move 14s ease-in-out infinite;  
     }
 
   & .inner{
@@ -581,26 +569,6 @@ p {
     }
   }
 }
-//8の字アニメーション//
-// @keyframes  {
-//   0% {
-//     transform: translate(-50%, -50%) translate(-40px, 0);
-//   }
-//   25% {
-//     transform: translate(-50%, -50%) translate(0, -30px);
-//   }
-//   50% {
-//     transform: translate(-50%, -50%) translate(40px, 0);
-//   }
-//   75% {
-//     transform: translate(-50%, -50%) translate(0, 30px);
-//   }
-//   100% {
-//     transform: translate(-50%, -50%) translate(-40px, 0);
-//   }
-// }
-
-
 
 .news-block-flex{
   display: block;
@@ -714,9 +682,11 @@ p {
   }
 }
 .news-image-wrap {
-  position: relative; // 基準
-  margin-left: auto;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
   @include bp-m(){
+    overflow-x: visible;
   }
   & .inner-image{
     width: 95vw;
@@ -921,7 +891,7 @@ p {
     background-color: $text-main;
     left: 50%;
     top: 0;
-    transform: translateX(-50%) rotate(45deg); 
+    transform: translateX(-50%) rotate(45deg);     
     }
 
   /* 矢印の先端 */

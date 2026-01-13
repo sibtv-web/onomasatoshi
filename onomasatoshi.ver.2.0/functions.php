@@ -307,3 +307,13 @@ add_action('wpcf7mailsent', function($contact_form){
     }
 });
 
+function set_pre_get_posts($query) {
+  if (is_admin() || !$query->is_main_query()) {
+    return;
+  }
+  if ($query->is_post_type_archive('news')) {
+    $query->set('posts_per_page', '20');
+    return;
+  }
+}
+add_action('pre_get_posts', 'set_pre_get_posts');

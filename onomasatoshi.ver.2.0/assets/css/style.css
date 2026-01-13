@@ -48,6 +48,7 @@ body {
   font-family: "Noto Sans JP";
   font-weight: 700;
   background-color: #03121F;
+  overflow-x: hidden;
 }
 
 img {
@@ -666,7 +667,13 @@ p {
 
 .news-image-wrap {
   position: relative;
-  margin-left: auto;
+  width: 100%;
+  overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  .news-image-wrap {
+    overflow-x: visible;
+  }
 }
 .news-image-wrap .inner-image {
   width: 95vw;
@@ -1219,12 +1226,6 @@ p {
   font-weight: 400;
   margin-top: 10px;
 }
-@media (min-width: 768px) {
-  .footer-box li {
-    margin-top: 20px;
-  }
-}
-
 .footer-name {
   font-family: meno-banner, serif;
   font-weight: 600;
@@ -1435,11 +1436,12 @@ p {
 .news-tabs .news-tags {
   cursor: pointer;
   padding: 8px 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #EFEFEF;
 }
 .news-tabs .news-tags.is-active {
-  background: #EFEFEF;
-  color: #0A1836;
+  background: #0A1836;
+  color: #EFEFEF;
+  border: 1px solid #EFEFEF;
 }
 
 .archive-news.archive-discography .discography-list .disc-item .news-tags {
@@ -1461,6 +1463,10 @@ p {
     margin-bottom: unset;
     padding: 4%;
   }
+}
+.archive-news.archive-discography .discography-list .disc-item .news-tags:hover {
+  background-color: #0A1836;
+  border: 1px solid #EFEFEF;
 }
 
 .archive-discography-inner {
@@ -1612,6 +1618,7 @@ p {
 }
 
 .news.archive-header {
+  display: block !important;
   position: relative;
   background-image: url("../images/bg/bg_news_archive-sp.webp");
   background-size: cover;
@@ -1720,6 +1727,10 @@ p {
     width: 8.7vw;
     height: auto;
   }
+}
+.archive-news .news-tags:hover {
+  background-color: #0A1836;
+  border: 1px solid #efefef;
 }
 .archive-news .news-tags.active {
   background: #0A1836;
@@ -2972,7 +2983,6 @@ body.is-modal-open {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -2985,14 +2995,6 @@ body.is-modal-open {
     height: 100vh;
   }
 }
-.site-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  pointer-events: none;
-  z-index: 1;
-}
 .site-nav a {
   color: #EFEFEF;
   text-decoration: none;
@@ -3003,10 +3005,36 @@ body.is-modal-open {
   right: 0;
   position: fixed;
   flex-direction: unset;
-  align-items: unset;
+  align-items: stretch;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   inset: 0;
+  display: block;
+}
+@media (min-width: 768px) {
+  .site-nav.active {
+    display: flex;
+  }
+}
+.site-nav.active .footer-contents {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .site-nav.active .footer-contents {
+    width: 100%;
+  }
+}
+.site-nav.active .footer-contents::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 .site-nav.active .footer-name {
   font-family: meno-banner, serif;
@@ -3029,11 +3057,13 @@ body.is-modal-open {
 }
 .site-nav.active .footer-box {
   z-index: 1;
-  margin: 90px 0 0 18px;
-  padding: 0;
-  width: 100%;
+  padding: 90px 0 0;
+  width: 95.2%;
   max-width: 1129px;
   gap: 0;
+  margin-right: 0;
+  position: relative;
+  z-index: 90;
 }
 @media (min-width: 768px) {
   .site-nav.active .footer-box {
@@ -3096,7 +3126,7 @@ body.is-modal-open {
 }
 
 .header-name {
-  position: absolute;
+  position: fixed;
   top: 22px;
   left: 5.2%;
   color: #FFFFFF;
@@ -3466,6 +3496,9 @@ body.is-modal-open {
   }
 }
 .page-container .simple-header-black .header-name {
+  color: #03121F;
+}
+.page-container .simple-header-black .header-name a {
   color: #03121F;
 }
 .page-container .page-section-title {

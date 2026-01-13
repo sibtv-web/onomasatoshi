@@ -61,11 +61,12 @@
   .news-tags {
     cursor: pointer;
     padding: 8px 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #EFEFEF;
 
     &.is-active {
-      background: #EFEFEF;
-      color: #0A1836;    
+      background: #0A1836;
+      color: #EFEFEF; 
+      border: 1px solid #EFEFEF ;   
     }
   }
 }
@@ -92,6 +93,10 @@
           line-height: 0.48px;
           margin-bottom: unset;
           padding: 4%;
+        }
+        &:hover{
+          background-color: #0A1836;
+          border: 1px solid #EFEFEF
         }
       }
     }

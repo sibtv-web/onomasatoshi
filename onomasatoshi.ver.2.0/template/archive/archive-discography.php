@@ -4,7 +4,7 @@
 
     <!-- アーカイブヘッダー -->
     <div class="discography archive-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
         <div class="archive-header-tx">
             <picture>
             <source

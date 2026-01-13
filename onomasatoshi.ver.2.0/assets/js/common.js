@@ -365,30 +365,6 @@ document.querySelectorAll('.jacket-image').forEach(wrap => {
 // プロフィールページ　釣り針マーククリックで切り替え
 // ========================================
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const btn = document.querySelector(".btn-profile");
-//   const normalPanel = document.querySelector(".profile-panel[data-profile='normal']");
-//   const fishingPanel = document.querySelector(".profile-panel[data-profile='fishing']");
-
-//   btn.addEventListener("click", () => {
-//     if (normalPanel.style.display !== "none") {
-//       // 通常 → 釣り
-//       normalPanel.style.display = "none";
-//       fishingPanel.style.display = "block";
-//       btn.src = btn.dataset.fishing;
-//       btn.alt = "通常プロフィールに切替";
-//     } else {
-//       // 釣り → 通常
-//       normalPanel.style.display = "block";
-//       fishingPanel.style.display = "none";
-//       btn.src = btn.dataset.normal;
-//       btn.alt = "釣りプロフィールに切替";
-//     }
-//   });
-// });
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const flipWrap = document.querySelector('.profile-flip');
   const btn = document.querySelector('.btn-profile');

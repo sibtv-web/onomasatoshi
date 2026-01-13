@@ -5,6 +5,7 @@
 }
 
 .news.archive-header{
+  display: block !important;
   position: relative;
   background-image: url('../images/bg/bg_news_archive-sp.webp');
   background-size: cover;
@@ -104,10 +105,14 @@
       width: 8.7vw;
       height: auto;
     }
+    &:hover{
+      background-color:#0A1836 ;
+      border: 1px solid #efefef;
+    }
      &.active {
       background: #0A1836;
       color: #EFEFEF;
-      border: 1px solid #EFEFEF;
+      border: 1px solid #EFEFEF ;
 
     }
   }

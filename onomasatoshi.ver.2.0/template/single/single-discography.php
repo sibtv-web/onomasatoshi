@@ -3,7 +3,7 @@
   <div class="single-discography-container">
 
     <div class="simple-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
     </div>
 
     <div class="latest-release-inner">

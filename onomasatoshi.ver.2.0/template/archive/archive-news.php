@@ -5,7 +5,7 @@
 
     <!-- アーカイブヘッダー -->
     <div class="news archive-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
         <div class="archive-header-tx">
             <picture>
             <source
@@ -105,7 +105,7 @@
             ?>
           </ul>
 
-          <?php
+          <?php//ページネーション
           global $wp_query;
           $total_results = $wp_query->found_posts;
 

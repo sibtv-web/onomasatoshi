@@ -8,7 +8,7 @@ get_header();
   <div class="page-container contact-container">
 
     <div class="simple-header-black">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
     </div>
 
     <article>

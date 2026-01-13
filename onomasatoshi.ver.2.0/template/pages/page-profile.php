@@ -15,7 +15,7 @@ get_header();
   <div class="profile-panel profile-panel--normal is-front" data-profile="normal">
     <div class="archive-container">
       <div class="profile archive-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
         <div class="archive-header-tx">
           <picture>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_page-pc.webp" alt="">
@@ -185,7 +185,7 @@ get_header();
   <div class="profile-panel profile-panel--fishing is-back" data-profile="fishing">
     <div class="archive-container">
       <div class="profile archive-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
         <div class="archive-header-tx">
           <picture>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_fishing-pc.webp"alt="">

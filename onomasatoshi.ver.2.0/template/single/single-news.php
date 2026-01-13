@@ -2,7 +2,7 @@
 <main>
   <div class="single-container">
     <div class="simple-header">
-        <div class="header-name">ONO MASATOSHI</div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
     </div>
 
     <article>

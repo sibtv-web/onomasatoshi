@@ -45,9 +45,9 @@
   </div>
 </header>
 <nav class="site-nav" id="site-nav">
-  <div>
+  <div class="footer-contents">
       <div class="footer-box">
-        <div class="footer-name">ONO MASATOSHI</div>
+        <div class="footer-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
         <nav class="footer-nav-1">
           <div class="footer-title">Contents</div>
               <ul class="footer-nav-flex">
@@ -77,7 +77,6 @@
             <ul class="footer-nav-col">
               <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
               <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
-              <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">利用規約</a></li>
             </ul>
         </nav>
 

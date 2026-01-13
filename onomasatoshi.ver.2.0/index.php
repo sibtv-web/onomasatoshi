@@ -99,42 +99,45 @@
     <!-- News -->
     <section class="news-section">
       <div class="inner">
-        <div class="news-image-wrap fade-anime" data-fade="fade-right">
-          <div class="inner-image">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_left.webp" alt="">
-            <!-- <img class="animation-image" src="images/bg/bg-animation.webp" alt="">           -->
-          </div>
-          <div class="circle-blur-deep-blue"></div>        
+        <div class="news-image-wrap">
+          <div class="fade-anime" data-fade="fade-right">
+            <div class="inner-image">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_left.webp" alt="">
+            </div>
+            <div class="circle-blur-deep-blue"></div>    
+          </div>    
         </div>
-        <div class="section-title fade-anime" data-fade="fade-up">NEWS</div>
-        <div class="news-block-flex fade-anime" data-fade="fade-up">
-          <div class="news-list">             
-            <ul class="">
-              <?php
-              $news_query = new WP_Query([
-                'posts_per_page' => 4,
-                'post_type'      => 'news',
-                'post_status'    => 'publish',
-                'order'          => 'DESC',
-              ]);
+        <div class="news-inner fade-anime" data-fade="fade-up">
+          <div class="section-title">NEWS</div>
+          <div class="news-block-flex" >
+            <div class="news-list">             
+              <ul class="">
+                <?php
+                $news_query = new WP_Query([
+                  'posts_per_page' => 4,
+                  'post_type'      => 'news',
+                  'post_status'    => 'publish',
+                  'order'          => 'DESC',
+                ]);
 
-              while ($news_query->have_posts()):
-                $news_query->the_post();
-              ?>
-                <li class="news-item">
-                  <a href="<?php the_permalink(); ?>" class="news-link">
-                    <div class="news-item-flex">
-                      <p class="news-date"><?php the_time('Y.m.d'); ?></p>
-                      <div class="news-tags"><?php the_field('news_tag'); ?></div>
-                    </div>
-                    <div class="news-title"><?php the_title(); ?></div>
-                  </a>
-                </li>
-              <?php endwhile; wp_reset_postdata(); ?>
-            </ul>
-          </div> 
-          <div class="circle-arrow">
-            <a href="<?php echo home_url('/news/'); ?>">View All<span class="arrow"></span></a>
+                while ($news_query->have_posts()):
+                  $news_query->the_post();
+                ?>
+                  <li class="news-item">
+                    <a href="<?php the_permalink(); ?>" class="news-link">
+                      <div class="news-item-flex">
+                        <p class="news-date"><?php the_time('Y.m.d'); ?></p>
+                        <div class="news-tags"><?php the_field('news_tag'); ?></div>
+                      </div>
+                      <div class="news-title"><?php the_title(); ?></div>
+                    </a>
+                  </li>
+                <?php endwhile; wp_reset_postdata(); ?>
+              </ul>
+            </div> 
+            <div class="circle-arrow">
+              <a href="<?php echo home_url('/news/'); ?>">View All<span class="arrow"></span></a>
+            </div>
           </div>
         </div>
       </div>

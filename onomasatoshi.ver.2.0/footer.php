@@ -32,7 +32,6 @@
             <ul class="footer-nav-col">
               <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
               <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
-              <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">利用規約</a></li>
             </ul>
         </nav>
 
