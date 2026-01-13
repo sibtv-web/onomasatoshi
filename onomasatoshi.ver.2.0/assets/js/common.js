@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // =========================
   // ニュースタブ切り替え
   // =========================
-  const tabs = document.querySelectorAll('.news-tabs .news-tags');
-  const items = document.querySelectorAll('.news');
+  // const tabs = document.querySelectorAll('.news-tabs .news-tags');
+  // const items = document.querySelectorAll('.news');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  // tabs.forEach(tab => {
+  //   tab.addEventListener('click', () => {
+  //     tabs.forEach(t => t.classList.remove('active'));
+  //     tab.classList.add('active');
 
-      const tag = tab.dataset.tag; // タブのdata-tagを取得
+  //     const tag = tab.dataset.tag; // タブのdata-tagを取得
 
-      items.forEach(item => {
-        const itemTags = item.dataset.tags ? item.dataset.tags.split(' ') : [];
-        item.style.display = (tag === 'all' || itemTags.includes(tag)) ? '' : 'none';
-      });
-    });
-  });
+  //     items.forEach(item => {
+  //       const itemTags = item.dataset.tags ? item.dataset.tags.split(' ') : [];
+  //       item.style.display = (tag === 'all' || itemTags.includes(tag)) ? '' : 'none';
+  //     });
+  //   });
+  // });
 
   // =========================
   // ハンバーガー
