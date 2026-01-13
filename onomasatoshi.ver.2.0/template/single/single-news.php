@@ -76,8 +76,8 @@
                             class="sns-btn instagram"
                             id="share-instagram"
                         >
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_instagram.svg"alt="">
-                            <span class="text">ストーリーでシェア</span>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg"alt="">
+                            <span class="text">LINEでシェア</span>
                             <span class="sns-share-chevron"></span>
                         </button>
                     </div>

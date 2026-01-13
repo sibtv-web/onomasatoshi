@@ -58,14 +58,6 @@ p {
 }
 
 
-// -------------------------------
-// GSAPフェードイン
-// -------------------------------
-
-// .fade-anime {
-//   opacity: 0;
-// }
-
 
 // -------------------------------
 // 丸から水平矢印（ 右向き→）
@@ -879,6 +871,7 @@ p {
   width: 26px;
   height: 26px;
   transform: translate(-50%, -50%);
+  transition: transform .3s ease;
   pointer-events: none;
   z-index: 2;
 
@@ -911,6 +904,21 @@ p {
     
   }
 }
+
+/* ===== hover ===== */
+.circle-wrap:hover .movie-circle-arrow {
+  transform: translate(-50%, -50%) translate(4px, -4px);
+  opacity: 0.6;
+}
+
+/* ===== PC ===== */
+@include bp-m() {
+  .circle-wrap:hover .movie-circle-arrow {
+    transform: translate(-50%, -50%) translate(10px, -10px);
+    opacity: 0.6;
+  }
+}
+
 
 /* ============================
    回転アニメーション

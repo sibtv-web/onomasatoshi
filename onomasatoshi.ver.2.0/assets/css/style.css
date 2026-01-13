@@ -852,6 +852,7 @@ p {
   width: 26px;
   height: 26px;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
   pointer-events: none;
   z-index: 2;
   /* 斜めの軸 */
@@ -884,6 +885,19 @@ p {
   }
 }
 
+/* ===== hover ===== */
+.circle-wrap:hover .movie-circle-arrow {
+  transform: translate(-50%, -50%) translate(4px, -4px);
+  opacity: 0.6;
+}
+
+/* ===== PC ===== */
+@media (min-width: 768px) {
+  .circle-wrap:hover .movie-circle-arrow {
+    transform: translate(-50%, -50%) translate(10px, -10px);
+    opacity: 0.6;
+  }
+}
 /* ============================
    回転アニメーション
    ============================ */
@@ -1226,6 +1240,12 @@ p {
   font-weight: 400;
   margin-top: 10px;
 }
+@media (min-width: 768px) {
+  .footer-box li {
+    margin-top: 20px;
+  }
+}
+
 .footer-name {
   font-family: meno-banner, serif;
   font-weight: 600;
@@ -2004,9 +2024,17 @@ p {
   }
 }
 .sns-btn img {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
+  padding-right: 1.9vw;
+}
+@media (min-width: 768px) {
+  .sns-btn img {
+    width: 30px;
+    height: 30px;
+    padding-right: 0.2vw;
+  }
 }
 .sns-btn .text {
   flex: 1;

@@ -3,10 +3,26 @@
 <main>
     <!-- KV -->
     <section class="kv">
-      <picture>
+      <!-- <picture>
         <source media="(min-width: 750px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp">
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp" alt="小野正利">
-      </picture>
+      </picture> -->
+        <picture>
+          <!-- 821px以上（PC） -->
+          <source
+            media="(min-width: 821px)"
+            srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp"
+          >
+
+          <!-- 820px以下（SP） -->
+          <img
+            src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp"
+            alt="小野正利"
+          >
+        </picture>
+
+
+
     </section>
     
   <div class="container">

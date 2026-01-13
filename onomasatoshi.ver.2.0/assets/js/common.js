@@ -261,28 +261,28 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
 // =========================
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const instaBtn = document.getElementById('share-instagram');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const instaBtn = document.getElementById('share-instagram');
 
-  if (!instaBtn) return;
+//   if (!instaBtn) return;
 
-  instaBtn.addEventListener('click', function () {
-    const url = window.location.href;
-    const title = document.title;
+//   instaBtn.addEventListener('click', function () {
+//     const url = window.location.href;
+//     const title = document.title;
 
-    // スマホ対応（Web Share API）
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        url: url
-      });
-    } else {
-      // PC用フォールバック
-      alert('URLをコピーしました。Instagramストーリーで共有してください。');
-      navigator.clipboard.writeText(url);
-    }
-  });
-});
+//     // スマホ対応（Web Share API）
+//     if (navigator.share) {
+//       navigator.share({
+//         title: title,
+//         url: url
+//       });
+//     } else {
+//       // PC用フォールバック
+//       alert('URLをコピーしました。Instagramストーリーで共有してください。');
+//       navigator.clipboard.writeText(url);
+//     }
+//   });
+// });
 
 // =========================
 // ディスコグラフィータブ切り替え
