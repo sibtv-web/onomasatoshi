@@ -65,29 +65,24 @@
           </div>
 
           <!-- 右カラム -->
-          <div class="release-right">
+          <div class="release-right fade-anime" data-fade="fade-up">
             <h3 class="release-title"><?php the_title(); ?></h3>
               <?php
               $release_date = get_field('release_date');
-
               if ($release_date) {
                 // 日付をDateTimeに変換
                 $date = new DateTime($release_date);
-
                 // 曜日を日本語に
                 $week = ['日', '月', '火', '水', '木', '金', '土'];
                 $day_of_week = $week[$date->format('w')];
-
                 echo '<p class="release-date">';
                 echo $date->format('Y年n月j日') . '（' . $day_of_week . '）発売';
                 echo '</p>';
               }
               ?>
-
             <div class="release-description">
               <?php the_field('description'); ?>
             </div>
-
             <?php
             $latest_post = get_posts([
               'post_type'      => 'discography',
@@ -97,7 +92,6 @@
             ]);
             $latest_url = !empty($latest_post) ? get_permalink($latest_post[0]->ID) : '';
             ?>
-
             <?php if ($latest_url): ?>
               <div class="circle-arrow">
                 <a href="<?php echo esc_url($latest_url); ?>">View All<span class="arrow"></span></a>
@@ -105,7 +99,6 @@
             <?php endif; ?>
           </div>
         </div>
-
         <?php endwhile; wp_reset_postdata(); ?>
       </div>
     </section>
@@ -135,7 +128,6 @@
                   'post_status'    => 'publish',
                   'order'          => 'DESC',
                 ]);
-
                 while ($news_query->have_posts()):
                   $news_query->the_post();
                 ?>
@@ -143,7 +135,14 @@
                     <a href="<?php the_permalink(); ?>" class="news-link">
                       <div class="news-item-flex">
                         <p class="news-date"><?php the_time('Y.m.d'); ?></p>
-                        <div class="news-tags"><?php the_field('news_tag'); ?></div>
+                        <?php if ($news_tags && is_array($news_tags)): ?>
+                          <?php foreach ($news_tags as $tag): ?>
+                            <p class="news-tags">
+                              <span class="tag"><?php echo $tag['label'];?></span>
+                            </p>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
+                        <!-- <div class="news-tags"><?php the_field('news_tag'); ?></div> -->
                       </div>
                       <div class="news-title"><?php the_title(); ?></div>
                     </a>
