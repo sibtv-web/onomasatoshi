@@ -573,3 +573,26 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updatePosition);
 });
 
+const txtSlideAnime = document.querySelectorAll(".release-title__animation.splide");
+if(txtSlideAnime.length > 0){
+  new Splide('.release-title__animation.splide',{
+    type: string = 'loop',
+    rewind: boolean = true,
+    speed: number = 400,
+    autoWidth: boolean = true,
+    arrows: boolean = false,
+    pagination: boolean = false,
+    drag: boolean = false,
+    autoScroll: {
+      pauseOnHover: false,
+      pauseOnFocus: boolean = false,
+    },
+    breakpoints: {
+      750: {
+        autoScroll: {
+          speed: number = 0.5,
+        },
+      },
+    }
+  }).mount(window.splide.Extensions);
+}

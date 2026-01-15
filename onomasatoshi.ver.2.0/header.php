@@ -20,19 +20,20 @@
 <meta property="og:description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
 <meta property="og:url" content="<?php echo esc_url( home_url( add_query_arg( array(), $wp->request ) ) ); ?>">
 <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/ogp.png">
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Twitterアカウント">
-
 <!-- CSS -->
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/reset.css">
 <link rel="stylesheet" href="https://use.typekit.net/ybk1yun.css">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
-
+<link href="<?php echo get_theme_file_uri(); ?>/assets/css/splide.min.css" rel="stylesheet">
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<!-- splide.js -->
+<script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide.min.js"></script>
+<script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide-extension-auto-scroll.min.js"></script>
 
 <?php wp_head(); ?>
 </head>
