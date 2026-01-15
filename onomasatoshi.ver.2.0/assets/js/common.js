@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // アーカイブ詳細モーダル
   // =========================
 const detailModal = document.querySelector('.detail-modal');
+const modalContent = detailModal.querySelector('.player-content');
+
 
 if (detailModal) {
   const closeBtn = detailModal.querySelector('.modal-close-btn');
@@ -114,26 +116,65 @@ if (detailModal) {
         toggleModalLinks(detailModal);
 
       // ✅ モーダル表示 + 背景固定
-      detailModal.classList.add('active');
-      document.body.classList.add('is-modal-open');
-    });
-  });
+        detailModal.classList.add('active');
+        document.body.classList.add('is-modal-open');
 
-  // 閉じる
-  const closeModal = () => {
-    detailModal.classList.remove('active');
-    document.body.classList.remove('is-modal-open');
-  };
+        // 初期化（毎回リセット）
+        gsap.set(detailModal, { opacity: 0 });
+        gsap.set(modalContent, {
+          opacity: 0,
+          y: 20,
+          scale: 0.98
+        });
 
-  closeBtn.addEventListener('click', closeModal);
+        // やさしく表示（追加直後にGSAPでアニメーション、閉じる時は 先にGSAP → 完了後に .active を外す
+        gsap.timeline()
+          .to(detailModal, {
+            opacity: 1,
+            duration: 0.35,
+            ease: 'power2.out'
+          })
+          .to(modalContent, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            ease: 'power3.out'
+          }, '-=0.15');
+            });
+          });
 
-  detailModal.addEventListener('click', (e) => {
-    if (e.target === detailModal) {
-      closeModal();
-    }
-  });
-  
-}
+          // 優しく閉じる
+        const closeModal = () => {
+          gsap.timeline({
+            onComplete: () => {
+              detailModal.classList.remove('active');
+              document.body.classList.remove('is-modal-open');
+            }
+          })
+          .to(modalContent, {
+            opacity: 0,
+            y: 20,
+            scale: 0.98,
+            duration: 0.3,
+            ease: 'power2.in'
+          })
+          .to(detailModal, {
+            opacity: 0,
+            duration: 0.3,
+            ease: 'power2.in'
+          }, '-=0.15');
+        };
+
+          closeBtn.addEventListener('click', closeModal);
+
+          detailModal.addEventListener('click', (e) => {
+            if (e.target === detailModal) {
+              closeModal();
+            }
+          });
+          
+        }
 
 function toggleModalLinks(detailModal) {
 
@@ -531,5 +572,4 @@ document.addEventListener('DOMContentLoaded', () => {
   updatePosition();
   window.addEventListener('scroll', updatePosition);
 });
-
 

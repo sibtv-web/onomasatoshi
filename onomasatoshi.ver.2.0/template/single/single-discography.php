@@ -47,7 +47,14 @@
           }
           ?>
       
-      <section><!-- latest-release -->   
+      <section class="sec-latest-release"><!-- latest-release -->  
+
+        <div class="release-title-animation">
+          <span class="animation-text">
+              <?php echo esc_html($latest_discography_data['title']); ?>
+          </span>
+        </div>
+
         <div class="release-section-title">LATEST<br>RELEASE</div>
 
         <div class="release-layout">

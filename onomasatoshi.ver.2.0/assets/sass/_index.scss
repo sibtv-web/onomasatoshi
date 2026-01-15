@@ -3,6 +3,9 @@ html{
     margin-top: 0 !important;
     overflow-x: hidden;
 }
+main{
+  opacity: 0;
+}
 
 body{
   color: $text-main;

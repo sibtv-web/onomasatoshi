@@ -61,9 +61,7 @@ get_header();
               <li class="timeline-item">
                 <div class="timeline-year">1993</div>
                 <div class="timeline-text">
-                  2月、5thシングル「Forever My Love」リリース。同年4月には自身初の全国ツアー「VOICE III」がスタートし各地のチケットはSOLD OUT。夏には全国の野外イベントにも参加。5,000人〜20,000人規模のオムニバスイベントで全てトリを務める。<br>
-                  同年12月には3rdアルバム「With All My Heart」をリリース後、初の全国ホールコンサートが福岡を皮切りにスタート。この頃から音源制作・FMラジオレギュラーDJ・ライブ活動等を精力的に行い、幅広い年齢層から支持を得る。
-                </div>
+                  2月、5thシングル「Forever My Love」リリース。同年4月には自身初の全国ツアー「VOICE III」がスタートし各地のチケットはSOLD OUT。夏には全国の野外イベントにも参加。5,000人〜20,000人規模のオムニバスイベントで全てトリを努める。<br>同年12月には3rdアルバム「With All My Heart」をリリース後、初の全国ホールコンサートが福岡を皮切りにスタート。この頃から音源制作・FM ラジオレギュラーDJ・ライブ活動等を精力的に行い、その穏やかな口調、澄み切った歌声により、幅広い年齢層から支持を得る。</div>
               </li>
               <li class="timeline-item">
                 <div class="timeline-year">1997</div>
@@ -82,22 +80,22 @@ get_header();
               <li class="timeline-item">
                 <div class="timeline-year">2001</div>
                 <div class="timeline-text">
-                  ニトロプラス制作のPCゲーム「吸血殲鬼ヴェドゴニア」の主題歌を担当。その後も「斬魔大聖デモンベイン」「刃鳴散らす」「装甲悪鬼村正」「凍京NECRO」などの作品に継続して参加。
+                  ニトロプラス制作のPCゲーム、「吸血殲鬼ヴェドゴニア」の主題歌を担当した。その後も同社の「斬魔大聖デモンベイン」、「刃鳴散らす」、「装甲悪鬼村正」、「凍京NECRO」などの作品に継続して参加している。
                 </div>
               </li>
 
               <li class="timeline-item">
                 <div class="timeline-year">2002</div>
                 <div class="timeline-text">
-                  デビュー10周年を迎え、HARD ROCKのイベントライブにもゲスト出演。数々のコンピレーションアルバムに参加し、ファン層を拡大。<br>
-                  5月、ミニアルバム「REBIRTH」リリース。11月にはマキシシングル「I wish 〜I hope」をリリース。
+                  デビュー10周年を迎えアマチュア時代経験のあるHARD ROCKのイベントライブにもゲスト出演し、数々のコンピレーションアルバムにも参加。これによりゲーム好きな若年層やカラオケファン等へとファン層を広げる。<br>
+                  5月、ミニアルバム「REBIRTH」リリース。11月にはマキシシングル「I wish 〜I hope」をリリース。この作品はアフガニスタンと日本(島根県) を舞台とした映画「アイ・ ラヴ・ピース」の主題歌/ 挿入歌として10月の映画公開と同時にリリースされる。
                 </div>
               </li>
 
               <li class="timeline-item">
                 <div class="timeline-year">2004</div>
                 <div class="timeline-text">
-                  音楽プロデューサー手使海ユトロ氏と出会い、フルアルバム「冬色物語〜Winter Stories〜」を7年振りにリリース。ハイトーンを一切使わないエスニックサウンドとして注目を浴びる。
+                  音楽プロデューサー手使海ユトロ氏と出会い、大人の為のラブバラード集フルアルバム「 冬色物語〜Winter Stories 〜」　を7年振りにリリース。ハイトーンを一切使わないエスニックサウンドとして注目を浴びる。
                 </div>
               </li>
 
@@ -255,7 +253,7 @@ get_header();
   <div class="profile-panel profile-panel--fishing is-back" data-profile="fishing">
     <div class="archive-container">
       <div class="profile archive-header">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <!-- <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div> -->
         <div class="archive-header-tx">
           <picture>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_fishing-pc.webp"alt="">
