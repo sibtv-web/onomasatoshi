@@ -47,19 +47,21 @@
           }
           ?>
       
-      <section class="sec-latest-release"><!-- latest-release -->  
-        <div class="release-title__animation splide">
-          <div class="splide__track">
-            <ul class="slideAnimation-list splide__list">
-            <?php
-                for($i = 0; $i < 8; $i++){
-                  echo '<li class="slideAnimation-list__item splide__slide">'.esc_html($latest_discography_data['title']).'</li>';
-                }
-              ?>
-            </ul>
+      <section class="sec-latest-release"><!-- latest-release --> 
+        <div class=""> 
+          <div class="release-title__animation splide">
+            <div class="splide__track">
+              <ul class="slideAnimation-list splide__list">
+              <?php
+                  for($i = 0; $i < 8; $i++){
+                    echo '<li class="slideAnimation-list__item splide__slide">'.esc_html($latest_discography_data['title']).'</li>';
+                  }
+                ?>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="release-section-title">LATEST<br>RELEASE</div>
+      <div class="release-section-title">LATEST<br>RELEASE</div>
 
         <div class="release-layout">
 

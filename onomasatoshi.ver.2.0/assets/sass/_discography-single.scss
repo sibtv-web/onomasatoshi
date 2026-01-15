@@ -54,32 +54,20 @@
   }
 }
 
-.animation-text {
-  font-family: 'Inter_BoldItalic.woff', 'Noto Sans JP', sans-serif;
-  display: inline-block;
-  white-space: nowrap;
-  position: absolute;
-  right: -100%;        /* 右端からスタート */
-  font-size: 18.5vw;    
-  font-weight: bold;
-  animation: slide-left 15s linear infinite;
-  font-size: 70px;
-  @include bp-m(){
-    font-size: 12.5vw;
-  }
-}
 
-@keyframes slide-left {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 100%;
-  }
-}
 
 .sec-latest-release{
   position: relative;
+
+  .slideAnimation-list__item{
+  color:#314370 ;
+  opacity: 0.4;
+  font-size: 18.5vw;
+  @include bp-m(){
+    font-size: 10vw;
+  }
+  }
+
 }
 
 .latest-release-inner{

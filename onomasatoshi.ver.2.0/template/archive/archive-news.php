@@ -104,11 +104,16 @@
               <li class="news">
                 <a class="news-list clearfix opa" href="<?php the_permalink(); ?>">
                   <div class="inner-flex">
-                  <?php if (has_post_thumbnail()): ?>
-                    <div class="news-thumbnail">
+
+                  <?php 
+                  $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                  ?>
+                  <?php if ($thumb_url): ?>
+                    <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($thumb_url); ?>');">
                       <?php the_post_thumbnail('thumbnail'); ?>
                     </div>
                   <?php endif; ?>
+
                   <div class="news-body">
                     <div class="date-tag-flex">
                       <p class="post-head news-date"><?php the_time('Y.m.d'); ?></p>
