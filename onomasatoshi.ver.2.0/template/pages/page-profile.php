@@ -9,13 +9,14 @@ get_header();
 ?>
 
 <main class="profile-wrapper">
+  <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
   <div class="profile-flip">
     
   <!-- 通常プロフィール -->
   <div class="profile-panel profile-panel--normal is-front" data-profile="normal">
     <div class="archive-container">
       <div class="profile archive-header">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <!-- <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div> -->
         <div class="archive-header-tx fade-anime" data-fade="fade-left">
           <picture>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_page-pc.webp" alt="">

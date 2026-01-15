@@ -47,8 +47,9 @@
 </header>
 <nav class="site-nav" id="site-nav">
   <div class="footer-contents">
-      <div class="footer-box">
-        <div class="footer-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+    <div class="footer-box">
+      <div class="footer-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+      <div class="footer-box__inner">
         <nav class="footer-nav-1">
           <div class="footer-title">Contents</div>
               <ul class="footer-nav-flex">
@@ -72,7 +73,6 @@
                 <li><a href="http://sound-s.jp/" target="_blank">Bese</a></li>
               </ul>
         </nav>
-
         <nav class="footer-nav-2">
           <div class="footer-title">Information</div>
             <ul class="footer-nav-col">
@@ -80,7 +80,6 @@
               <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
             </ul>
         </nav>
-
         <nav class="footer-nav-3">
           <div class="footer-nav-link">
             <div class="footer-title">SNS</div>
@@ -99,4 +98,6 @@
           </div>
         </nav>
       </div>
+    </div>
+  </div>
 </nav>

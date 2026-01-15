@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // アーカイブ詳細モーダル
   // =========================
 const detailModal = document.querySelector('.detail-modal');
-const modalContent = detailModal.querySelector('.player-content');
 
 
 if (detailModal) {
+  const modalContent = detailModal.querySelector('.player-content');
   const closeBtn = detailModal.querySelector('.modal-close-btn');
 
   document.querySelectorAll('.disc-item').forEach(item => {
@@ -487,19 +487,19 @@ document.querySelectorAll('.jacket-image').forEach(wrap => {
 document.addEventListener('DOMContentLoaded', () => {
   const flipWrap = document.querySelector('.profile-flip');
   const btn = document.querySelector('.btn-profile');
-
   let isFishing = false;
+  if(btn) {
+    btn.addEventListener('click', () => {
+      isFishing = !isFishing;
 
-  btn.addEventListener('click', () => {
-    isFishing = !isFishing;
+      flipWrap.classList.toggle('is-flipped', isFishing);
 
-    flipWrap.classList.toggle('is-flipped', isFishing);
-
-    // ボタン画像切替
-    btn.src = isFishing
-      ? btn.dataset.fishing
-      : btn.dataset.normal;
-  });
+      // ボタン画像切替
+      btn.src = isFishing
+        ? btn.dataset.fishing
+        : btn.dataset.normal;
+    });
+  }
 });
 
 
@@ -521,8 +521,9 @@ document.addEventListener('DOMContentLoaded', () => {
         allFilled = false;
       }
     });
-
-    submitBtn.disabled = !(allFilled && agreeCheck.checked);
+    if(agreeCheck) {
+      submitBtn.disabled = !(allFilled && agreeCheck.checked);
+    }
   }
 
   // 初期状態
@@ -532,7 +533,9 @@ document.addEventListener('DOMContentLoaded', () => {
   requiredFields.forEach(field => {
     field.addEventListener('input', toggleSubmit);
   });
-  agreeCheck.addEventListener('change', toggleSubmit);
+  if(agreeCheck) {
+    agreeCheck.addEventListener('change', toggleSubmit);
+  }
 });
 
 
@@ -557,22 +560,25 @@ document.addEventListener('wpcf7mailsent', function(event) {
 // ========================================
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.querySelector('.profile .header-name, .profile-panel--fishing .header-name');
-  if (!el) return;
+// document.addEventListener('DOMContentLoaded', () => {
+//   const el = document.querySelector('.profile .header-name, .profile-panel--fishing .header-name');
+//   if (!el) return;
 
-  const offsetTop = 20;
-  const offsetRight = 20;
+//   const offsetTop = 20;
+//   const offsetRight = 20;
 
-  const updatePosition = () => {
-    const scrollY = window.scrollY;
-    el.style.transform = `translateY(${scrollY}px)`;
-  };
+//   const updatePosition = () => {
+//     const scrollY = window.scrollY;
+//     el.style.transform = `translateY(${scrollY}px)`;
+//   };
 
-  updatePosition();
-  window.addEventListener('scroll', updatePosition);
-});
+//   updatePosition();
+//   window.addEventListener('scroll', updatePosition);
+// });
 
+// ========================================
+// テキストスライダー
+// ========================================
 const txtSlideAnime = document.querySelectorAll(".release-title__animation.splide");
 if(txtSlideAnime.length > 0){
   new Splide('.release-title__animation.splide',{
