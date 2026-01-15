@@ -254,18 +254,15 @@ jQuery(function ($) {
     $(this).closest('.qa-item').toggleClass('open'); // open を qa-item に付ける
     $(this).next('.qa-inner').slideToggle(300);
   });
+  
 });
+
 
 // =========================
 // フェードアップ（GSAP）
 // =========================
-
-
-
-
 gsap.utils.toArray('.fade-anime').forEach(el => {
   const type = el.dataset.fade;
-
   if (type === 'fade-up' || type === 'fade-left' || type === 'fade-right') {
 
     let x = 0;
@@ -302,8 +299,6 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
       }
     );
   }
-
-
   // ▼ 子要素を順番にフェードアップ
   if (type === 'fade-up-cont') {
     const targets = el.querySelectorAll(':scope > *');
@@ -331,7 +326,13 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
   }
 });
 
-//不要かも　<script src="player.js"></script>　//
+
+jQuery(function ($) {
+  window.addEventListener('load', function () {
+    $('main').fadeTo(400, 1);
+  })
+});
+
 
 // =========================
 // Instagramシェア用
