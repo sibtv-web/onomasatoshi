@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+
   // =========================
   // アーカイブ詳細モーダル
   // =========================
@@ -108,6 +109,10 @@ if (detailModal) {
       detailModal.querySelector('.modal-tower').href = item.dataset.tower;
       detailModal.querySelector('.modal-hmv').href = item.dataset.hmv;
 
+
+        // ① モーダル内リンク制御
+        toggleModalLinks(detailModal);
+
       // ✅ モーダル表示 + 背景固定
       detailModal.classList.add('active');
       document.body.classList.add('is-modal-open');
@@ -127,7 +132,77 @@ if (detailModal) {
       closeModal();
     }
   });
+  
 }
+
+function toggleModalLinks(detailModal) {
+
+  /* =========
+     配信リンク（news-tags）非表示判定
+  ========= */
+  detailModal.querySelectorAll('.modal-links .news-tags').forEach(li => {
+    const a = li.querySelector('a');
+    const href = a.getAttribute('href');
+
+    if (!href || href === '#' || href.trim() === '') {
+      li.style.display = 'none';
+    } else {
+      li.style.display = '';
+    }
+  });
+
+  /* =========
+     購入リンク（sale-links）非表示判定
+  ========= */
+  const saleLinks = detailModal.querySelector('.sale-links');
+
+  if (saleLinks) {
+    let visibleCount = 0;
+
+    saleLinks.querySelectorAll('a').forEach(a => {
+      const href = a.getAttribute('href');
+
+      if (!href || href === '#' || href.trim() === '') {
+        a.style.display = 'none';
+      } else {
+        a.style.display = '';
+        visibleCount++;
+      }
+    });
+
+    // 3つとも無ければセクションごと非表示
+    saleLinks.style.display = visibleCount === 0 ? 'none' : '';
+  }
+
+  /* =========
+     ツアー情報　非表示判定
+  ========= */
+  const tour = detailModal.querySelector('.modal-tour');
+  if (tour) {
+    tour.style.display =
+      tour.textContent.trim() === '' ? 'none' : '';
+  }
+
+
+  /* =========
+     DISC情報　非表示判定
+  ========= */
+
+
+// 曲情報（modal-songs）
+const songs = detailModal.querySelector('.modal-songs');
+if (songs) {
+  // 両方のdiscが空なら非表示
+  const disc1 = songs.querySelector('.disc-1')?.textContent.trim();
+  const disc2 = songs.querySelector('.disc-2')?.textContent.trim();
+
+  songs.style.display = (disc1 === '' && disc2 === '') ? 'none' : '';
+}
+
+}
+
+
+
 
 
   // =========================
@@ -166,6 +241,8 @@ if (detailModal) {
   }
 
 });
+
+
 
 // =========================
 // トップページQ&Aのドロップダウン
@@ -431,3 +508,27 @@ document.addEventListener('wpcf7mailsent', function(event) {
       window.location.href = '/onomasatoshi_3_wp/qa-thanks';
     }
 }, false);
+
+
+// ========================================
+// プロフィールページheader-name追従
+// ========================================
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.querySelector('.profile .header-name, .profile-panel--fishing .header-name');
+  if (!el) return;
+
+  const offsetTop = 20;
+  const offsetRight = 20;
+
+  const updatePosition = () => {
+    const scrollY = window.scrollY;
+    el.style.transform = `translateY(${scrollY}px)`;
+  };
+
+  updatePosition();
+  window.addEventListener('scroll', updatePosition);
+});
+
+

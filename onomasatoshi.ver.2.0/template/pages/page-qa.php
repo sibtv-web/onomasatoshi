@@ -11,7 +11,7 @@ get_header();
 
     <div class="page-qa archive-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-        <div class="archive-header-tx">
+        <div class="archive-header-tx fade-anime" data-fade="fade-left">
             <picture>
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_qa_page-pc.webp"alt="">
             </picture>

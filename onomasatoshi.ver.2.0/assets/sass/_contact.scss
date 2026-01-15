@@ -80,10 +80,10 @@
     margin-bottom: 10px;
    }
    p{
-    border-bottom: 1px solid #03121F;
+    border-bottom: 1px solid #c9c9c9;
     padding: 10px 0 0;
       @include bp-m(){
-      padding: 32px 0;
+      padding: 32px 0 0;
       }
    }
 }
@@ -91,7 +91,7 @@
 .form-box-start{
   padding-top: 50px;
   @include bp-m(){
-    padding-top: 120px;
+    padding-top: 48px;
 
   }
 }
@@ -100,8 +100,8 @@
   padding-bottom: 50px;
   margin-bottom: 60px;
   @include bp-m(){
-  padding-bottom: 120px;
-  margin-bottom: 120px;
+  padding-bottom: 80px;
+  margin-bottom: 40px;
   
 }
 
@@ -260,7 +260,10 @@
   .form-item
   .wpcf7-form-control-wrap{
     display: flex;
+    margin-bottom: 20px;
+    @include bp-m(){
     margin-bottom: 40px;
+    }
   }
   /* ----- ラジオボタンの項目テキスト ----- */
   .wpcf7-list-item-label{

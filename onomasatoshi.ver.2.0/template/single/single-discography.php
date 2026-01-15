@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 <main>
   <div class="single-discography-container">
+    <div class="bg-fixed"></div>
+
 
     <div class="simple-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
@@ -32,8 +34,13 @@
               'tower'  => get_field('tower_url'),
               'hmv'    => get_field('hmv_url'),
               'mv'    => get_field('music-video'),
+              'flyer' => get_field('tour_images'),
               'tour'  => get_field('tour'),
               'ticket'  => get_field('ticket'),
+            'apple'   => get_field('apple_music_url'),
+            'line'    => get_field('line_music_url'),
+            'itunes'  => get_field('itunes_store_url'),
+            'spotify' => get_field('spotify_url'),
             ];
 
             wp_reset_postdata();
@@ -59,36 +66,44 @@
               <?php endif; ?>
             </div>
 
-            <ul class="music-links">
+              <ul class="music-links">
 
-              <li class="music-tags">
-                <a class="modal-apple" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
-                  <span>Apple Music</span>
-                </a>
-              </li>
-              
-              <li class="music-tags">
-                <a class="modal-line" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line-music.svg" alt="">
-                  <span>Line Music</span>
-                </a>
-              </li>
+                <?php if (!empty($latest_discography_data['apple'])) : ?>
+                  <li class="music-tags">
+                    <a href="<?php echo esc_url($latest_discography_data['apple']); ?>" target="_blank">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
+                      <span>Apple Music</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
 
-              <li class="music-tags">
-                <a class="modal-itunes" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
-                  <span>iTunes Store</span>
-                </a>
-              </li>
+                <?php if (!empty($latest_discography_data['line'])) : ?>
+                  <li class="music-tags">
+                    <a href="<?php echo esc_url($latest_discography_data['line']); ?>" target="_blank">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line-music.svg" alt="">
+                      <span>Line Music</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
 
-              <li class="music-tags">
-                <a class="modal-spotify" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
-                  <span>Spotify</span>
-                </a>
-              </li>
-            </ul>
+                <?php if (!empty($latest_discography_data['itunes'])) : ?>
+                  <li class="music-tags">
+                    <a href="<?php echo esc_url($latest_discography_data['itunes']); ?>" target="_blank">
+                      <span>iTunes Store</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
+
+                <?php if (!empty($latest_discography_data['spotify'])) : ?>
+                  <li class="music-tags">
+                    <a href="<?php echo esc_url($latest_discography_data['spotify']); ?>" target="_blank">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
+                      <span>Spotify</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
+
+              </ul>
             <!-- SP用のディスクリプション -->
             <div class="release-description sp-description">
               <?php the_field('description'); ?>
@@ -135,7 +150,15 @@
         </div>
       </section><!-- latest-release --> 
 
-      <section class="track-list"><!-- TRACK LIST -->
+
+      <!-- TRACK LIST -->
+      <?php
+      $disc1 = trim(get_field('disc-1'));
+      $disc2 = trim(get_field('disc-2'));
+      ?>
+
+      <?php if ($disc1 !== '' || $disc2 !== '') : ?>
+      <section class="track-list">
 
         <h2>
           <span>T</span>
@@ -151,83 +174,117 @@
         </h2>
         <h3>収録曲</h3>
 
-          <div class="disc-flex">
-            <div class="disc-1"><?php echo wp_kses_post($latest_discography_data['disc1']); ?></div>
-            <div class="disc-2"><?php echo wp_kses_post($latest_discography_data['disc2']); ?></div>
+        <div class="disc-flex">
+            
+            <?php if ($disc1 !== '') : ?>
+              <div class="disc-1">
+                <?php echo nl2br(esc_html($disc1)); ?>
+              </div>
+            <?php endif; ?>
+
+            <?php if ($disc2 !== '') : ?>
+              <div class="disc-2">
+                <?php echo nl2br(esc_html($disc2)); ?>
+              </div>
+            <?php endif; ?>
+
           </div>
+      </section>
+      <?php endif; ?><!-- TRACK LIST -->
 
-      </section><!-- TRACK LIST -->
+      <!-- AVAILABLE AT -->
+      <?php
+        $has_sale_links =
+          !empty($latest_discography_data['amazon']) ||
+          !empty($latest_discography_data['tower'])  ||
+          !empty($latest_discography_data['hmv']);
+        ?>
+      <?php if ($has_sale_links) : ?>
+        <section class="available-at">
+          <h2>
+            <span>A</span>
+            <span>V</span>
+            <span>A</span>
+            <span>I</span>
+            <span>L</span>
+            <span>A</span>
+            <span>B</span>
+            <span>L</span>
+            <span>E</span>
+            <span> </span>
+            <span>A</span>
+            <span>T</span>
+          </h2>
+          <h3>販売場所</h3>
 
-      <section class="available-at"><!-- AVAILABLE AT -->
-        <h2>
-          <span>A</span>
-          <span>V</span>
-          <span>A</span>
-          <span>I</span>
-          <span>L</span>
-          <span>A</span>
-          <span>B</span>
-          <span>L</span>
-          <span>E</span>
-          <span> </span>
-          <span>A</span>
-          <span>T</span>
-        </h2>
-        <h3>販売場所</h3>
-
-        <div class="sale-links">
-          <?php if ($latest_discography_data['amazon']): ?>
-            <a href="<?php echo esc_url($latest_discography_data['amazon']); ?>" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_amazon.png" alt="">
-            </a>
-          <?php endif; ?>
-
-          <?php if ($latest_discography_data['tower']): ?>
-            <a href="<?php echo esc_url($latest_discography_data['tower']); ?>" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_tower-records.png" alt="">
-            </a>
-          <?php endif; ?>
-
-          <?php if ($latest_discography_data['hmv']): ?>
-            <a href="<?php echo esc_url($latest_discography_data['hmv']); ?>" target="_blank">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_hmv.png" alt="">
-            </a>
-          <?php endif; ?>
-        </div>
-
-      </section><!-- AVAILABLE AT -->
-
-      <section class="music-video"><!-- MUSIC VIDEO -->
-        <h2>
-          <span>M</span>
-          <span>U</span>
-          <span>S</span>
-          <span>I</span>
-          <span>C</span>
-          <span> </span>
-          <span>V</span>
-          <span>I</span>
-          <span>D</span>
-          <span>E</span>
-          <span>O</span>
-        </h2>
-        <h3>ミュージックビデオ</h3>
-          <?php if ( !empty($latest_discography_data['mv']) ) : ?>
-            <div class="mv-embed">
-              <?php echo $latest_discography_data['mv']; ?>
-            </div>
-          <?php endif; ?>
-          <div class="circle-wrap">
-            <div class="circle-image">
-              <a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/img_movie_circle.webp"alt="">
+          <div class="sale-links">
+            <?php if ($latest_discography_data['amazon']): ?>
+              <a href="<?php echo esc_url($latest_discography_data['amazon']); ?>" target="_blank">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_amazon.png" alt="">
               </a>
-            </div>
-            <span class="movie-circle-arrow"></span>
-          </div>
-      </section><!-- MUSIC VIDEO -->
+            <?php endif; ?>
 
-      <section class="tour-info"><!-- TOUR INFO -->
+            <?php if ($latest_discography_data['tower']): ?>
+              <a href="<?php echo esc_url($latest_discography_data['tower']); ?>" target="_blank">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_tower-records.png" alt="">
+              </a>
+            <?php endif; ?>
+
+            <?php if ($latest_discography_data['hmv']): ?>
+              <a href="<?php echo esc_url($latest_discography_data['hmv']); ?>" target="_blank">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_hmv.png" alt="">
+              </a>
+            <?php endif; ?>
+          </div>
+        </section>
+      <?php endif; ?><!-- AVAILABLE AT -->
+
+      <!-- MUSIC VIDEO -->
+      <?php
+        $has_mv_embed  = !empty($latest_discography_data['mv']);      // iframe（埋め込み）
+        $has_mv_link   = !empty($latest_discography_data['mv_link']); // circle-image の a
+      ?>
+        <?php if ($has_mv_embed || $has_mv_link) : ?>
+        <section class="music-video">
+          <h2>
+            <span>M</span>
+            <span>U</span>
+            <span>S</span>
+            <span>I</span>
+            <span>C</span>
+            <span> </span>
+            <span>V</span>
+            <span>I</span>
+            <span>D</span>
+            <span>E</span>
+            <span>O</span>
+          </h2>
+          <h3>ミュージックビデオ</h3>
+            <?php if ( !empty($latest_discography_data['mv']) ) : ?>
+              <div class="mv-embed">
+                <?php echo $latest_discography_data['mv']; ?>
+              </div>
+            <?php endif; ?>
+            <div class="circle-wrap">
+              <div class="circle-image">
+                <a href="https://youtu.be/bnSTiSDrAf8?si=jllSfN-oTn3zeKYf" target="blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/img_movie_circle.webp"alt="">
+                </a>
+              </div>
+              <span class="movie-circle-arrow"></span>
+            </div>
+        </section>
+      <?php endif; ?><!-- MUSIC VIDEO -->
+
+      <!-- TOUR INFO -->
+      <?php
+      $has_jacket = !empty($latest_discography_data['flyer']);
+      $has_tour   = !empty($latest_discography_data['tour']);
+      $has_ticket = !empty($latest_discography_data['ticket']);
+      ?>
+
+      <?php if ($has_jacket || $has_tour || $has_ticket) : ?>
+      <section class="tour-info">
         <h2>
           <span>T</span>
           <span>O</span>
@@ -240,16 +297,45 @@
           <span>O</span>
         </h2>
         <h3>ツアー情報</h3>
-        <div class="tour-text"><?php echo wp_kses_post($latest_discography_data['tour']); ?></div>
+        <div>
+          <?php if ($has_tour) : ?>
+              <!-- SP用タイトル -->
+              <div class="tour-sp">
+                <?php echo esc_html($latest_discography_data['title']); ?>
+              </div>
+          <?php endif; ?>
+          <div class="tour-text">
+            <?php if ($has_jacket) : ?>
+              <!-- フライヤー -->
+              <div class="flyer-img">
+                <img src="<?php echo esc_url($latest_discography_data['flyer']); ?>" alt="">
+              </div>
+            <?php endif; ?>
+
+            <?php if ($has_tour) : ?>
+              <div>
+                <!-- PC用タイトル -->
+                <div class="tour-pc">
+                  <?php echo esc_html($latest_discography_data['title']); ?>
+                </div>
+
+                <!-- ツアー本文 -->
+                <div class="tour-inner-text">
+                  <?php echo wp_kses_post($latest_discography_data['tour']); ?>
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>  
+
           <?php if ( !empty($latest_discography_data['ticket']) ) : ?>
           <div class="circle-arrow">
-            <a href="<?php echo esc_url($latest_discography_data['ticket']); ?>" target="_blank">
-              Buy Ticket<span class="arrow"></span>
-            </a>
-          <?php endif; ?>
-        </div>
-
-      </section><!-- TOUR INFO -->
+                <a href="<?php echo esc_url($latest_discography_data['ticket']); ?>" target="_blank">
+                  Buy Ticket<span class="arrow"></span>
+                </a>
+            <?php endif; ?>
+          </div>
+      </section>
+      <?php endif; ?><!-- TOUR INFO -->
 
     </div><!-- latest-release-inner -->
   </div><!-- single-discography-container -->

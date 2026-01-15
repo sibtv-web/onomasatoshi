@@ -32,6 +32,7 @@
     font-weight: 600;
     font-size: 16px;
     left: 4.6%;
+    z-index: 1;
       @include bp-m(){
         font-size: 1.67vw;
         top: 37px;

@@ -1,9 +1,7 @@
 .site-footer{
   background-color: #03121F;
-  & .inner{
-    @include bp-m(){
-    }
-  }
+  position: relative;
+  z-index: 1;
 }
 
 .footer-box{

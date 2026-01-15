@@ -5,7 +5,8 @@
     <!-- アーカイブヘッダー -->
     <div class="discography archive-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-        <div class="archive-header-tx">
+        
+        <div class="archive-header-tx fade-anime" data-fade="fade-left">
             <picture>
             <source
                 media="(min-width: 750px)"
@@ -159,7 +160,6 @@
 
               <li class="news-tags">
                 <a class="modal-itunes" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
                   <span>iTunes Store</span>
                 </a>
               </li>

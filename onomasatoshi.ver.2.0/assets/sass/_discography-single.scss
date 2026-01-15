@@ -1,12 +1,15 @@
 .single-discography-container{
-  padding: 0 20px;
+  .bg-fixed{
+  position: fixed;
+  inset: 0;               // top:0; right:0; bottom:0; left:0
+  // z-index: -1;            // 背面に送る
+  // padding: 0 20px;
   background-image: url("../images/bg/bg_latest-release_pc.webp");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
-  position: relative;
+  background-repeat: no-repeat;
     @include bp-m(){
-    padding:0 5.2vw ;
+    // padding:0 5.2vw ;
     background-image: url("../images/bg/bg_latest-release_pc.webp");
     }
     &::before{
@@ -15,6 +18,10 @@
       position: absolute;
       inset: 0;
     }
+  }
+  .site-footer{
+    position: relative;
+  }
 
   section{
     border-bottom: 1px solid #C9C9C9;
@@ -32,6 +39,12 @@
 
 
 .latest-release-inner{
+  padding: 0 20px;
+  @include bp-m(){
+   padding:0 5.2vw ;
+
+  }
+
     .release-section-title{
     font-size:  18.6vw;
     margin-top: 78px;
@@ -81,15 +94,14 @@
     }
   }
   .release-date{
-    font-family: "IBMPlexSansJP-Bold.woff";
+    font-family: "NotoSansCJKjp-Bold";
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1.28px;
+    letter-spacing: 0.04em;
     text-align: center;
     margin-bottom: 4px;
     @include bp-m(){
       font-size: 1.25vw;
-      letter-spacing: 0.96px;
       text-align: unset;
       margin-bottom: 8px;
     }
@@ -241,7 +253,7 @@
     display: block;
     @include bp-m(){
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       gap:7.7vw;
     }
   }
@@ -299,6 +311,7 @@
       gap: 1.82vw;
       justify-content: center;
       flex-direction: unset;
+      margin: auto;
 
     }   
    
@@ -306,7 +319,8 @@
       width: 75.7vw;
       margin: auto;
       @include bp-m(){
-        width: 100%;
+        width: 14.9vw;
+        margin: unset;
       }
     }
   }
@@ -378,6 +392,8 @@
 }
 
 .tour-info {
+  border-bottom: none !important;
+
   span {
     display: inline-block;
   }
@@ -397,15 +413,18 @@
     line-height: 1.6;
     letter-spacing: 0.04em;
     font-weight: 500;
-    display: table;
+    display: block;
     margin:0 0 30px;
+    display: block;
     @include bp-m(){
       font-size: 0.83vw;
       margin:0 auto 60px;
+      display: flex;
+      gap:7.3vw;
+      justify-content: center;
 
     }
   }
-  border-bottom: none !important;
 
   .circle-arrow
   a{
@@ -413,6 +432,46 @@
     @include bp-m(){
       justify-content: center;
     }
+  }
+
+  .tour-sp{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "NotoSansCJKjp-Bold";
+    margin-bottom: 30px;
+    text-align: center;
+    @include bp-m(){
+      display: none;
+    }
+  }
+  .tour-pc{
+    display: none;
+    @include bp-m(){
+      display: block;
+      font-size: 40px;  
+      font-weight: 700;
+      font-family: "NotoSansCJKjp-Bold";
+      margin-bottom: 60px;
+      }
+  }
+  .flyer-img{
+    width:  76vw;
+    margin: 0 auto 30px;
+    @include bp-m(){
+      width: 32.5vw;
+      margin: unset;
+    }
+  }
+  .tour-inner-text{
+    font-size: 16px;
+    font-family: "NotoSansCJKjp-Medium";
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    @include bp-m(){
+      font-size: 16px;
+    }
+
   }
 }
 

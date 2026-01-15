@@ -16,7 +16,7 @@ get_header();
     <div class="archive-container">
       <div class="profile archive-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-        <div class="archive-header-tx fade-anime" data-fade="fade-left">
+        <div class="archive-header-tx">
           <picture>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_page-pc.webp" alt="">
           </picture>
@@ -103,39 +103,34 @@ get_header();
 
               <li class="timeline-item">
                 <div class="timeline-year">2009</div>
+                <div>
                   <div class="timeline-text">
-                    ヘヴィ・メタルバンドGALNERYUS のゲスト• ボーカルとして『PURE ROCK JAPAN LIVE 2009』へ参加。同年9月、GALNERYUS のヴォーカリストとして正式加入。
-                    <img class="img-music-2009" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2009.webp" alt="">
+                    GALNERYUSのゲスト・ボーカルとして『PURE ROCK JAPAN LIVE 2009』に参加。同年9月、正式加入。
                   </div>
+                  <div class="img-profile-2009">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2009.webp" alt="">
+                  </div>
+                </div>
               </li>
 
               <li class="timeline-item">
                 <div class="timeline-year">2010</div>
                 <div class="timeline-text">
-                  『total voice traning　ボーカルスクールビッセ〜美声（Bese）〜』を開校。自身の確かな歌唱力とハイトーンに憧れる様々な生徒を指導。適確な指導と親しみやすい人柄で好評を博す。
-                    <img class="img-music-2010" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2010.webp" alt="">
+                  『total voice training ボーカルスクールビッセ〜美声（Bese）〜』を開校。確かな歌唱力と指導力で好評を博す。
                 </div>
               </li>
 
               <li class="timeline-item">
                 <div class="timeline-year">2011</div>
                 <div class="timeline-text">
-                  ハードロック・ヘヴィメタルカヴァーアルバム『THE VOICE-STANDPROUD!』をリリース。また12月には少年ジャンプ連載の人気漫画「HUNTER × HUNTER」のアニメオープニング主題歌をつとめ、マキシシングルとして「Departure!」発売。
+                  カヴァーアルバム『THE VOICE-STANDPROUD!』をリリース。12月にはアニメ「HUNTER×HUNTER」OP主題歌「Departure!」発売。
                 </div>
               </li>
 
               <li class="timeline-item">
                 <div class="timeline-year">2012</div>
                 <div class="timeline-text">
-                  同アニメED テーマにGALNERYUS が起用され、前代未聞OP/ED 共に同じボーカルが務めるという快挙を成し遂げる。また5月にはリットーミュージックより自身初の著書『限界を超えるハイ・トーンが出せる本』を出版。こちらも教則本として各方面から高い評価を得る。現在も変わらぬハイトーンボイスでソロボーカリスト、GALNERYUS、またヴォーカル講師として精力的に活動中。
-                  <img class="img-music-2012" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2012.webp" alt="">
-                </div>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-year">2017</div>
-                <div class="timeline-text">
-                  デビュー25周年を記念して、洋楽カバーをメインとした2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。ワーナーミュージック・ジャパンより“ ハイトーン日本代表” としてデビュー25 周年アルバム「VS」をリリース。「これはカバーアルバムではない【VS( ヴァーサス)】アルバムだ！」「原曲と聴き比べてみて欲しい！世界に負けていない！」というキャッチの通り、世代を超えて愛されるスタンダードなナンバーばかりが集結し、それぞれ シングル・アルバムの全世界の総売上げ枚数は1億枚超えのモンスター楽曲のカバーに挑戦。世界の歌姫やレジェンドが歌唱した名曲中の名曲を小野正利色に染め上げた。
+                  同アニメEDテーマにGALNERYUSが起用され、OP/ED両方を同一ボーカルが担当。著書『限界を超えるハイ・トーンが出せる本』を出版。
                 </div>
               </li>
 
@@ -145,41 +140,45 @@ get_header();
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
-
+                            <li class="timeline-item">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-text">
+                  デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
+                </div>
+              </li>
               <li class="timeline-item">
                 <div class="timeline-year">2017</div>
                 <div class="timeline-text">
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
-
               <li class="timeline-item">
                 <div class="timeline-year">2017</div>
                 <div class="timeline-text">
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
-
               <li class="timeline-item">
                 <div class="timeline-year">2017</div>
                 <div class="timeline-text">
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
-
               <li class="timeline-item">
                 <div class="timeline-year">2017</div>
                 <div class="timeline-text">
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
-
-              <li class="timeline-item">
+                            <li class="timeline-item">
                 <div class="timeline-year">2017</div>
                 <div class="timeline-text">
                   デビュー25周年を記念し、2枚組アルバム「VS」をワーナーミュージック・ジャパンよりリリース。世代を超えて愛される名曲の数々を歌い上げる。
                 </div>
               </li>
+
+
+
             </ul>
           </div>
         </section>
@@ -291,8 +290,8 @@ get_header();
                 <li class="timeline-item">
                   <div class="timeline-year">2017</div>
                   <div class="timeline-text">
-                    河口湖の神様のいたずらに2度合う。<br>1度目はボート釣り中に落水。観光遊覧船が2隻通過したことで大きな波が立ち、バランスを崩して湖へ投げ出される。奇跡的に即座にボートに手をかけ、無事に帰還。しかし、気づいたときにはスマートフォンは湖底のはるか彼方へ――。さらに、新しく購入した竿とリールもそのまま帰らぬ存在となる。<br>
-                    2度目は釣行へ向かう途中、突然車のエンジンが停止。完全に動かなくなり、出発前にして釣りを断念する事態に見舞われる。<br>2017年は厄年だったのだろうか。
+                    河口湖の神様のいたずらに2度合う。1度目はボート釣り中に落水。観光遊覧船が2隻通過したことで大きな波が立ち、バランスを崩して湖へ投げ出される。奇跡的に即座にボートに手をかけ、無事に帰還。しかし、気づいたときにはスマートフォンは湖底のはるか彼方へ――。さらに、新しく購入した竿とリールもそのまま帰らぬ存在となる。  
+                    2度目は釣行へ向かう途中、突然車のエンジンが停止。完全に動かなくなり、出発前にして釣りを断念する事態に見舞われる。2017年は厄年だったのだろうか。
                   </div>
                 </li>
 
@@ -306,8 +305,7 @@ get_header();
                 <li class="timeline-item">
                   <div class="timeline-year">2019</div>
                   <div class="timeline-text">
-                    小野正利52歳。朝6時から釣りを開始。「年齢より1つ上のサイズを釣る！」という謎に具体的な目標を掲げて河口湖に挑み、開始から約2時間後の8時頃、自己最高となる53cmのバスをキャッチ！有言実行である。小魚を追うバスの動きを読み切れたことが勝因と振り返る。
-                    <img class="img-fishing-2019" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2019.webp" alt="">
+                    小野正利52歳。朝6時から釣りを開始。「年齢より1つ上のサイズを釣る！」という具体的な目標を掲げ河口湖に挑み、約2時間後に自己最高となる53cmのバスをキャッチ！有言実行である。
                   </div>
                 </li>
 
@@ -315,21 +313,21 @@ get_header();
                   <div class="timeline-year">2020</div>
                   <div class="timeline-text">
                     昨年、大物を釣り上げたときのルアーを、ゲン担ぎとして使い続ける。同年、バースデーライブの際に村上マネージャーから竿を贈られる。性能は申し分ないものの、まだこの竿で大物を釣り上げるには至っていない。そろそろ結果を出さねば…。
-                    <img class="img-fishing-2020" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2020.webp" alt="">
                   </div>
                 </li>
 
                 <li class="timeline-item">
                   <div class="timeline-year">2022</div>
                   <div class="timeline-text">
-                    家の近くに釣具屋ができる。もちろんではあるが、通ってしまう。いや、通わざるを得ない。「ちょっと見るだけ」と自分に言い聞かせて入店するものの、気づけばレジに並んでいる。近所にコンビニ感覚で釣具屋がある生活は、財布にとって危険すぎた。
+                    家の近くに釣具屋ができる。通わざるを得ず、「ちょっと見るだけ」と自分に言い聞かせても入店してしまう。気づけばレジに並んでいる。
                   </div>
                 </li>
 
                 <li class="timeline-item">
                   <div class="timeline-year">2024</div>
                   <div class="timeline-text">
-                    集めた釣り具を使い分け、50cmオーバーを2本キャッチ。充実の釣果を記録する。道具への投資は無駄じゃなかった！と胸を張る瞬間である。一方で、激しいファイトの末に釣り上げたのはバスではなく、60cmオーバーの鯉であった。サイズだけなら自己記録更新である。
+                    集めた釣り具を使い分け、50cmオーバーを2本キャッチ。充実の釣果を記録。道具への投資は無駄じゃなかった！
+                    一方で、激しいファイトの末に釣り上げたのはバスではなく、60cmオーバーの鯉であった。
                   </div>
                 </li>
 
