@@ -49,7 +49,7 @@ body {
   font-family: "Noto Sans JP";
   font-weight: 700;
   background-color: #03121F;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 img {
@@ -2131,6 +2131,34 @@ p {
   }
 }
 
+.news-pagination .nav-links {
+  width: 64vw;
+  margin: auto;
+  display: flex;
+  padding-bottom: 60px;
+  gap: 8vw;
+}
+@media (min-width: 768px) {
+  .news-pagination .nav-links {
+    width: 31.9vw;
+    gap: 3.1vw;
+    padding-bottom: 120px;
+  }
+}
+.news-pagination .page-numbers {
+  font-family: meno-banner, serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  .news-pagination .page-numbers {
+    font-size: 30px;
+  }
+}
+.news-pagination span.page-numbers.current {
+  color: #ff8400;
+}
+
 .circle-blur-light-blue {
   top: 100%;
   left: 29%;
@@ -3551,12 +3579,12 @@ body.is-modal-open {
 
 .profile-flip {
   position: relative;
-  perspective: 1400px;
+  perspective: 1400px; /* 奥行きの距離 */
 }
 
 /* 共通 */
 .profile-panel {
-  position: absolute; /* ★これが必須 */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -3567,7 +3595,7 @@ body.is-modal-open {
 
 /* 表 */
 .is-front {
-  position: relative; /* ★これも必須 */
+  position: relative;
   transform: rotateY(0deg);
   visibility: visible;
 }
@@ -3582,12 +3610,25 @@ body.is-modal-open {
 .profile-flip.is-flipped .is-front {
   transform: rotateY(-180deg);
   visibility: hidden;
+  position: absolute;
 }
 
 .profile-flip.is-flipped .is-back {
   transform: rotateY(0deg);
   visibility: visible;
   transition-delay: 0s;
+  position: relative;
+}
+
+/* 通常の footerだけ非表示 */
+.page-template-page-profile-php .site-footer {
+  display: none !important;
+}
+
+/* musicと釣り用のフッターの制御 */
+.page-template-page-profile-php .site-footer.music-footer,
+.page-template-page-profile-php .site-footer.fishing-footer {
+  display: block !important;
 }
 
 .page-template-default.page.page-id-37 .hamburger span {

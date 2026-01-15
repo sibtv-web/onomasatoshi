@@ -484,3 +484,30 @@
     }
 }
 
+//ページネーション
+.news-pagination{
+  .nav-links {
+      width: 64vw;
+      margin: auto;
+      display: flex;
+      padding-bottom: 60px;
+      gap:8vw;
+      @include bp-m(){
+        width: 31.9vw;
+        gap:3.1vw;
+        padding-bottom: 120px;
+      }
+  }  
+  .page-numbers{
+      font-family: meno-banner, serif;
+      font-size: 18px;
+      font-weight: 400;
+      @include bp-m(){
+        font-size: 30px;
+      }  
+    }
+  span.page-numbers.current {
+      color: #ff8400;
+  }
+}
+
