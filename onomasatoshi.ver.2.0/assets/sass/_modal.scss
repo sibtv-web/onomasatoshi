@@ -317,11 +317,10 @@ overflow: hidden;
       font-size: 14px;
       // top: -2em;   // 好みで調整
       left: 0;
-      margin-bottom: 1em;
+      margin-bottom: 4px;
       white-space: nowrap;
       @include bp-m(){
         // top: -2.3em;
-        margin-bottom: 1em;
         font-size: 16px;
       }
     }
@@ -347,13 +346,13 @@ overflow: hidden;
     }
  &::before {
     content: '【販売場所】';
-    position: absolute;
+    // position: absolute;
     font-size: 14px;
-    top: -2em;   // 好みで調整
-    left: 0;
+    // top: -2em;   // 好みで調整
+    // left: 0;
+    margin-bottom: 4px;
     white-space: nowrap;
     @include bp-m(){
-      top: -2.3em;
       font-size: 16px;
     }
   }
@@ -373,7 +372,7 @@ overflow: hidden;
         // position: absolute;
         font-size: 14px;
         // top: -2em;   // 好みで調整
-        margin-bottom: 1em;
+        margin-bottom: 4px;
         left: 0;
         white-space: nowrap;
         @include bp-m(){
