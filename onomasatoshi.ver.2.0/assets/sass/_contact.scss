@@ -60,13 +60,17 @@
     font-size: 12px;
     font-weight: 400;
     margin-bottom: 60px;
+    padding-left: 0;
     @include bp-m(){
       font-size: 24px;
       margin-bottom: 120px;
     }
-  }
-  .header-title{
-    padding-left: 5.2%;
+    }
+    .header-title{
+      padding-left: 0;
+      @include bp-m(){
+      padding-left: 5.2%;
+      }
   }
 }
 

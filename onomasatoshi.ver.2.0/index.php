@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <body>
 <main>
     <!-- KV -->
@@ -135,14 +136,26 @@
                     <a href="<?php the_permalink(); ?>" class="news-link">
                       <div class="news-item-flex">
                         <p class="news-date"><?php the_time('Y.m.d'); ?></p>
-                        <?php if ($news_tags && is_array($news_tags)): ?>
-                          <?php foreach ($news_tags as $tag): ?>
-                            <p class="news-tags">
-                              <span class="tag"><?php echo $tag['label'];?></span>
-                            </p>
-                          <?php endforeach; ?>
-                        <?php endif; ?>
-                        <!-- <div class="news-tags"><?php the_field('news_tag'); ?></div> -->
+                      <?php
+                      $news_tags = (array) get_field('news_tag');
+
+                      $tag_labels = [
+                        'live'  => '公演',
+                        'event' => 'イベント',
+                        'media' => 'メディア',
+                        'other' => 'その他',
+                      ];
+                      ?>
+
+                      <?php if ($news_tags): ?>
+                        <?php foreach ($news_tags as $tag): ?>
+                          <p class="news-tags">
+                            <span class="tag">
+                              <?php echo esc_html($tag_labels[$tag] ?? $tag); ?>
+                            </span>
+                          </p>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
                       </div>
                       <div class="news-title"><?php the_title(); ?></div>
                     </a>

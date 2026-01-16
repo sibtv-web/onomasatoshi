@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+jQuery(function ($) {
+  window.addEventListener('load', function () {
+    $('main').fadeTo(400, 1);
+  })
+});
+
   // =========================
   // ニュースタブ切り替え
   // =========================
@@ -368,11 +374,6 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
 });
 
 
-jQuery(function ($) {
-  window.addEventListener('load', function () {
-    $('main').fadeTo(400, 1);
-  })
-});
 
 
 // =========================

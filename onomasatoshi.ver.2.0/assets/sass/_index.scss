@@ -528,6 +528,40 @@ p {
 // news
 // -------------------------------
 
+//丸いぼかし　news sp専用
+.news-section .inner .news-image-wrap .circle-blur-deep-blue{
+    top: 60%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 26vw;
+    height: 26vw;
+    background: rgba(0, 42, 255, 0.8);
+    filter: blur(60px);
+      @include bp-m() {
+    top: 60%;
+    left: 50%;
+    transform: none;
+
+    width: 19.69vw;
+    height: 19.69vw;
+
+    filter: blur(200px);
+  }
+
+}
+
+.news-section .inner .news-image-wrap .inner-image{
+    margin-bottom: 75px;   
+    @include bp-m(){
+      margin-bottom: 60px;
+    }
+}
+
+
+
+
+
+
 .news-section{
   background-color: #03121F;
   @include bp-m(){

@@ -1,7 +1,63 @@
 <?php get_header(); ?>
+
+
 <main>
   <div class="single-discography-container">
-    <div class="bg-fixed"></div>
+
+          <?php
+          $latest_discography_data = null;
+
+          $latest_discography = new WP_Query([
+            'post_type'      => 'discography',
+            'posts_per_page' => 1,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+          ]);
+
+          if ( $latest_discography->have_posts() ) {
+            $latest_discography->the_post();
+
+            $latest_discography_data = [
+              'jacket' => get_field('jacket_images'),
+              'price'  => get_field('price'),
+              'number'  => get_field('disc_number'),
+              'disc1'  => get_field('disc-1'),
+              'disc2'  => get_field('disc-2'),
+              'title'  => get_the_title(),
+              'link'   => get_permalink(),
+              'amazon' => get_field('amazon_url'),
+              'tower'  => get_field('tower_url'),
+              'hmv'    => get_field('hmv_url'),
+              'mv'    => get_field('music-video'),
+              'flyer' => get_field('tour_images'),
+              'tour'  => get_field('tour'),
+              'ticket'  => get_field('ticket'),
+            'apple'   => get_field('apple_music_url'),
+            'line'    => get_field('line_music_url'),
+            'itunes'  => get_field('itunes_store_url'),
+            'spotify' => get_field('spotify_url'),
+            ];
+
+            wp_reset_postdata();
+          }
+          ?>
+
+
+    <div class="bg-layer"></div>
+      <div class="release-title__box"> 
+        <div class="release-title__animation splide">
+          <div class="splide__track">
+            <ul class="slideAnimation-list splide__list">
+            <?php
+                for($i = 0; $i < 8; $i++){
+                  echo '<li class="slideAnimation-list__item splide__slide">'.esc_html($latest_discography_data['title']).'</li>';
+                }
+              ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+
 
 
     <div class="simple-header">
@@ -48,19 +104,6 @@
           ?>
       
       <section class="sec-latest-release"><!-- latest-release --> 
-        <div class=""> 
-          <div class="release-title__animation splide">
-            <div class="splide__track">
-              <ul class="slideAnimation-list splide__list">
-              <?php
-                  for($i = 0; $i < 8; $i++){
-                    echo '<li class="slideAnimation-list__item splide__slide">'.esc_html($latest_discography_data['title']).'</li>';
-                  }
-                ?>
-              </ul>
-            </div>
-          </div>
-        </div>
       <div class="release-section-title">LATEST<br>RELEASE</div>
 
         <div class="release-layout">

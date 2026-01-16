@@ -307,6 +307,11 @@ add_action('wpcf7mailsent', function($contact_form){
     }
 });
 
+// --------------------------------------
+// ページネーション
+// --------------------------------------
+
+
 function set_pre_get_posts($query) {
   if (is_admin() || !$query->is_main_query()) {
     return;
@@ -317,3 +322,4 @@ function set_pre_get_posts($query) {
   }
 }
 add_action('pre_get_posts', 'set_pre_get_posts');
+

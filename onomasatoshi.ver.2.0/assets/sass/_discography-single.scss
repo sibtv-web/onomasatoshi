@@ -1,24 +1,39 @@
-.single-discography-container{
-  .bg-fixed{
-  position: fixed;
-  inset: 0;               // top:0; right:0; bottom:0; left:0
-  // z-index: -1;            // 背面に送る
-  // padding: 0 20px;
-  background-image: url("../images/bg/bg_latest-release_pc.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-    @include bp-m(){
-    // padding:0 5.2vw ;
+.discography-template-default.single.single-discography{
+& main{
+  position: relative;
+  z-index: 1;
+}
+
+}
+
+
+
+.bg-layer{
+    position: fixed;
+    inset: 0;               // top:0; right:0; bottom:0; left:0
+    z-index: -2;            // 背面に送る
+    padding: 0 20px;
     background-image: url("../images/bg/bg_latest-release_pc.webp");
-    }
-    &::before{
-      background: rgba(3, 18, 31, 0.85);
-      content: "";
-      position: absolute;
-      inset: 0;
-    }
-  }
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+      @include bp-m(){
+      // padding:0 5.2vw ;
+      background-image: url("../images/bg/bg_latest-release_pc.webp");
+      }
+      &::before{
+        background: rgba(3, 18, 31, 0.85);
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+
+}
+
+
+.single-discography-container{
+  position: relative;
+  
   .site-footer{
     position: relative;
   }
@@ -56,23 +71,33 @@
 
 
 
-.sec-latest-release{
-  position: relative;
+
+  .release-title__box{
+    position: absolute;
+    top:15%;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  
+    @include bp-m(){
+      top:15%
+    }
+  }
 
   .slideAnimation-list__item{
-  color:#314370 ;
-  opacity: 0.4;
-  font-size: 18.5vw;
+  font-family: "Inter-BoldItalic";
+  color: rgb(49, 67, 112); 
+  opacity: 0.4;           
+  font-size: 28vw;
   @include bp-m(){
-    font-size: 10vw;
+    font-size: 8.5vw;
   }
   }
 
-}
 
 .latest-release-inner{
   padding: 0 20px;
   @include bp-m(){
+  padding: 0 100px;
 
   }
 
@@ -107,7 +132,7 @@
     padding: 0;
     align-items: unset;
     @include bp-m(){
-    padding: 110px 11.4vw 0;      
+    padding: 110px 11.4vw 0 16.6vw;      
     flex-direction: unset;
     align-items: flex-start;    }
   }
@@ -235,6 +260,7 @@
 
   .release-left-inner{
     margin-top: 0;
+    position: relative;
   }
   .release-description{
     line-height: 1.6;

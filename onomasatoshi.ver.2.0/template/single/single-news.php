@@ -19,7 +19,7 @@
                 <div id="news-content">
                     <div class="news-item-flex">
                         <div class="news-date"><?php echo $setDate; ?></div>
-                        <!-- <div class="news-tags"><?php the_field('news_tag'); ?></div> -->
+                        <div class="news-tags"><?php the_field('news_tag'); ?></div>
                         <?php
                         $news_tags = get_field('news_tag');
 
