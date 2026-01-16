@@ -5,7 +5,6 @@
     <!-- アーカイブヘッダー -->
     <div class="discography archive-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-        
         <div class="archive-header-tx fade-anime" data-fade="fade-left">
             <picture>
             <source
@@ -16,25 +15,30 @@
         </div>
         <div class="circle-blur-deep-blue"></div>        
     </div>
-
     <article>
       <section class="archive-news archive-discography">
         <div class="section-title">DISCOGRAPHY</div>
-
         <!-- タブ切替 -->
-
         <ul class="news-tabs">
           <li class="news-tags is-active" data-filter="all">ALL</li>
           <li class="news-tags" data-filter="single">シングル</li>
           <li class="news-tags" data-filter="album">アルバム</li>
           <li class="news-tags" data-filter="dvd">DVD</li>
         </ul>
-
         <div class="archive-discography-inner">
-
-          <?php if ( have_posts() ) : ?>
+          <?php 
+            $args = array(
+              'posts_per_page' => -1,
+              'post_type' => array('discography'),
+              'post_status' => array('publish'),
+              'orderby' => 'date',
+              'order' => 'DESC',
+            );
+            $the_query = new WP_Query($args);
+            if ( $the_query->have_posts() ) : 
+          ?>
           <ul class="discography-list">
-              <?php while ( have_posts() ) : the_post(); 
+              <?php while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 $jacket = get_field('jacket_images');
                 $date = get_field('release_date');
                 $number = get_field('disc_number');
@@ -76,7 +80,7 @@
 
                 <div class="jacket-image">
                   <img src="<?php echo esc_url($jacket); ?>" alt="<?php the_title(); ?>">
-                   <button class="plus-btn">＋</button>
+                  <button class="plus-btn">＋</button>
                 </div>
 
                 <div class="tag-date-flex">
@@ -123,7 +127,6 @@
     </article>
   </div>
 </main>
-
 <!-- 詳細モーダル -->
 <div class="detail-modal player-modal">
   <div class="player-content">
@@ -194,6 +197,7 @@
         </div><!--modal-body-flex-->
     </div><!-- modal-body -->
   </div><!-- player-content -->
-</div><!-- detail-modal player-modal -->
+</div>
+<!-- detail-modal player-modal -->
 
 <?php get_footer(); ?>

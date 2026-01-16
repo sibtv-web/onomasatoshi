@@ -291,9 +291,14 @@ overflow: hidden;
 
   .modal-desc {
     line-height: 1.6;
-    margin-bottom: 58px;
-    @include bp-m(){
-      margin-bottom: 98px;
+    p {
+      &:last-child {
+      margin-bottom: 58px;
+      @include bp-m(){
+        margin-bottom: 60px;
+      }
+
+      }
     }
   }
 
@@ -307,19 +312,22 @@ overflow: hidden;
     position: relative;
       &::before{
       content: '【収録曲】';
-      position: absolute;
+      display: block;
+      // position: absolute;
       font-size: 14px;
-      top: -2em;   // 好みで調整
+      // top: -2em;   // 好みで調整
       left: 0;
+      margin-bottom: 1em;
       white-space: nowrap;
       @include bp-m(){
-        top: -2.3em;
+        // top: -2.3em;
+        margin-bottom: 1em;
         font-size: 16px;
       }
     }
   }
 
-  .disc-1{
+  .disc-1,.disc-2{
     margin-bottom: 20px;
     @include bp-m(){
       margin-bottom: 40px;
@@ -352,18 +360,27 @@ overflow: hidden;
   }
   .modal-tour{
     position: relative;
+    img {
+      margin: 10px 0;
+      @include bp-m(){
+        margin: 20px 0;
+        width: 50%;
+      }
+    }
     &::before {
         content: '【ツアー情報】';
-        position: absolute;
+        display: block;
+        // position: absolute;
         font-size: 14px;
-        top: -2em;   // 好みで調整
+        // top: -2em;   // 好みで調整
+        margin-bottom: 1em;
         left: 0;
         white-space: nowrap;
         @include bp-m(){
-          top: -2.3em;
+          // top: -2.3em;
           font-size: 16px;
         }
-      }
+    }
 
   }
 }
