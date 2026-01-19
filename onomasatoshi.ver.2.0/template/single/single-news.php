@@ -19,7 +19,7 @@
                 <div id="news-content">
                     <div class="news-item-flex">
                         <div class="news-date"><?php echo $setDate; ?></div>
-                        <div class="news-tags"><?php the_field('news_tag'); ?></div>
+                        <!-- <div class="news-tags"><?php the_field('news_tag'); ?></div> -->
                         <?php
                         $news_tags = get_field('news_tag');
 
@@ -46,10 +46,11 @@
                         <?php endif; ?>
                     </div>
                     <h2 class="news-title" class="sec-message"><?php the_title(); ?></h2>
-                    <?php if (has_post_thumbnail()): ?>
-                    <div class="news-thumbnail">
-                    <?php the_post_thumbnail('thumbnail'); ?>
-                    </div>
+
+                    <?php if (has_post_thumbnail() && !is_singular('news')): ?>
+                        <div class="news-thumbnail">
+                            <?php the_post_thumbnail('thumbnail'); ?>
+                        </div>
                     <?php endif; ?>
 
                     <div class="news-text"><?php the_content(); ?></div>
@@ -93,17 +94,18 @@
                         </a>
                     </div>
 
-                        <!-- Instagram -->
+                    <!-- LINE -->
                     <div class="sns-share-item">
-                        <button
-                            type="button"
-                            class="sns-btn instagram"
-                            id="share-instagram"
+                        <a
+                            href="https://line.me/R/msg/text/?<?php echo $share_title; ?>%0A<?php echo $share_url; ?>"
+                            target="_blank"
+                            rel="noopener"
+                            class="sns-btn line"
                         >
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg"alt="">
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg" alt="">
                             <span class="text">LINEでシェア</span>
                             <span class="sns-share-chevron"></span>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="circle-arrow--left">

@@ -11,6 +11,8 @@ add_filter('show_admin_bar', '__return_false');
 add_theme_support('post-thumbnails');
 add_image_size('movie', 360, 200, true);
 add_theme_support('title-tag');
+add_image_size('my-size', 740, 555, false);
+
 
 // --------------------------------------
 // 管理画面メニュー非表示（投稿のみ）

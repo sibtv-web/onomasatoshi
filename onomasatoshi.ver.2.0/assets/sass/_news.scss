@@ -346,15 +346,32 @@
 
   .news-text{
     letter-spacing:unset;
-    font-size: 15px;
+    font-size: 10px;
     font-weight: 500;
     @include bp-m(){
     letter-spacing: 0.64px;
     font-size: 16px;
     font-weight: 700;
     }
+    & p{
+      margin-bottom: 15px;
+      @include bp-m(){
+        margin-top: 30px;
+      }
+    }
   }
 }
+
+.single-news .sec-news-single .single-news {
+  a {
+    border-bottom: 1px solid #EFEFEF;
+    transition: opacity 0.5s ease; 
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
 
  /* =========================
      SNS SHARE

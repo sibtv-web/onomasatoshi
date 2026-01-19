@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
 jQuery(function ($) {
-  window.addEventListener('load', function () {
     $('main').fadeTo(400, 1);
-  })
 });
-
   // =========================
   // ニュースタブ切り替え
   // =========================
@@ -183,6 +180,58 @@ if (detailModal) {
         }
 
 function toggleModalLinks(detailModal) {
+
+
+
+// // ローディング開始
+// document.addEventListener("DOMContentLoaded", function() {
+//   gsap.registerPlugin(MotionPathPlugin);
+
+//   const tl = gsap.timeline({
+//     onComplete: () => {
+//       document.body.classList.remove('loading');
+//       document.querySelector('.kv-loading').style.display = 'none';
+//     }
+//   });
+
+//   // 8の字ライト動作
+//   tl.to(".mask-circle", {
+//     motionPath: {
+//       path: [
+//         {x:0, y:0},
+//         {x:20, y:-20},
+//         {x:-20, y:20},
+//         {x:0, y:0}
+//       ],
+//       align: ".mask-circle",
+//       autoRotate: true
+//     },
+//     duration: 2,
+//     ease: "power1.inOut"
+//   });
+
+//   // 円を拡大
+//   tl.to(".mask-circle", {
+//     scale: 30,
+//     duration: 0.5,
+//     ease: "power2.in"
+//   });
+
+//   // ライト白に切り替え
+//   tl.to([".light-rect1", ".light-rect2"], {
+//     attr: { fill: "url(#lightGradWhite)" },
+//     duration: 0.5
+//   }, "<"); // "<" = 前のアニメーションと同時
+
+//   // KVをフェードイン
+//   tl.to(".kv-final", {
+//     opacity: 1,
+//     duration: 0.5
+//   }, "<");
+
+// });
+
+
 
   /* =========
      配信リンク（news-tags）非表示判定
@@ -375,34 +424,6 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
 
 
 
-
-// =========================
-// Instagramシェア用
-// =========================
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   const instaBtn = document.getElementById('share-instagram');
-
-//   if (!instaBtn) return;
-
-//   instaBtn.addEventListener('click', function () {
-//     const url = window.location.href;
-//     const title = document.title;
-
-//     // スマホ対応（Web Share API）
-//     if (navigator.share) {
-//       navigator.share({
-//         title: title,
-//         url: url
-//       });
-//     } else {
-//       // PC用フォールバック
-//       alert('URLをコピーしました。Instagramストーリーで共有してください。');
-//       navigator.clipboard.writeText(url);
-//     }
-//   });
-// });
 
 // =========================
 // ディスコグラフィータブ切り替え
@@ -603,3 +624,90 @@ if(txtSlideAnime.length > 0){
     }
   }).mount(window.splide.Extensions);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // jQuery フェードイン処理
+  jQuery(function ($) {
+    $('main').fadeTo(400, 1);
+  });
+
+  // =========================
+  // リロード判定（F5 / ⌘R）の時だけ初期化
+  // =========================
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  if (navEntry && navEntry.type === "reload") {
+    sessionStorage.removeItem('kvLoaded');
+  }
+
+  // =========================
+  // ローディング（トップページのみ）
+  // =========================
+  const overlay = document.querySelector('.kv-overlay');
+  const dark    = document.querySelector('.kv-dark');
+  const inner   = document.querySelector('.kv-light-inner');
+  const outer   = document.querySelector('.kv-light-outer');
+  const white   = document.querySelector('.kv-light-white');
+
+  if (overlay && dark && inner && outer && white) {
+
+    // ★ 初回判定
+    const hasLoaded = sessionStorage.getItem('kvLoaded');
+    if (hasLoaded) {
+      overlay.style.display = 'none';
+      dark.style.opacity  = 0;
+      inner.style.opacity = 0;
+      outer.style.opacity = 0;
+      white.style.opacity = 0;
+      return; // GSAPは動かさない
+    }
+
+    // ★ 初回完了を記録（リロード時は上で消されるので再表示可能）
+    sessionStorage.setItem('kvLoaded', 'true');
+
+    // ローディング開始
+    document.body.classList.add('loading');
+
+    gsap.set([inner, outer], { x:0, y:0, scale:1, opacity:1 });
+    gsap.set(white, { scale:1, opacity:0 });
+    gsap.set(dark, { opacity:1 });
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        document.body.classList.remove('loading');
+        overlay.style.display = 'none';
+      }
+    });
+
+    // ① ゆっくり8の字（2秒だけ動かす）
+    tl.to({}, {
+      duration: 2,
+      ease: "none",
+      onUpdate: function () {
+        const t = this.progress() * Math.PI * 0.8;
+        gsap.set([inner, outer], {
+          x: Math.sin(t) * 28 + "vw",
+          y: Math.sin(t * 2) * 18 + "vh"
+        });
+      }
+    });
+
+    // ② オレンジが広がりながら白に変化
+    tl.to([inner, outer], { scale: 5, opacity: 0, duration: 1, ease: 'power2.inOut' });
+    tl.to(white, { opacity: 1, scale: 10, duration: 1, ease: 'power2.inOut' }, '<');
+
+    // ③ 白ライトをフェードアウト
+    tl.to(white, { opacity: 0, duration: 0.6, ease: 'power1.out' });
+
+    // ④ 念のためオレンジライト完全消去
+    tl.to([inner, outer], { opacity: 0, duration: 0.4 }, '-=0.3');
+
+    // ⑤ 暗幕フェードアウト
+    tl.to(dark, { opacity: 0, duration: 0.6 }, '<');
+  }
+
+  // ここから下は既存の処理（ハンバーガー、モーダル、タブ切り替えなど）
+  // 省略可能。以前のまま。
+
+});

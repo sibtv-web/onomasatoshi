@@ -107,12 +107,27 @@
 
                   <?php 
                   $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+
+                  // デフォルト画像のURL
+                  $default_url = get_theme_file_uri('/assets/images/others/img_news_noimage.webp');
+
+                  if ( $thumb_url ) {
+                      $bg_url = $thumb_url;
+                  } else {
+                      $bg_url = $default_url;
+                  }
                   ?>
-                  <?php if ($thumb_url): ?>
-                    <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($thumb_url); ?>');">
-                      <?php the_post_thumbnail('thumbnail'); ?>
-                    </div>
-                  <?php endif; ?>
+
+                  <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+                      <?php 
+                      // 実際に <img> を入れたい場合
+                      if ( $thumb_url ) {
+                          the_post_thumbnail('thumbnail');
+                      } else {
+                          echo '<img src="' . esc_url($default_url) . '" alt="デフォルト画像">';
+                      }
+                      ?>
+                  </div>
 
                   <div class="news-body">
                     <div class="date-tag-flex">

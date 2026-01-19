@@ -524,7 +524,7 @@ p {
 }
 
 .news-section .inner .news-image-wrap .circle-blur-deep-blue {
-  top: 60%;
+  top: 55%;
   left: 65%;
   transform: translate(-50%, -50%);
   width: 26vw;
@@ -544,7 +544,7 @@ p {
 }
 
 .news-section .inner .news-image-wrap .inner-image {
-  margin-bottom: 75px;
+  margin-bottom: 95px;
 }
 @media (min-width: 768px) {
   .news-section .inner .news-image-wrap .inner-image {
@@ -1130,18 +1130,117 @@ p {
 
 /* KV画像 */
 .kv {
-  position: relative; /* ← これが重要！ ハンバーガーの基準 */
+  position: relative;
   background-color: #000;
+  overflow: hidden;
 }
+
 .kv img {
-  width: 100%;
-  display: block;
+  position: relative;
+  z-index: 1; /* ← KVは一番下 */
+}
+
+/* ローディング中はスクロール禁止 */
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* ローディング中はハンバーガーメニュ非表示 */
+body.loading .hamburger {
+  display: none;
+}
+
+/* オーバーレイ全体 */
+.kv-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* ← KVの上に必ず乗せる */
+  pointer-events: none;
+}
+
+/* 暗幕 */
+.kv-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  opacity: 1;
+}
+
+/* ライト */
+.kv-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 59.2vw;
+  height: 59.2vw;
+  transform: translate(-50%, -50%);
 }
 @media (min-width: 768px) {
-  .kv img {
-    height: 100%;
-    object-fit: contain;
+  .kv-light {
+    width: 55vw;
+    height: 55vw;
   }
+}
+
+/* 明るいオレンジ */
+.kv-light-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 59.2vw; /* ← 大きさ */
+  height: 59.2vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 1;
+  filter: blur(15px); /* ← ぼかし具合 */
+  background: radial-gradient(circle, rgba(255, 226, 152, 0.35) 0%, rgba(255, 226, 152, 0.4) 55%, rgba(255, 226, 152, 0) 60%);
+}
+@media (min-width: 768px) {
+  .kv-light-inner {
+    width: 53.2vw;
+    height: 53.2vw;
+    filter: blur(25px);
+  }
+}
+
+/* 濃いオレンジ */
+.kv-light-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 59.2vw;
+  height: 59.2vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 1;
+  filter: blur(15px);
+  background: radial-gradient(circle, rgba(219, 186, 151, 0.35) 0%, rgba(219, 186, 151, 0.1) 55%, rgba(219, 186, 151, 0) 65%);
+}
+@media (min-width: 768px) {
+  .kv-light-outer {
+    width: 53.2vw;
+    height: 53.2vw;
+    filter: blur(25px);
+  }
+}
+
+/* 白ライト */
+.kv-light-white {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0) 65%);
+  filter: blur(30px);
+  opacity: 0;
+}
+
+.kv-light-white {
+  will-change: transform, opacity;
 }
 
 /* ハンバーガーアイコン */
@@ -2024,7 +2123,7 @@ p {
 }
 .sec-news-single .news-text {
   letter-spacing: unset;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 500;
 }
 @media (min-width: 768px) {
@@ -2033,6 +2132,22 @@ p {
     font-size: 16px;
     font-weight: 700;
   }
+}
+.sec-news-single .news-text p {
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .sec-news-single .news-text p {
+    margin-top: 30px;
+  }
+}
+
+.single-news .sec-news-single .single-news a {
+  border-bottom: 1px solid #EFEFEF;
+  transition: opacity 0.5s ease;
+}
+.single-news .sec-news-single .single-news a:hover {
+  opacity: 0.6;
 }
 
 /* =========================
@@ -2923,11 +3038,13 @@ body.is-modal-open {
 }
 .detail-modal.player-modal.active .modal-desc {
   line-height: 1.6;
+}
+.detail-modal.player-modal.active .modal-desc p:last-child {
   margin-bottom: 58px;
 }
 @media (min-width: 768px) {
-  .detail-modal.player-modal.active .modal-desc {
-    margin-bottom: 98px;
+  .detail-modal.player-modal.active .modal-desc p:last-child {
+    margin-bottom: 60px;
   }
 }
 .detail-modal.player-modal.active .modal-apple,
@@ -2940,23 +3057,23 @@ body.is-modal-open {
 }
 .detail-modal.player-modal.active .modal-songs::before {
   content: "【収録曲】";
-  position: absolute;
+  display: block;
   font-size: 14px;
-  top: -2em;
   left: 0;
+  margin-bottom: 1em;
   white-space: nowrap;
 }
 @media (min-width: 768px) {
   .detail-modal.player-modal.active .modal-songs::before {
-    top: -2.3em;
+    margin-bottom: 1em;
     font-size: 16px;
   }
 }
-.detail-modal.player-modal.active .disc-1 {
+.detail-modal.player-modal.active .disc-1, .detail-modal.player-modal.active .disc-2 {
   margin-bottom: 20px;
 }
 @media (min-width: 768px) {
-  .detail-modal.player-modal.active .disc-1 {
+  .detail-modal.player-modal.active .disc-1, .detail-modal.player-modal.active .disc-2 {
     margin-bottom: 40px;
   }
 }
@@ -2991,17 +3108,25 @@ body.is-modal-open {
 .detail-modal.player-modal.active .modal-tour {
   position: relative;
 }
+.detail-modal.player-modal.active .modal-tour img {
+  margin: 10px 0;
+}
+@media (min-width: 768px) {
+  .detail-modal.player-modal.active .modal-tour img {
+    margin: 20px 0;
+    width: 50%;
+  }
+}
 .detail-modal.player-modal.active .modal-tour::before {
   content: "【ツアー情報】";
-  position: absolute;
+  display: block;
   font-size: 14px;
-  top: -2em;
+  margin-bottom: 1em;
   left: 0;
   white-space: nowrap;
 }
 @media (min-width: 768px) {
   .detail-modal.player-modal.active .modal-tour::before {
-    top: -2.3em;
     font-size: 16px;
   }
 }
@@ -4449,7 +4574,7 @@ body.is-modal-open {
   font-family: "IBMPlexSansJP-Bold.woff";
   text-align: center;
   letter-spacing: 1.28px;
-  line-height: 1.6;
+  line-height: 1.3;
   font-size: 32px;
   margin-bottom: 30px;
 }
@@ -4459,6 +4584,7 @@ body.is-modal-open {
     letter-spacing: 2.56px;
     font-size: 3.3vw;
     margin-bottom: 40px;
+    line-height: 1.3;
   }
 }
 .latest-release-inner .release-date {
@@ -4599,7 +4725,8 @@ body.is-modal-open {
   }
 }
 .latest-release-inner h3 {
-  font-family: "ShipporiMincho-Bold.woff";
+  font-family: "NotoSansCJKjp-Bold";
+  font-weight: 700;
   font-size: 18px;
   line-height: 1.6;
   letter-spacing: 0.04em;

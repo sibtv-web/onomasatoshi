@@ -2,30 +2,79 @@
 
 <body>
 <main>
-    <!-- KV -->
-    <section class="kv">
-      <!-- <picture>
-        <source media="(min-width: 750px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp">
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp" alt="小野正利">
-      </picture> -->
-        <picture>
-          <!-- 821px以上（PC） -->
-          <source
-            media="(min-width: 821px)"
-            srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp"
-          >
+  <!-- KV -->
+<section class="kv">
 
-          <!-- 820px以下（SP） -->
-          <img
-            src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp"
-            alt="小野正利"
-          >
-        </picture>
+  <picture class="">
+    <source
+      media="(min-width: 821px)"
+      srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp"
+    >
+    <img
+      src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp"
+      alt="小野正利"
+    >
 
+      <div class="kv-overlay">
+        <div class="kv-dark"></div>
 
+        <div class="kv-light-inner"></div>
+        <div class="kv-light-outer"></div>
 
-    </section>
-    
+        <div class="kv-light-white"></div>
+      </div>
+
+  </picture>
+
+  <!-- ローディング演出 -->
+<!--
+  <div class="kv-loading">
+    <svg class="kv-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+
+      <defs>
+        <mask id="spotMask">
+          <rect width="100%" height="100%" fill="white" />
+          <circle id="maskCircle" cx="50" cy="50" r="25" fill="black" filter="url(#maskBlur)" />
+        </mask>
+
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="3" />
+        </filter>
+
+        <filter id="maskBlur">
+          <feGaussianBlur stdDeviation="1" />
+        </filter>
+
+        <radialGradient id="lightGrad1">
+          <stop offset="0%" stop-color="#ffe298" stop-opacity="0.3"/>
+          <stop offset="35%" stop-color="#ffe298" stop-opacity="0.6"/>
+          <stop offset="50%" stop-color="#ffe298" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="lightGrad2">
+          <stop offset="0%" stop-color="#dbba97" stop-opacity="0.3"/>
+          <stop offset="35%" stop-color="#dbba97" stop-opacity="0.6"/>
+          <stop offset="50%" stop-color="#dbba97" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="lightGradWhite">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+
+      </defs>
+
+      <rect width="100%" height="100%" fill="rgba(0,0,0,0.82)" mask="url(#spotMask)" />
+
+      <rect class="light-rect1" width="100%" height="100%" fill="url(#lightGrad1)" filter="url(#blur)" />
+      <rect class="light-rect2" width="100%" height="100%" fill="url(#lightGrad2)" filter="url(#blur)" />
+
+    </svg>
+  </div>
+-->
+
+</section>
+
   <div class="container">
 
 <!-- Release -->
@@ -302,4 +351,80 @@
 </div>
 
 <?php get_footer(); ?>
+
+<!-- 
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  gsap.registerPlugin(MotionPathPlugin);
+
+  const kvLoading = document.querySelector('.kv-loading');
+  const maskCircle = document.getElementById('maskCircle');
+  const kvFinal = document.querySelector('.kv-final');
+  const lightRects = [
+    document.querySelector('.light-rect1'),
+    document.querySelector('.light-rect2')
+  ];
+
+  if (!maskCircle || !kvFinal || lightRects.some(r => !r)) {
+    console.error("KVの要素が取得できません！");
+    return;
+  }
+
+  kvFinal.style.opacity = 0;             // KV初期非表示
+  document.body.classList.add('loading'); // スクロール停止
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      kvLoading.style.display = 'none';  
+      document.body.classList.remove('loading');
+    }
+  });
+
+  // 1. 8の字動作（2秒）
+  tl.to(maskCircle, {
+    motionPath: {
+      path: [
+        {x: 0, y: 0},
+        {x: 10, y: -10},
+        {x: -10, y: 10},
+        {x: 0, y: 0}
+      ],
+      align: maskCircle,
+      autoRotate: false
+    },
+    duration: 2,
+    ease: "power1.inOut"
+  });
+
+  // 2. 円を拡大
+  tl.to(maskCircle, {
+    scale: 30,
+    transformOrigin: "50% 50%",
+    duration: 0.5,
+    ease: "power2.in"
+  });
+
+  // 3. ライトを白に切り替え（同時）
+  tl.to(lightRects, {
+    attr: { fill: "url(#lightGradWhite)" },
+    duration: 0.5
+  }, "<");
+
+  // 4. KVフェードイン
+  tl.to(kvFinal, {
+    opacity: 1,
+    duration: 0.5
+  }, "<");
+});
+
+
+
+
+</script> -->
+
+
+
+
 </body>
+

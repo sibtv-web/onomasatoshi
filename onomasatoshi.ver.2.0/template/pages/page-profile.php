@@ -32,7 +32,7 @@ get_header();
           <div class="profile-inner">
             <div class="main-profile-box">
               <div class="main-img">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-main.png" alt="小野正利">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-main.jpg" alt="小野正利">
               </div>
               <p class="profile-name">小野正利</p>
               <p class="profile-birthday">1967年1月29日誕生</p>
@@ -268,7 +268,7 @@ get_header();
             <div class="profile-inner">
               <div class="main-profile-box">
                 <div class="main-img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-fishing.png" alt="小野正利">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-fishing.jpg" alt="小野正利">
                 </div>
                 <p class="profile-name">小野正利</p>
                 <p class="profile-birthday">1967年1月29日誕生</p>
