@@ -4,6 +4,8 @@ Template Name: page-contact
 */
 get_header();
 ?>
+    <div class="header-blur"></div>      
+
 <main>
   <div class="page-container contact-container">
 
@@ -19,6 +21,7 @@ get_header();
             </div>
 
             <div class="contact-box">
+              <p class="asterisk">※入力必須項目</p>
                 <?php
                 // Contact Form 7 のショートコードを呼び出すだけ
                 echo do_shortcode('[contact-form-7 id="b7c291d" title="お問い合わせ"]');

@@ -276,6 +276,21 @@
         font-size: 16px;
       }
   }
+
+  .asterisk{
+    font-size: 15px;
+    font-family: "NotoSansCJKjp-Medium";
+    font-weight: 500;
+    color:#FF383C ;
+    margin-bottom: unset;
+    padding: unset;
+    @include bp-m(){
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      margin-bottom: 40px;
+      padding: 0 120px;
+    }
+  }
 }
 
 /* ------------------------

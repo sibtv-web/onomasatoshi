@@ -13,7 +13,8 @@
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_discography_archive-sp.webp"alt="">
             </picture>
         </div>
-        <div class="circle-blur-deep-blue"></div>        
+        <div class="circle-blur-deep-blue"></div>  
+        <div class="header-blur"></div>      
     </div>
     <article>
       <section class="archive-news archive-discography">

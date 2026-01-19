@@ -306,8 +306,9 @@
     line-height: 1.8;
     width: 80px;
     height: 17px;
-    background-color: #EFEFEF;
-    color: #03121F;
+    background-color: #0A1836;
+    color: #efefef;
+    border: 1px solid #efefef;
     @include bp-m{
       font-size: 12px;
       width: 126px;

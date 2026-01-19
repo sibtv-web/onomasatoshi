@@ -32,7 +32,7 @@
     font-weight: 600;
     font-size: 16px;
     left: 4.6%;
-    z-index: 1;
+    z-index: 2;
       @include bp-m(){
         font-size: 1.67vw;
         top: 37px;
@@ -40,3 +40,38 @@
 
       }
 }
+
+
+//ヘッダーぼかし
+
+.header-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 70%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 70%,
+    rgba(0,0,0,0) 100%
+  );
+
+  pointer-events: none;
+  z-index: 1;
+  @include bp-m(){
+  height: 95px;
+  }
+}
+

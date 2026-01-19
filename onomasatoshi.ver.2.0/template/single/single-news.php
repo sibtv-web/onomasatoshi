@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<div class="header-blur"></div>      
+
 <main>
   <div class="single-container">
     <div class="simple-header">

@@ -19,7 +19,7 @@
         <div class="kv-dark"></div>
 
         <div class="kv-light-inner"></div>
-        <div class="kv-light-outer"></div>
+        <!-- <div class="kv-light-outer"></div> -->
 
         <div class="kv-light-white"></div>
       </div>

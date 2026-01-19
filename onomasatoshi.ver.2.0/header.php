@@ -67,6 +67,7 @@
                 <li><a href="<?php echo esc_url(home_url('/news/')); ?>">ニュース</a></li>
                 <li><a href="<?php echo esc_url(home_url('/profile/')); ?>">プロフィール</a></li>
                 <li><a href="<?php echo esc_url(home_url('/discography/')); ?>">ディスコグラフィ</a></li>
+                <li><a href="<?php echo esc_url(home_url('/qa/')); ?>">小野正利への質問</a></li>
                 <li><a href="https://goodsshop.onomasatoshi.com/" target="_blank">グッズ</a></li>
                 <li><a href="https://fanicon.net/fancommunities/4196" target="_blank">ファンクラブ</a></li>
                 <li><a href="https://www.galneryus.jp/" target="_blank">GALNERYUS</a></li>

@@ -1236,48 +1236,50 @@ body.loading .hamburger {
   border-radius: 50%;
   opacity: 1;
   filter: blur(15px);   /* ← ぼかし具合 */
+  mix-blend-mode: hard-light;
 
-  background: radial-gradient(
-  circle,
-  rgba(255, 226, 152, 0.35) 0%,   // ① 中心
-  rgba(255, 226, 152, 0.4) 55%, // ② 体積
-  rgba(255, 226, 152, 0.0) 60%   // ③ 終わり
-);
+//   background: radial-gradient(
+//   circle,
+//   rgba(255, 226, 152, 0.35) 0%,   // ① 中心
+//  rgba(255, 226, 152, 0) 60%   // ③ 終わり
+// );
+background: rgba(255, 222, 152, 0.55);
+
 @include bp-m(){
   width: 53.2vw;       
   height: 53.2vw;
-  filter: blur(25px); 
+  filter: blur(400px); 
 
 }
 
   
 }
-/* 濃いオレンジ */
+// /* 濃いオレンジ */
 
-.kv-light-outer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 59.2vw;
-  height: 59.2vw;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  opacity: 1;
-  filter: blur(15px);   
+// .kv-light-outer {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   width: 59.2vw;
+//   height: 59.2vw;
+//   transform: translate(-50%, -50%);
+//   border-radius: 50%;
+//   opacity: 1;
+//   filter: blur(15px);   
 
-  background: radial-gradient(
-    circle,
-   rgba(219, 186, 151, 0.35) 0%,   // ① 中心
-  rgba(219, 186, 151, 0.1) 55%,  // ② 体積
-  rgba(219, 186, 151, 0.0) 65%   // ③ 終わり
-  );
-  @include bp-m(){
-  width: 53.2vw;      
-  height: 53.2vw;
-  filter: blur(25px);   
+//   background: radial-gradient(
+//     circle,
+//    rgba(219, 186, 151, 0.35) 0%,   // ① 中心
+//   rgba(219, 186, 151, 0.1) 55%,  // ② 体積
+//   rgba(219, 186, 151, 0.0) 65%   // ③ 終わり
+//   );
+//   @include bp-m(){
+//   width: 53.2vw;      
+//   height: 53.2vw;
+//   filter: blur(25px);   
 
-}
-}
+// }
+// }
 
 /* 白ライト */
 

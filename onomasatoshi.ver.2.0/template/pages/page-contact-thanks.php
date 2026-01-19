@@ -4,6 +4,8 @@ Template Name: contact-thanks
 */
 get_header();
 ?>
+<div class="header-blur"></div>      
+
 <main>
   <div class="page-container contact-container">
 
