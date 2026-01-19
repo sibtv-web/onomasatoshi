@@ -1,20 +1,31 @@
 <?php
   get_header();
+  $param;
   $metaQuery = array();
-  $taxQuery = array();
   $paged = get_query_var('paged') ? get_query_var('paged') : 1;
+  $term = get_queried_object();
+  if ( $term && ! is_wp_error($term) ) {
+    $category = $term->slug;
+    $metaQuery[] = array(
+      array(
+        'key' => 'news_tag',
+        'value' => $category,
+        'compare' => 'LIKE',
+      )
+    );
+  }
 ?>
 <main>
   <div class="archive-container">
     <div class="news archive-header">
-      <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-      <div class="archive-header-tx fade-anime" data-fade="fade-left">
-        <picture>
-          <source media="(min-width: 750px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_archive-pc.webp">
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_archive-sp.webp"alt="">
-        </picture>
-      </div>
-      <div class="circle-blur-deep-blue"></div>        
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <div class="archive-header-tx fade-anime" data-fade="fade-left">
+          <picture>
+            <source media="(min-width: 750px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_archive-pc.webp">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_news_archive-sp.webp"alt="">
+          </picture>
+        </div>
+        <div class="circle-blur-deep-blue"></div>        
     </div>
     <article>
       <section id="tab" class="archive-news">
@@ -45,6 +56,7 @@
                 'post_type'      => 'news',
                 'post_status'    => 'publish',
                 'order'          => 'DESC',
+                'meta_query' => $metaQuery,
                 'paged'          => $paged
               );
               $the_query = new WP_Query($args);
@@ -57,12 +69,30 @@
               if ($the_query->have_posts()):
                 while ($the_query->have_posts()):
                   $the_query->the_post();
-                  $news_tags = get_the_terms( get_the_ID(), 'news-category' );
+                  // ACFタグ取得
+                  $news_tags = get_field('news_tag');
+                  // $tags_string = '';
+                  // if ($news_tags && is_array($news_tags)) {
+                  //   $tag_map = array(
+                  //     '公演'   => 'live',
+                  //     'イベント' => 'event',
+                  //     'メディア' => 'media',
+                  //     'その他'   => 'other'
+                  //   );
+
+                  //   $tags_array = array();
+                  //   foreach ($news_tags as $t) {
+                  //     if (isset($tag_map[$t])) {
+                  //       $tags_array[] = $tag_map[$t];
+                  //     }
+                  //   }
+                  //   $tags_string = implode(' ', $tags_array);
+                  // }
             ?>
               <li class="news">
                 <a class="news-list clearfix opa" href="<?php the_permalink(); ?>">
                   <div class="inner-flex">
-                    <?php 
+                  <?php 
                     $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
                     $default_url = get_theme_file_uri('/assets/images/others/img_news_noimage.webp');
                     if ( $thumb_url ) {
@@ -70,35 +100,35 @@
                     } else {
                       $bg_url = $default_url;
                     }
+                  ?>
+                  <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+                    <?php 
+                      if ( $thumb_url ) {
+                        the_post_thumbnail('full');
+                      } else {
+                        echo '<img src="' . esc_url($default_url) . '" alt="デフォルト画像">';
+                      }
                     ?>
-                    <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
-                      <?php 
-                        if ( $thumb_url ) {
-                          the_post_thumbnail('full');
-                        } else {
-                          echo '<img src="' . esc_url($default_url) . '" alt="デフォルト画像">';
-                        }
-                      ?>
-                    </div>
-                    <div class="news-body">
-                        <div class="date-tag-flex">
-                          <p class="post-head news-date"><?php the_time('Y.m.d'); ?></p>
-                          <?php if (! empty($news_tags) && ! is_wp_error($news_tags)): ?>
-                            <?php foreach ($news_tags as $tag): ?>
-                            <span class="news-tags">
-                              <?php echo esc_html( $tag_labels[ $tag->slug ]); ?>
-                            </span>
-                            <?php endforeach; ?>
-                          <?php endif; ?>
-                        </div>
-                        <div class="post-content"><?php the_title(); ?></div>
+                  </div>
+                  <div class="news-body">
+                    <div class="date-tag-flex">
+                      <p class="post-head news-date"><?php the_time('Y.m.d'); ?></p>
+                      <?php if ($news_tags && is_array($news_tags)): ?>
+                        <?php foreach ($news_tags as $tag): ?>
+                        <span class="news-tags">
+                          <?php echo esc_html($tag_labels[$tag] ?? $tag); ?>
+                        </span>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
+                      </div>
+                      <div class="post-content"><?php the_title(); ?></div>
                     </div>
                   </div>
                 </a>
               </li>
             <?php
-                endwhile;
-                wp_reset_postdata();
+              endwhile;
+              wp_reset_postdata();
               endif;
             ?>
           </ul>
