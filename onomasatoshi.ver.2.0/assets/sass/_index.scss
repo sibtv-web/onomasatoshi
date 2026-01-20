@@ -1,7 +1,11 @@
 
 html{
-    margin-top: 0 !important;
-    overflow-x: hidden;
+  margin-top: 0 !important;
+  overflow-x: hidden;
+  &:has(body.is-modal-open),
+  &:has(nav.site-nav.active) {
+    overflow: hidden;
+  }
 }
 main{
   opacity: 0;

@@ -354,11 +354,14 @@
     font-size: 16px;
     font-weight: 700;
     }
-    & p{
+    p{
       margin-bottom: 15px;
       @include bp-m(){
         margin-top: 30px;
       }
+    }
+    img {
+      max-width: 400px;
     }
   }
 }

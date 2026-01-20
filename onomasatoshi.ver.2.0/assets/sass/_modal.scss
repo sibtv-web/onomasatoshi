@@ -55,7 +55,7 @@ overflow: hidden;
   background:  rgba(3, 18, 31, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
 
   &.active {
     display: flex;
@@ -65,6 +65,7 @@ overflow: hidden;
 .player-modal {
   .player-content {
     /* 共通 */
+    overscroll-behavior: contain;
   }
   &.top-player {
     .player-content {
@@ -167,6 +168,7 @@ overflow: hidden;
   }
 
   .modal-type{
+    background-color: #0A2256;
     font-size: 12px;
     letter-spacing: 0.96px;  
     width: 112px;  

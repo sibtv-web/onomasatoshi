@@ -251,22 +251,80 @@
 
 
   /* ----- 項目タイトル（form-item内pタグ） ----- */
+  .wpcf7 form.invalid .wpcf7-response-output, 
+  .wpcf7 form.unaccepted .wpcf7-response-output, 
+  .wpcf7 form.payment-required .wpcf7-response-output {
+    color: #ff383c;
+    border: none;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 10px 0.5em 0;
+    padding: 10px 4%;
+    text-align: center;
+    @include bp-m() {
+      padding: 10px 5px;
+    }
+  }
   .form-item p {
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.6px;
     flex-wrap: nowrap;
     white-space: nowrap;    
-       @include bp-m() {
+    @include bp-m() {
       font-size: 16px;
+    }
+  }
+  .form-item.tx-center {
+    .wpcf7-form-control-wrap {
+      justify-content: center;
+    }
+    .wpcf7-not-valid-tip {
+      text-align: center;
+    }
+    .wpcf7-acceptance {
+      label {
+      cursor: pointer;
+      }
+      a {
+        color: #496ccc;
+        transition: all 0.3s;
+        &.col-wh {
+          color: #efefef;
+        }
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+      input {
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+    }
+  }
+  .wpcf7-form-control-wrap {
+    > .wpcf7-not-valid-tip {
+      display: none;
+      margin-top: 10px;
+    }
+    &.is-show {
+      > .wpcf7-not-valid-tip {
+        display: block;
+      }
     }
   }
   .form-item
   .wpcf7-form-control-wrap{
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 20px;
     @include bp-m(){
     margin-bottom: 40px;
+    }
+    .wpcf7-not-valid-tip {
+      color: #ff383c;
+      margin-top: 10px;
+      width: 100%;
     }
   }
   /* ----- ラジオボタンの項目テキスト ----- */
