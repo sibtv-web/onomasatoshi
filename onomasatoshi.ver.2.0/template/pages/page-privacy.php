@@ -5,6 +5,7 @@ Template Name: Privacy Policy
 	get_header();
 ?>
 <main>
+<div class="header-blur"></div>
   <div class="page-container privacy-container">
 
     <div class="simple-header-black">

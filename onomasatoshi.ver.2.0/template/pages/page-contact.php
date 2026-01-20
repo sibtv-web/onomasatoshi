@@ -4,9 +4,9 @@ Template Name: page-contact
 */
 get_header();
 ?>
-    <div class="header-blur"></div>      
 
 <main>
+  <div class="header-blur"></div>      
   <div class="page-container contact-container">
 
     <div class="simple-header-black">

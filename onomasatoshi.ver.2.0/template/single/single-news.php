@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <div class="circle-arrow--left">
-                    <a href="<?php echo home_url('/news/'); ?>">
+                    <a href="javascript:void(0)" id="js-news-back">
                         <span class="arrow"></span>
                         <span class="label">Back</span>
                     </a>

@@ -626,88 +626,311 @@ if(txtSlideAnime.length > 0){
 }
 
 
-// document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
-//   // jQuery フェードイン処理
-//   jQuery(function ($) {
-//     $('main').fadeTo(400, 1);
-//   });
+  // jQuery フェードイン処理
+  jQuery(function ($) {
+    $('main').fadeTo(400, 1);
+  });
 
-//   // =========================
-//   // リロード判定（F5 / ⌘R）の時だけ初期化
-//   // =========================
-//   const navEntry = performance.getEntriesByType("navigation")[0];
-//   if (navEntry && navEntry.type === "reload") {
-//     sessionStorage.removeItem('kvLoaded');
+const navEntry = performance.getEntriesByType("navigation")[0];
+if (navEntry && navEntry.type === "reload") {
+  sessionStorage.removeItem('kvLoaded');
+}
+
+const overlay = document.querySelector('.kv-mask'); 
+const spot = document.getElementById('spot');
+
+if (overlay && spot) {
+  // 初回判定
+  const hasLoaded = sessionStorage.getItem('kvLoaded');
+  if (hasLoaded) {
+    document.querySelector('.mask-svg').style.display = 'none';
+    return;
+  }
+  sessionStorage.setItem('kvLoaded', 'true');
+  document.body.classList.add('loading');
+
+  // 初期設定
+  gsap.set(spot, { cx: window.innerWidth / 2, cy: window.innerHeight / 2, r: 50 });
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      document.body.classList.remove('loading');
+      document.querySelector('.mask-svg').style.display = 'none';
+    }
+  });
+
+  const mm = gsap.matchMedia();
+
+  /* =========================
+     SP / TB（〜820px）
+  ========================== */
+  mm.add("(max-width: 820px)", () => {
+    tl.to({}, {
+      duration: 4,
+      ease: "none",
+      onUpdate: function () {
+        const p = this.progress();
+        const t = p * Math.PI * 0.9 + Math.PI * 1.75;
+
+        gsap.set(spot, {
+          cx: window.innerWidth/2 + Math.cos(t) * (window.innerWidth*0.28),
+          cy: window.innerHeight/2 + Math.sin(t*2) * (window.innerHeight*0.14)
+        });
+      }
+    });
+  });
+
+  /* =========================
+     PC（821px〜）
+  ========================== */
+  mm.add("(min-width: 821px)", () => {
+    tl.to({}, {
+      duration: 4.5,
+      ease: "power2.inOut",
+      onUpdate: function () {
+        const p = this.progress();
+        const easeFactor = gsap.parseEase("power2.inOut")(p);
+        const t = easeFactor * Math.PI * 1.5 + Math.PI / 7/4;
+
+        const baseX = window.innerWidth/2 - 20;
+        const baseY = window.innerHeight/2;
+        const amplitudeX = window.innerWidth*0.45;
+        const amplitudeY = window.innerHeight*0.25;
+
+        gsap.set(spot, {
+          cx: baseX + Math.cos(t)*(1-p)*amplitudeX,
+          cy: baseY + Math.sin(t*1.4)*(1-p)*amplitudeY
+        });
+      }
+    });
+  });
+
+  // 中心に来たら円を拡大して暗幕を消す
+  tl.to(spot, {
+    r: Math.max(window.innerWidth, window.innerHeight)*1.2,
+    duration: 2,
+    ease: "power2.out"
+  }, ">-0.5");
+
+} // overlay & spot が存在する if 文閉じ
+
+});
+
+
+// // =========================
+// // リロード判定（F5 / ⌘R）の時だけ初期化
+// // =========================
+// const navEntry = performance.getEntriesByType("navigation")[0];
+// if (navEntry && navEntry.type === "reload") {
+//   sessionStorage.removeItem('kvLoaded');
+// }
+
+// // =========================
+// // ローディング（トップページのみ）
+// // =========================
+// const overlay = document.querySelector('.kv-overlay');
+// const dark    = document.querySelector('.kv-dark');
+// const inner   = document.querySelector('.kv-light-inner');
+// const white   = document.querySelector('.kv-light-white');
+
+// if (overlay && dark && inner && white) {
+
+//   // ★ 初回判定
+//   const hasLoaded = sessionStorage.getItem('kvLoaded');
+//   if (hasLoaded) {
+//     overlay.style.display = 'none';
+//     dark.style.opacity  = 0;
+//     inner.style.opacity = 0;
+//     white.style.opacity = 0;
+//     return;
 //   }
 
-//   // =========================
-//   // ローディング（トップページのみ）
-//   // =========================
-//   const overlay = document.querySelector('.kv-overlay');
-//   const dark    = document.querySelector('.kv-dark');
-//   const inner   = document.querySelector('.kv-light-inner');
-//   const outer   = document.querySelector('.kv-light-outer');
-//   const white   = document.querySelector('.kv-light-white');
+//   sessionStorage.setItem('kvLoaded', 'true');
 
-//   if (overlay && dark && inner && outer && white) {
+//   document.body.classList.add('loading');
 
-//     // ★ 初回判定
-//     const hasLoaded = sessionStorage.getItem('kvLoaded');
-//     if (hasLoaded) {
+//   gsap.set(inner, { x:0, y:0, scale:1, opacity:1 });
+//   gsap.set(white, { scale:1, opacity:0 });
+//   gsap.set(dark,  { opacity:1 });
+
+//   const tl = gsap.timeline({
+//     onComplete: () => {
+//       document.body.classList.remove('loading');
 //       overlay.style.display = 'none';
-//       dark.style.opacity  = 0;
-//       inner.style.opacity = 0;
-//       outer.style.opacity = 0;
-//       white.style.opacity = 0;
-//       return; // GSAPは動かさない
 //     }
+//   });
 
-//     // ★ 初回完了を記録（リロード時は上で消されるので再表示可能）
-//     sessionStorage.setItem('kvLoaded', 'true');
 
-// //     // ローディング開始
-// //     document.body.classList.add('loading');
 
-// //     gsap.set([inner, outer], { x:0, y:0, scale:1, opacity:1 });
-// //     gsap.set(white, { scale:1, opacity:0 });
-// //     gsap.set(dark, { opacity:1 });
 
-// //     const tl = gsap.timeline({
-// //       onComplete: () => {
-// //         document.body.classList.remove('loading');
-// //         overlay.style.display = 'none';
-// //       }
-// //     });
 
-// //     // ① ゆっくり8の字（2秒だけ動かす）
-// //     tl.to({}, {
-// //       duration: 2,
-// //       ease: "none",
-// //       onUpdate: function () {
-// //         const t = this.progress() * Math.PI * 0.8;
-// //         gsap.set([inner, outer], {
-// //           x: Math.sin(t) * 28 + "vw",
-// //           y: Math.sin(t * 2) * 18 + "vh"
-// //         });
-// //       }
-// //     });
+//   const mm = gsap.matchMedia();
 
-// //     // ② オレンジが広がりながら白に変化
-// //     tl.to([inner, outer], { scale: 5, opacity: 0, duration: 1, ease: 'power2.inOut' });
-// //     tl.to(white, { opacity: 1, scale: 10, duration: 1, ease: 'power2.inOut' }, '<');
+// /* =========================
+//    SP / TB（〜820px）
+// ========================= */
+// mm.add("(max-width: 820px)", () => {
 
-// //     // ③ 白ライトをフェードアウト
-// //     tl.to(white, { opacity: 0, duration: 0.6, ease: 'power1.out' });
+//   tl.to({}, {
+//     duration: 4,      // 漂う時間（SPは少し短く）
+//     ease: "none",
+//     onUpdate: function () {
 
-// //     // ④ 念のためオレンジライト完全消去
-// //     tl.to([inner, outer], { opacity: 0, duration: 0.4 }, '-=0.3');
+//       const p = this.progress(); // 0 → 1
+//      const t = p * Math.PI * 0.9 + Math.PI * 1.75;
 
-// //     // ⑤ 暗幕フェードアウト
-// //     tl.to(dark, { opacity: 0, duration: 0.6 }, '<');
-// //   }
+//       gsap.set(inner, {
+//         x: Math.cos(t) * 28 + "vw",
+//         y: Math.sin(t * 2) * 14 + "vh"
+//       });
+//     }
+//   });
 
-// //   // ここから下は既存の処理（ハンバーガー、モーダル、タブ切り替えなど）
-// //   // 省略可能。以前のまま。
+// });
 
+
+// /* =========================
+//    PC（821px〜）
+// ========================= */
+// mm.add("(min-width: 821px)", () => {
+
+// tl.to({}, {
+//   duration: 4.5,          
+//   ease: "power2.inOut",
+//   onUpdate: function () {
+
+//     const p = this.progress(); // 0 → 1
+//     const easeFactor = gsap.parseEase("power2.inOut")(p); // pにイージングを適用
+//     const t = easeFactor * Math.PI * 1.5 + Math.PI / 7/4; // 回転量 + スタート角
+
+//     const baseX = -20; // スタートX（右の真ん中より少し右寄り）
+//     const baseY = 0; // スタートY（少し上）
+
+//     const amplitudeX = 45; // 横に広がる幅
+//     const amplitudeY = 25; // 縦の揺れ幅
+
+//     gsap.set(inner, {
+//       x: baseX + Math.cos(t) * (1 - p) * amplitudeX + "vw",
+//       y: baseY + Math.sin(t * 1.4) * (1 - p) * amplitudeY + "vh"
+//     });
+//   }
+// });
+
+// });
+
+
+//   // ② オレンジ → 白
+// tl.to(inner, {
+//   scale: 5,
+//   opacity: 0,
+//   duration: 1,
+//   ease: 'power2.inOut'
+// }, '>-0.9'); // 途中から
+
+// tl.to(white, {
+//   opacity: 1,
+//   scale: 10,
+//   duration: 1,
+//   ease: 'power2.inOut'
+// }, '<'); // 同時
+
+//   // ③ 白フェードアウト
+//   tl.to(white, {
+//     opacity: 0,
+//     duration: 0.6,
+//     ease: 'power1.out'
+//   });
+
+//   // ④ 暗幕フェードアウト
+//   tl.to(dark, {
+//     opacity: 0,
+//     duration: 0.6
+//   }, '<');
+// }
+
+// 
+
+
+// =========================
+// ニュース　シングルからアーカイブに戻るとき同じ位置に
+// =========================
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const newsLinks = document.querySelectorAll(
+    '.archive-news-list li.news a'
+  );
+
+  if (!newsLinks.length) return;
+
+  newsLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      sessionStorage.setItem('archiveNewsScrollY', window.scrollY);
+      sessionStorage.setItem('archiveNewsUrl', window.location.href);
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const backBtn = document.getElementById('js-news-back');
+  const backUrl = sessionStorage.getItem('archiveNewsUrl');
+
+  if (!backBtn) return;
+
+  backBtn.addEventListener('click', () => {
+    if (backUrl) {
+      window.location.href = backUrl;
+    } else {
+      // 直アクセス時の保険
+      window.location.href = '/news/';
+    }
+  });
+});
+
+window.addEventListener('load', () => {
+  if (!document.querySelector('.archive-news-list')) return;
+
+  const scrollY = sessionStorage.getItem('archiveNewsScrollY');
+
+  if (scrollY !== null) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: parseInt(scrollY, 10),
+        behavior: 'auto'
+      });
+      sessionStorage.removeItem('archiveNewsScrollY');
+      sessionStorage.removeItem('archiveNewsUrl');
+    }, 100);
+  }
+});
+
+
+
+// // =========================
+// // ヘッダーのぼかし（トップのみ、kv上を除く制御）
+// // =========================
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const trigger = document.querySelector('.home .container');
+//   const blur = document.querySelector('.header-blur');
+
+//   if (!trigger || !blur) return;
+
+//   const observer = new IntersectionObserver(
+//     ([entry]) => {
+//       if (entry.boundingClientRect.top <= 0) {
+//         blur.classList.add('is-active');
+//       } else {
+//         blur.classList.remove('is-active');
+//       }
+//     },
+//     {
+//       threshold: 0
+//     }
+//   );
+
+//   observer.observe(trigger);
 // });

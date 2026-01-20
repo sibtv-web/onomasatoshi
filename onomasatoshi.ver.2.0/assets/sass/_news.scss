@@ -89,9 +89,9 @@
       justify-content: center;
     }
     .news-tags{
-      padding: 4px;
+      // padding: 4px;
       @include bp-m(){
-        padding: 8px 16px;
+        // padding: 8px 16px;
 
       a {
         display: flex;
@@ -307,8 +307,8 @@
     width: 80px;
     height: 17px;
     background-color: #0A1836;
-    color: #efefef;
-    border: 1px solid #efefef;
+    color:#EFEFEF;
+    border: 1px solid #EFEFEF;
     @include bp-m{
       font-size: 12px;
       width: 126px;
@@ -531,6 +531,7 @@
       display: flex;
       padding-bottom: 60px;
       gap:8vw;
+      justify-content: center;
       @include bp-m(){
         width: 31.9vw;
         gap:3.1vw;

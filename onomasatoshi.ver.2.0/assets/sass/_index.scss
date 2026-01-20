@@ -832,13 +832,12 @@ p {
   }
 }
 
+
 .movie-section-title{
   position: relative;
   margin-bottom: 15px;
-  letter-spacing: -1px;
   @include bp-m(){
     margin-bottom: 37px; 
-    letter-spacing: -2.28px;
   }
   &::before{
     content: "";
@@ -859,6 +858,43 @@ p {
       height: 182px;    
     }
   }
+
+  span {
+    display: inline-block;
+  }
+
+span:nth-child(1)  { letter-spacing: -0.25em; }
+span:nth-child(2)  { letter-spacing: -0.25em; }
+span:nth-child(3)  { letter-spacing: -0.25em; }
+span:nth-child(4)  { letter-spacing: -0.25em; }
+span:nth-child(5)  { letter-spacing: -0.25em; }
+span:nth-child(6)  { letter-spacing: -0.25em; }
+span:nth-child(7)  { letter-spacing: -0.25em; }
+span:nth-child(8)  { letter-spacing: -0.25em; }
+span:nth-child(9)  { letter-spacing: -0.25em; }
+span:nth-child(10) { letter-spacing: -0.25em; }
+span:nth-child(11) { letter-spacing: -0.25em; }
+span:nth-child(12) { letter-spacing: -0.25em; } /* space */
+
+span:nth-child(13) { letter-spacing: -0.25em; }
+span:nth-child(14) { letter-spacing: -0.25em; }
+span:nth-child(15) { letter-spacing: -0.25em; }
+span:nth-child(16) { letter-spacing: -0.25em; }
+span:nth-child(17) { letter-spacing: -0.25em; }
+span:nth-child(18) { letter-spacing: -0.25em; }
+span:nth-child(19) { letter-spacing: -0.25em; } /* space */
+
+span:nth-child(20) { letter-spacing: -0.25em; }
+span:nth-child(21) { letter-spacing: -0.25em; }
+span:nth-child(22) { letter-spacing: -0.35em; } /* space */
+
+span:nth-child(23) { letter-spacing: -0.25em; }
+span:nth-child(24) { letter-spacing: -0.34em; }
+span:nth-child(25) { letter-spacing: -0.21em; }
+span:nth-child(26) { letter-spacing: -0.25em; }
+span:nth-child(27) { letter-spacing: -0.25em; }
+span:nth-child(28) { letter-spacing: -0.2em; }
+span:nth-child(29) { letter-spacing: -0.2em; }
 }
 
 
@@ -1192,156 +1228,26 @@ body.loading .hamburger {
   display: none;
 }
 
+.kv-mask{
+position: relative;
+  width: 100%;
+  height: auto; /* 元の高さを維持 */
+  overflow: hidden;
+}
+.kv-mask picture,
+.kv-mask img {
+  width: 100%;
+  height: auto; /* 元のトリミングなし */
+  display: block;
+}
 
-/* オーバーレイ全体 */
-.kv-overlay {
+.mask-svg {
   position: absolute;
   inset: 0;
-  z-index: 2;   /* ← KVの上に必ず乗せる */
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  
 }
-
-/* 暗幕 */
-.kv-dark {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.82);
-  opacity: 1;
-}
-
-/* ライト */
-.kv-light {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 59.2vw;
-  height: 59.2vw;
-  transform: translate(-50%, -50%);
-  @include bp-m(){
-    width: 55vw;
-    height: 55vw;
-    }
-}
-
-/* 明るいオレンジ */
-
-.kv-light-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 59.2vw;        /* ← 大きさ */
-  height: 59.2vw;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  opacity: 1;
-  filter: blur(15px);   /* ← ぼかし具合 */
-  mix-blend-mode: hard-light;
-
-//   background: radial-gradient(
-//   circle,
-//   rgba(255, 226, 152, 0.35) 0%,   // ① 中心
-//  rgba(255, 226, 152, 0) 60%   // ③ 終わり
-// );
-background: rgba(255, 222, 152, 0.55);
-
-@include bp-m(){
-  width: 53.2vw;       
-  height: 53.2vw;
-  filter: blur(400px); 
-
-}
-
-  
-}
-// /* 濃いオレンジ */
-
-// .kv-light-outer {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   width: 59.2vw;
-//   height: 59.2vw;
-//   transform: translate(-50%, -50%);
-//   border-radius: 50%;
-//   opacity: 1;
-//   filter: blur(15px);   
-
-//   background: radial-gradient(
-//     circle,
-//    rgba(219, 186, 151, 0.35) 0%,   // ① 中心
-//   rgba(219, 186, 151, 0.1) 55%,  // ② 体積
-//   rgba(219, 186, 151, 0.0) 65%   // ③ 終わり
-//   );
-//   @include bp-m(){
-//   width: 53.2vw;      
-//   height: 53.2vw;
-//   filter: blur(25px);   
-
-// }
-// }
-
-/* 白ライト */
-
-.kv-light-white {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60vw;
-  height: 60vw;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(255,255,255,1) 0%,
-    rgba(255,255,255,0.9) 35%,
-    rgba(255,255,255,0) 65%
-  );
-
-  filter: blur(30px);
-  opacity: 0;
-}
-
-.kv-light-white {
-  will-change: transform, opacity;
-}
-
-
-
-
-// .kv-final {
-//   position: relative;
-//   z-index: 1;
-//   width: 100%;
-//   height: 600px; // デザインに合わせて調整
-//   opacity: 0;     // 初期非表示
-//   img {
-//     width: 100%;
-//     height: 100%;
-//     display: block;
-//     object-fit: cover;
-//   }
-// }
-
-// body.loading {
-//   overflow: hidden;
-//   position: fixed;
-//   width: 100%;
-// }
-
-// .kv-loading {
-//   position: fixed;
-//   inset: 0;
-//   z-index: 9999;
-// }
-
-// .kv-svg {
-//   position: absolute;
-//   inset: 0;
-//   width: 100%;
-//   height: 100%;
-// }
 
 
 

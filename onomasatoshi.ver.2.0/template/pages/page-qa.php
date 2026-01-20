@@ -8,6 +8,7 @@ get_header();
 <div class="header-blur"></div>      
 
 <main>
+  <div class="header-blur"></div>      
   <div class="page-containe qa-containe">
 
     <div class="page-qa archive-header">

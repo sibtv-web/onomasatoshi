@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <main>
+  <div class="header-blur"></div>      
+
   <div class="container">
     <section class="faq-section">
       <div class="inner">

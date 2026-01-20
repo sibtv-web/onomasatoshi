@@ -813,12 +813,13 @@ p {
 .movie-section-title {
   position: relative;
   margin-bottom: 15px;
-  letter-spacing: -1px;
+  /* space */
+  /* space */
+  /* space */
 }
 @media (min-width: 768px) {
   .movie-section-title {
     margin-bottom: 37px;
-    letter-spacing: -2.28px;
   }
 }
 .movie-section-title::before {
@@ -841,6 +842,96 @@ p {
     width: 514px;
     height: 182px;
   }
+}
+.movie-section-title span {
+  display: inline-block;
+}
+.movie-section-title span:nth-child(1) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(2) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(3) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(4) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(5) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(6) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(7) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(8) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(9) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(10) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(11) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(12) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(13) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(14) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(15) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(16) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(17) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(18) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(19) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(20) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(21) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(22) {
+  letter-spacing: -0.35em;
+}
+.movie-section-title span:nth-child(23) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(24) {
+  letter-spacing: -0.34em;
+}
+.movie-section-title span:nth-child(25) {
+  letter-spacing: -0.21em;
+}
+.movie-section-title span:nth-child(26) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(27) {
+  letter-spacing: -0.25em;
+}
+.movie-section-title span:nth-child(28) {
+  letter-spacing: -0.2em;
+}
+.movie-section-title span:nth-child(29) {
+  letter-spacing: -0.2em;
 }
 
 /* ============================
@@ -1151,76 +1242,26 @@ body.loading .hamburger {
   display: none;
 }
 
-/* オーバーレイ全体 */
-.kv-overlay {
+.kv-mask {
+  position: relative;
+  width: 100%;
+  height: auto; /* 元の高さを維持 */
+  overflow: hidden;
+}
+
+.kv-mask picture,
+.kv-mask img {
+  width: 100%;
+  height: auto; /* 元のトリミングなし */
+  display: block;
+}
+
+.mask-svg {
   position: absolute;
   inset: 0;
-  z-index: 2; /* ← KVの上に必ず乗せる */
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-}
-
-/* 暗幕 */
-.kv-dark {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.82);
-  opacity: 1;
-}
-
-/* ライト */
-.kv-light {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 59.2vw;
-  height: 59.2vw;
-  transform: translate(-50%, -50%);
-}
-@media (min-width: 768px) {
-  .kv-light {
-    width: 55vw;
-    height: 55vw;
-  }
-}
-
-/* 明るいオレンジ */
-.kv-light-inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 59.2vw; /* ← 大きさ */
-  height: 59.2vw;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  opacity: 1;
-  filter: blur(15px); /* ← ぼかし具合 */
-  mix-blend-mode: hard-light;
-  background: rgba(255, 222, 152, 0.55);
-}
-@media (min-width: 768px) {
-  .kv-light-inner {
-    width: 53.2vw;
-    height: 53.2vw;
-    filter: blur(400px);
-  }
-}
-
-/* 白ライト */
-.kv-light-white {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60vw;
-  height: 60vw;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.9) 35%, rgba(255, 255, 255, 0) 65%);
-  filter: blur(30px);
-  opacity: 0;
-}
-
-.kv-light-white {
-  will-change: transform, opacity;
 }
 
 /* ハンバーガーアイコン */
@@ -1840,13 +1881,7 @@ body.loading .hamburger {
     justify-content: center;
   }
 }
-.archive-news .news-tabs .news-tags {
-  padding: 4px;
-}
 @media (min-width: 768px) {
-  .archive-news .news-tabs .news-tags {
-    padding: 8px 16px;
-  }
   .archive-news .news-tabs .news-tags a {
     display: flex;
     align-items: center;
@@ -2062,8 +2097,8 @@ body.loading .hamburger {
   width: 80px;
   height: 17px;
   background-color: #0A1836;
-  color: #efefef;
-  border: 1px solid #efefef;
+  color: #EFEFEF;
+  border: 1px solid #EFEFEF;
 }
 @media (min-width: 768px) {
   .sec-news-single .news-tags {
@@ -2284,6 +2319,7 @@ body.loading .hamburger {
   display: flex;
   padding-bottom: 60px;
   gap: 8vw;
+  justify-content: center;
 }
 @media (min-width: 768px) {
   .news-pagination .nav-links {
@@ -3424,8 +3460,8 @@ body.is-modal-open {
   left: 0;
   width: 100%;
   height: 70px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none;

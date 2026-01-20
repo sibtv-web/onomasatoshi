@@ -4,9 +4,9 @@ Template Name: qa-thanks
 */
 get_header();
 ?>
-<div class="header-blur"></div>      
 
 <main>
+  <div class="header-blur"></div>      
   <div class="contact-container qa-thanks-containe">
 
     <div class="simple-header">

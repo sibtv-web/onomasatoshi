@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <main>
+  <div class="header-blur"></div>      
+
   <div class="archive-container">
 
     <!-- アーカイブヘッダー -->
@@ -14,7 +16,6 @@
             </picture>
         </div>
         <div class="circle-blur-deep-blue"></div>  
-        <div class="header-blur"></div>      
     </div>
     <article>
       <section class="archive-news archive-discography">

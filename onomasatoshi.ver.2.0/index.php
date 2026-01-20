@@ -3,7 +3,7 @@
 <body>
 <main>
   <!-- KV -->
-<section class="kv">
+<section class="kv-mask">
 
   <picture class="">
     <source
@@ -14,18 +14,23 @@
       src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp"
       alt="小野正利"
     >
-
-      <div class="kv-overlay">
-        <div class="kv-dark"></div>
-
-        <div class="kv-light-inner"></div>
-        <!-- <div class="kv-light-outer"></div> -->
-
-        <div class="kv-light-white"></div>
-      </div>
-
   </picture>
 
+  <!-- マスク用SVG（スポット透過用） -->
+  <svg class="mask-svg">
+    <mask id="spot-mask">
+      <!-- 白＝暗幕が見える部分 -->
+      <rect width="100%" height="100%" fill="white"/>
+      <!-- 黒＝透けるスポット -->
+      <circle id="spot" cx="50%" cy="50%" r="50" fill="black" fill-opacity="0.2"/>
+
+    </mask>
+    <!-- 暗幕 -->
+    <rect width="100%" height="100%" fill="black" mask="url(#spot-mask)" opacity="0.3"/>
+  </svg>
+
+</section>
+ 
   <!-- ローディング演出 -->
 <!--
   <div class="kv-loading">
@@ -73,7 +78,6 @@
   </div>
 -->
 
-</section>
 
   <div class="container">
 
@@ -222,7 +226,38 @@
     <section class="movie-section">
       <div class="inner">
         <div class="section-content">
-          <div class="movie-section-title fade-anime" data-fade="fade-up">PERFORMANCE<br>MOVIE</div>
+          <div class="movie-section-title fade-anime" data-fade="fade-up">
+            <span>P</span>
+            <span>E</span>
+            <span>R</span>
+            <span>F</span>
+            <span>O</span>
+            <span>R</span>
+            <span>M</span>
+            <span>A</span>
+            <span>N</span>
+            <span>C</span>
+            <span>E</span><br>
+            <span> </span>
+            <span>V</span>
+            <span>I</span>
+            <span>D</span>
+            <span>E</span>
+            <span>O</span>
+            <span>S</span>
+            <span> </span>
+            <span>o</span>
+            <span>n</span>
+            <span> </span>
+            <span>Y</span>
+            <span>o</span>
+            <span>u</span>
+            <span>T</span>
+            <span>u</span>
+            <span>b</span>
+            <span>e</span>          
+          </div>
+
           <div class="circle-wrap fade-anime" data-fade="fade-up">
             <div class="circle-image">
               <a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank">
