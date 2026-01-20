@@ -185,26 +185,24 @@
                     <a href="<?php the_permalink(); ?>" class="news-link">
                       <div class="news-item-flex">
                         <p class="news-date"><?php the_time('Y.m.d'); ?></p>
-                      <?php
-                      $news_tags = (array) get_field('news_tag');
-
-                      $tag_labels = [
-                        'live'  => '公演',
-                        'event' => 'イベント',
-                        'media' => 'メディア',
-                        'other' => 'その他',
-                      ];
-                      ?>
-
-                      <?php if ($news_tags): ?>
-                        <?php foreach ($news_tags as $tag): ?>
-                          <p class="news-tags">
-                            <span class="tag">
-                              <?php echo esc_html($tag_labels[$tag] ?? $tag); ?>
-                            </span>
-                          </p>
-                        <?php endforeach; ?>
-                      <?php endif; ?>
+                        <?php
+                          $news_tags = get_the_terms( get_the_ID(), 'news-category' );
+                          $tag_labels = [
+                            'live'  => '公演',
+                            'event' => 'イベント',
+                            'media' => 'メディア',
+                            'other' => 'その他',
+                          ];
+                        ?>
+                        <?php if (! empty($news_tags) && ! is_wp_error($news_tags)): ?>
+                          <?php foreach ($news_tags as $tag): ?>
+                            <p class="news-tags">
+                              <span class="tag">
+                                <?php echo esc_html( $tag_labels[ $tag->slug ]); ?>
+                              </span>
+                            </p>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
                       </div>
                       <div class="news-title"><?php the_title(); ?></div>
                     </a>

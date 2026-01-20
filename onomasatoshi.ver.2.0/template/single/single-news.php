@@ -21,30 +21,21 @@
                 <div id="news-content">
                     <div class="news-item-flex">
                         <div class="news-date"><?php echo $setDate; ?></div>
-                        <!-- <div class="news-tags"><?php the_field('news_tag'); ?></div> -->
                         <?php
-                        $news_tags = get_field('news_tag');
-
-                        $tag_labels = [
-                        'live'  => '公演',
-                        'event' => 'イベント',
-                        'media' => 'メディア',
-                        'other' => 'その他',
-                        ];
+                          $news_tags = get_the_terms( get_the_ID(), 'news-category' );
+                          $tag_labels = [
+                            'live'  => '公演',
+                            'event' => 'イベント',
+                            'media' => 'メディア',
+                            'other' => 'その他',
+                          ];
                         ?>
-
-                        <?php if ($news_tags): ?>
-                        <?php
-                            // チェックボックスなので配列対策
-                            if (is_array($news_tags)) {
-                            $tag = $news_tags[0]; // 1つだけ使う前提
-                            } else {
-                            $tag = $news_tags;
-                            }
-                        ?>
-                        <div class="news-tags">
-                            <?php echo esc_html($tag_labels[$tag] ?? $tag); ?>
-                        </div>
+                        <?php if (! empty($news_tags) && ! is_wp_error($news_tags)): ?>
+                          <?php foreach ($news_tags as $tag): ?>
+                            <div class="news-tags">
+                              <span><?php echo esc_html( $tag_labels[ $tag->slug ]); ?></span>
+                            </div>
+                          <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                     <h2 class="news-title" class="sec-message"><?php the_title(); ?></h2>
