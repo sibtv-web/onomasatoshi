@@ -355,60 +355,119 @@
   
 }
 
-.profile-flip {
+/* ===== プロフィール切替 ===== */
+.profile-wrapper {
   position: relative;
-  perspective: 1400px;/* 奥行きの距離 */
-}
-
-/* 共通 */
-.profile-panel {
-  position: absolute;  
-  top: 0;
-  left: 0;
   width: 100%;
-
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 0.9s ease, visibility 0s linear 0.45s;
+  overflow: hidden;
 }
 
-/* 表 */
-.is-front {
-  position: relative; 
-  transform: rotateY(0deg);
-  visibility: visible;
-}
-
-/* 裏 */
-.is-back {
-  transform: rotateY(180deg);
-  visibility: hidden;
-}
-
-/* フリップ後 */
-.profile-flip.is-flipped .is-front {
-  transform: rotateY(-180deg);
-  visibility: hidden;
+/* プロフ本体 */
+.profile-panel {
   position: absolute;
+  inset: 0;
 }
 
-.profile-flip.is-flipped .is-back {
-  transform: rotateY(0deg);
-  visibility: visible;
-  transition-delay: 0s;
-  position: relative;
+/* 前後の重なり順だけで制御 */
+.is-front { z-index: 2; }
+.is-back  { z-index: 1; }
+
+/* ===== 消しゴムアニメーション ===== */
+.profile-eraser {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+
+  --erase: 0%;
+
+  /* マスクだけ */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 var(--erase),      /* この位置まで表示 */
+    transparent var(--erase) /* この位置から隠す */
+  );
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: intersect;
+
+  background: #03121F; 
+  
 }
 
-
-
-
-/* 通常の footerだけ非表示 */
-.page-template-page-profile-php .site-footer {
-  display: none !important;
+.profile-wrapper.is-switching
+.profile-panel.is-front
+.profile-eraser {
+  opacity: 1;
+  animation: eraseDown 0.9s linear forwards;
 }
-/* musicと釣り用のフッターの制御 */
 
-.page-template-page-profile-php .site-footer.music-footer,
-.page-template-page-profile-php .site-footer.fishing-footer {
-  display: block !important;
+@keyframes eraseDown {
+  from { --erase: 0%; }
+  to   { --erase: 100%; }
 }
+
+// .profile-panel.is-front {
+//   background: #03121F; /* 表の背景 */
+// }
+
+
+
+
+// .profile-flip {
+//   position: relative;
+//   perspective: 1400px;/* 奥行きの距離 */
+// }
+
+// /* 共通 */
+// .profile-panel {
+//   position: absolute;  
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+
+//   backface-visibility: hidden;
+//   transform-style: preserve-3d;
+//   transition: transform 0.9s ease, visibility 0s linear 0.45s;
+// }
+
+// /* 表 */
+// .is-front {
+//   position: relative; 
+//   transform: rotateY(0deg);
+//   visibility: visible;
+// }
+
+// /* 裏 */
+// .is-back {
+//   transform: rotateY(180deg);
+//   visibility: hidden;
+// }
+
+// /* フリップ後 */
+// .profile-flip.is-flipped .is-front {
+//   transform: rotateY(-180deg);
+//   visibility: hidden;
+//   position: absolute;
+// }
+
+// .profile-flip.is-flipped .is-back {
+//   transform: rotateY(0deg);
+//   visibility: visible;
+//   transition-delay: 0s;
+//   position: relative;
+// }
+
+
+
+
+// /* 通常の footerだけ非表示 */
+// .page-template-page-profile-php .site-footer {
+//   display: none !important;
+// }
+// /* musicと釣り用のフッターの制御 */
+
+// .page-template-page-profile-php .site-footer.music-footer,
+// .page-template-page-profile-php .site-footer.fishing-footer {
+//   display: block !important;
+// }

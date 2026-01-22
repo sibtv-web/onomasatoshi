@@ -347,7 +347,7 @@
 
   .news-text{
     letter-spacing:unset;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 500;
     @include bp-m(){
     letter-spacing: 0.64px;
@@ -363,6 +363,17 @@
     img {
       max-width: 400px;
     }
+    .wp-block-image{
+    width: 90.4vw;
+    margin: 0 auto;
+     @include bp-m(){
+      width: auto;
+    }
+      & img{
+        width: 100% !important;
+      }
+    }
+
   }
 }
 

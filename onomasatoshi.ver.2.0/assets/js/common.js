@@ -3,25 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
 jQuery(function ($) {
     $('main').fadeTo(400, 1);
 });
-  // =========================
-  // ニュースタブ切り替え
-  // =========================
-  // const tabs = document.querySelectorAll('.news-tabs .news-tags');
-  // const items = document.querySelectorAll('.news');
-
-  // tabs.forEach(tab => {
-  //   tab.addEventListener('click', () => {
-  //     tabs.forEach(t => t.classList.remove('active'));
-  //     tab.classList.add('active');
-
-  //     const tag = tab.dataset.tag; // タブのdata-tagを取得
-
-  //     items.forEach(item => {
-  //       const itemTags = item.dataset.tags ? item.dataset.tags.split(' ') : [];
-  //       item.style.display = (tag === 'all' || itemTags.includes(tag)) ? '' : 'none';
-  //     });
-  //   });
-  // });
 
   // =========================
   // ハンバーガー
@@ -183,56 +164,6 @@ function toggleModalLinks(detailModal) {
 
 
 
-// // ローディング開始
-// document.addEventListener("DOMContentLoaded", function() {
-//   gsap.registerPlugin(MotionPathPlugin);
-
-//   const tl = gsap.timeline({
-//     onComplete: () => {
-//       document.body.classList.remove('loading');
-//       document.querySelector('.kv-loading').style.display = 'none';
-//     }
-//   });
-
-//   // 8の字ライト動作
-//   tl.to(".mask-circle", {
-//     motionPath: {
-//       path: [
-//         {x:0, y:0},
-//         {x:20, y:-20},
-//         {x:-20, y:20},
-//         {x:0, y:0}
-//       ],
-//       align: ".mask-circle",
-//       autoRotate: true
-//     },
-//     duration: 2,
-//     ease: "power1.inOut"
-//   });
-
-//   // 円を拡大
-//   tl.to(".mask-circle", {
-//     scale: 30,
-//     duration: 0.5,
-//     ease: "power2.in"
-//   });
-
-//   // ライト白に切り替え
-//   tl.to([".light-rect1", ".light-rect2"], {
-//     attr: { fill: "url(#lightGradWhite)" },
-//     duration: 0.5
-//   }, "<"); // "<" = 前のアニメーションと同時
-
-//   // KVをフェードイン
-//   tl.to(".kv-final", {
-//     opacity: 1,
-//     duration: 0.5
-//   }, "<");
-
-// });
-
-
-
   /* =========
      配信リンク（news-tags）非表示判定
   ========= */
@@ -298,9 +229,6 @@ if (songs) {
 }
 
 
-
-
-
   // =========================
   // トップページ用プレイヤーモーダル
   // =========================
@@ -337,7 +265,6 @@ if (songs) {
   }
 
 });
-
 
 
 // =========================
@@ -423,8 +350,6 @@ gsap.utils.toArray('.fade-anime').forEach(el => {
 });
 
 
-
-
 // =========================
 // ディスコグラフィータブ切り替え
 // =========================
@@ -506,23 +431,51 @@ document.querySelectorAll('.jacket-image').forEach(wrap => {
 // プロフィールページ　釣り針マーククリックで切り替え
 // ========================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  const flipWrap = document.querySelector('.profile-flip');
-  const btn = document.querySelector('.btn-profile');
-  let isFishing = false;
-  if(btn) {
-    btn.addEventListener('click', () => {
-      isFishing = !isFishing;
 
-      flipWrap.classList.toggle('is-flipped', isFishing);
+// const btn = document.querySelector('.btn-profile');
+// const body = document.body;
+// const bars = document.querySelectorAll('.animation-bg-element');
 
-      // ボタン画像切替
-      btn.src = isFishing
-        ? btn.dataset.fishing
-        : btn.dataset.normal;
-    });
-  }
-});
+// btn.addEventListener('click', () => {
+//   body.classList.add('move-order');
+
+//   // アニメーション時間に合わせて処理
+//   setTimeout(() => {
+//     // プロフィール切替
+//     const normal = document.querySelector('.profile-panel--normal');
+//     const fishing = document.querySelector('.profile-panel--fishing');
+//     normal.classList.toggle('is-front');
+//     normal.classList.toggle('is-back');
+//     fishing.classList.toggle('is-front');
+//     fishing.classList.toggle('is-back');
+
+//     // バーを消す
+//     bars.forEach(bar => bar.style.display = 'none');
+
+//     // move-order も消す
+//     body.classList.remove('move-order');
+//   }, 600); // アニメーション時間＋余裕
+// });
+
+
+//ぺーじめくりのアニメーション
+// document.addEventListener('DOMContentLoaded', () => {
+//   const flipWrap = document.querySelector('.profile-flip');
+//   const btn = document.querySelector('.btn-profile');
+//   let isFishing = false;
+//   if(btn) {
+//     btn.addEventListener('click', () => {
+//       isFishing = !isFishing;
+
+//       flipWrap.classList.toggle('is-flipped', isFishing);
+
+//       // ボタン画像切替
+//       btn.src = isFishing
+//         ? btn.dataset.fishing
+//         : btn.dataset.normal;
+//     });
+//   }
+// });
 
 
 
@@ -577,26 +530,6 @@ document.addEventListener('wpcf7mailsent', function(event) {
 }, false);
 
 
-// ========================================
-// プロフィールページheader-name追従
-// ========================================
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const el = document.querySelector('.profile .header-name, .profile-panel--fishing .header-name');
-//   if (!el) return;
-
-//   const offsetTop = 20;
-//   const offsetRight = 20;
-
-//   const updatePosition = () => {
-//     const scrollY = window.scrollY;
-//     el.style.transform = `translateY(${scrollY}px)`;
-//   };
-
-//   updatePosition();
-//   window.addEventListener('scroll', updatePosition);
-// });
 
 // ========================================
 // テキストスライダー
@@ -632,92 +565,118 @@ document.addEventListener('DOMContentLoaded', function () {
   jQuery(function ($) {
     $('main').fadeTo(400, 1);
   });
-
-const navEntry = performance.getEntriesByType("navigation")[0];
-if (navEntry && navEntry.type === "reload") {
-  sessionStorage.removeItem('kvLoaded');
-}
-
-const overlay = document.querySelector('.kv-mask'); 
-const spot = document.getElementById('spot');
-
-if (overlay && spot) {
-  // 初回判定
-  const hasLoaded = sessionStorage.getItem('kvLoaded');
-  if (hasLoaded) {
-    document.querySelector('.mask-svg').style.display = 'none';
-    return;
-  }
-  sessionStorage.setItem('kvLoaded', 'true');
-  document.body.classList.add('loading');
-
-  // 初期設定
-  gsap.set(spot, { cx: window.innerWidth / 2, cy: window.innerHeight / 2, r: 50 });
-
-  const tl = gsap.timeline({
-    onComplete: () => {
-      document.body.classList.remove('loading');
-      document.querySelector('.mask-svg').style.display = 'none';
-    }
-  });
-
-  const mm = gsap.matchMedia();
-
-  /* =========================
-     SP / TB（〜820px）
-  ========================== */
-  mm.add("(max-width: 820px)", () => {
-    tl.to({}, {
-      duration: 4,
-      ease: "none",
-      onUpdate: function () {
-        const p = this.progress();
-        const t = p * Math.PI * 0.9 + Math.PI * 1.75;
-
-        gsap.set(spot, {
-          cx: window.innerWidth/2 + Math.cos(t) * (window.innerWidth*0.28),
-          cy: window.innerHeight/2 + Math.sin(t*2) * (window.innerHeight*0.14)
-        });
-      }
-    });
-  });
-
-  /* =========================
-     PC（821px〜）
-  ========================== */
-  mm.add("(min-width: 821px)", () => {
-    tl.to({}, {
-      duration: 4.5,
-      ease: "power2.inOut",
-      onUpdate: function () {
-        const p = this.progress();
-        const easeFactor = gsap.parseEase("power2.inOut")(p);
-        const t = easeFactor * Math.PI * 1.5 + Math.PI / 7/4;
-
-        const baseX = window.innerWidth/2 - 20;
-        const baseY = window.innerHeight/2;
-        const amplitudeX = window.innerWidth*0.45;
-        const amplitudeY = window.innerHeight*0.25;
-
-        gsap.set(spot, {
-          cx: baseX + Math.cos(t)*(1-p)*amplitudeX,
-          cy: baseY + Math.sin(t*1.4)*(1-p)*amplitudeY
-        });
-      }
-    });
-  });
-
-  // 中心に来たら円を拡大して暗幕を消す
-  tl.to(spot, {
-    r: Math.max(window.innerWidth, window.innerHeight)*1.2,
-    duration: 2,
-    ease: "power2.out"
-  }, ">-0.5");
-
-} // overlay & spot が存在する if 文閉じ
-
 });
 
+
+// ========================================
+// プロフィールページ　釣り針マーククリックで切り替え
+// ========================================
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('JS loaded');
+
+  const btn = document.querySelector('.btn-profile');
+  const wrapper = document.querySelector('.profile-wrapper');
+
+  console.log('btn:', btn);
+  console.log('wrapper:', wrapper);
+
+  btn.addEventListener('click', () => {
+    console.log('clicked');
+    wrapper.classList.remove('is-switching');
+    void wrapper.offsetWidth;
+    wrapper.classList.add('is-switching');
+  });
+});
+
+
+
+// ========================================
+// ローディング
+// ========================================
+
+// MotionPathPlugin を有効化
+gsap.registerPlugin(MotionPathPlugin);
+
+const isPC = window.innerWidth >= 821;
+
+
+
+const settings = isPC ? {
+  startR: 18,
+  endR: 120,
+  path: [
+    { x: 40, y: 30 }, // ① 右寄り中央
+    { x: 10, y: 35 }, // ② 左下
+    { x: -25, y: 0 }, // ③ 左
+    { x: 25, y: 5 }, // ④ 上
+    { x: 20, y: 20 }  // ⑤ 中央
+  ],
+  moveDuration: 2.5,
+  expandDuration: 1.6
+} : {
+  startR: 18,
+  endR: 100,
+  path: [
+    { x: 30, y: 30 },
+    { x: 10, y: 25 },
+    { x: -5, y: -10 },
+    { x: 15, y: -20 },
+    { x: 30, y: 30 }
+  ],
+  moveDuration: 2.5,
+  expandDuration: 1.6
+};
+
+// トップページかどうか判定
+const isHome = document.body.classList.contains("home");
+
+// セッションストレージ確認
+const hasVisited = sessionStorage.getItem("kvVisited");
+
+// KVマスク要素
+const kvMask = document.querySelector(".kv-mask");
+
+if (isHome && !hasVisited) {
+  // 初回トップページ訪問 → ローディング
+  sessionStorage.setItem("kvVisited", "true");
+
+  // スクロール禁止
+  document.body.style.overflow = "hidden";
+
+  // マスク表示
+  kvMask.style.display = "block";
+
+}
+
+// 初期位置（★必須）
+gsap.set('#spot', {
+  attr: {
+    cx: settings.path[0].x,
+    cy: settings.path[0].y,
+    r: settings.startR
+  }
+});
+
+// なめらか移動
+gsap.to('#spot', {
+  duration: settings.moveDuration,
+  ease: 'none',
+  motionPath: {
+    path: settings.path,
+    curviness: 1.6,
+    fromCurrent: false
+  }
+});
+
+// 拡大して解除
+gsap.to('#spot', {
+  attr: { r: settings.endR },
+  duration: settings.expandDuration,
+  ease: 'power3.out',
+  delay: settings.moveDuration
+});
 
 // // =========================
 // // リロード判定（F5 / ⌘R）の時だけ初期化
@@ -906,31 +865,57 @@ window.addEventListener('load', () => {
   }
 });
 
+// ========================================
+// プロフィールページ　釣り針マーククリックで切り替え
+// ========================================
 
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.btn-profile');
+  const wrapper = document.querySelector('.profile-wrapper');
+  const panels = wrapper.querySelectorAll('.profile-panel');
+  const eraser = wrapper.querySelector('.profile-panel.is-front .profile-eraser');
 
-// // =========================
-// // ヘッダーのぼかし（トップのみ、kv上を除く制御）
-// // =========================
+  let isAnimating = false;
+  const DURATION = 900; // CSSアニメーションと同じ時間
 
+  // wrapper 高さを前面パネルに合わせる
+  function syncWrapperHeight() {
+    const front = wrapper.querySelector('.profile-panel.is-front');
+    if (!front) return;
+    wrapper.style.height = front.scrollHeight + 'px';
+  }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const trigger = document.querySelector('.home .container');
-//   const blur = document.querySelector('.header-blur');
+  // 初期表示時にも高さ調整
+  window.addEventListener('load', syncWrapperHeight);
+  window.addEventListener('resize', syncWrapperHeight);
 
-//   if (!trigger || !blur) return;
+  btn.addEventListener('click', () => {
+    if (isAnimating) return;
+    isAnimating = true;
 
-//   const observer = new IntersectionObserver(
-//     ([entry]) => {
-//       if (entry.boundingClientRect.top <= 0) {
-//         blur.classList.add('is-active');
-//       } else {
-//         blur.classList.remove('is-active');
-//       }
-//     },
-//     {
-//       threshold: 0
-//     }
-//   );
+    // 再発火のためアニメーションをリセット
+    const front = wrapper.querySelector('.profile-panel.is-front');
+    const frontEraser = front.querySelector('.profile-eraser');
+    frontEraser.style.animation = 'none';
+    void frontEraser.offsetWidth; // reflow でリセット
+    frontEraser.style.animation = `eraseDown ${DURATION}ms linear forwards`;
 
-//   observer.observe(trigger);
-// });
+    // CSSでアニメーション用クラスも付与
+    wrapper.classList.add('is-switching');
+
+    setTimeout(() => {
+      // パネル切替
+      panels.forEach(panel => {
+        panel.classList.toggle('is-front');
+        panel.classList.toggle('is-back');
+      });
+
+      // 高さを新しい前面に合わせる
+      syncWrapperHeight();
+
+      // アニメーションクラス削除
+      wrapper.classList.remove('is-switching');
+      isAnimating = false;
+    }, DURATION);
+  });
+});

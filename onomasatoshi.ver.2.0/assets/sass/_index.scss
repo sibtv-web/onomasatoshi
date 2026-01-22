@@ -1232,18 +1232,14 @@ body.loading .hamburger {
   display: none;
 }
 
+
 .kv-mask{
-position: relative;
+  position: relative;
   width: 100%;
-  height: auto; /* 元の高さを維持 */
+  height: auto;
   overflow: hidden;
 }
-.kv-mask picture,
-.kv-mask img {
-  width: 100%;
-  height: auto; /* 元のトリミングなし */
-  display: block;
-}
+
 
 .mask-svg {
   position: absolute;
@@ -1251,6 +1247,13 @@ position: relative;
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.kv-mask picture,
+.kv-mask img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 

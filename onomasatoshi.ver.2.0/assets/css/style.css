@@ -43,6 +43,9 @@ html {
   margin-top: 0 !important;
   overflow-x: hidden;
 }
+html:has(body.is-modal-open), html:has(nav.site-nav.active) {
+  overflow: hidden;
+}
 
 main {
   opacity: 0;
@@ -1245,15 +1248,8 @@ body.loading .hamburger {
 .kv-mask {
   position: relative;
   width: 100%;
-  height: auto; /* 元の高さを維持 */
+  height: auto;
   overflow: hidden;
-}
-
-.kv-mask picture,
-.kv-mask img {
-  width: 100%;
-  height: auto; /* 元のトリミングなし */
-  display: block;
 }
 
 .mask-svg {
@@ -1262,6 +1258,13 @@ body.loading .hamburger {
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.kv-mask picture,
+.kv-mask img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ハンバーガーアイコン */
@@ -2139,7 +2142,7 @@ body.loading .hamburger {
 }
 .sec-news-single .news-text {
   letter-spacing: unset;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
 }
 @media (min-width: 768px) {
@@ -2156,6 +2159,21 @@ body.loading .hamburger {
   .sec-news-single .news-text p {
     margin-top: 30px;
   }
+}
+.sec-news-single .news-text img {
+  max-width: 400px;
+}
+.sec-news-single .news-text .wp-block-image {
+  width: 90.4vw;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .sec-news-single .news-text .wp-block-image {
+    width: auto;
+  }
+}
+.sec-news-single .news-text .wp-block-image img {
+  width: 100% !important;
 }
 
 .single-news .sec-news-single .single-news a {
@@ -2833,7 +2851,7 @@ body.is-modal-open {
   background: rgba(3, 18, 31, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
 }
 .player-modal.active {
   display: flex;
@@ -2841,6 +2859,7 @@ body.is-modal-open {
 
 .player-modal .player-content {
   /* 共通 */
+  overscroll-behavior: contain;
 }
 .player-modal.top-player .player-content {
   position: relative;
@@ -2943,6 +2962,7 @@ body.is-modal-open {
   }
 }
 .detail-modal.player-modal.active .modal-type {
+  background-color: #0A2256;
   font-size: 12px;
   letter-spacing: 0.96px;
   width: 112px;
@@ -3818,60 +3838,56 @@ body.is-modal-open {
   }
 }
 
-.profile-flip {
+/* ===== プロフィール切替 ===== */
+.profile-wrapper {
   position: relative;
-  perspective: 1400px; /* 奥行きの距離 */
+  width: 100%;
+  overflow: hidden;
 }
 
-/* 共通 */
+/* プロフ本体 */
 .profile-panel {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: transform 0.9s ease, visibility 0s linear 0.45s;
+  inset: 0;
 }
 
-/* 表 */
+/* 前後の重なり順だけで制御 */
 .is-front {
-  position: relative;
-  transform: rotateY(0deg);
-  visibility: visible;
+  z-index: 2;
 }
 
-/* 裏 */
 .is-back {
-  transform: rotateY(180deg);
-  visibility: hidden;
+  z-index: 1;
 }
 
-/* フリップ後 */
-.profile-flip.is-flipped .is-front {
-  transform: rotateY(-180deg);
-  visibility: hidden;
+/* ===== 消しゴムアニメーション ===== */
+.profile-eraser {
   position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  --erase: 0%;
+  /* マスクだけ */
+  -webkit-mask-image: linear-gradient(to bottom, #000 var(--erase), transparent var(--erase));
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: intersect;
+  background: #03121F;
 }
 
-.profile-flip.is-flipped .is-back {
-  transform: rotateY(0deg);
-  visibility: visible;
-  transition-delay: 0s;
-  position: relative;
+.profile-wrapper.is-switching .profile-panel.is-front .profile-eraser {
+  opacity: 1;
+  animation: eraseDown 0.9s linear forwards;
 }
 
-/* 通常の footerだけ非表示 */
-.page-template-page-profile-php .site-footer {
-  display: none !important;
+@keyframes eraseDown {
+  from {
+    --erase: 0%;
+  }
+  to {
+    --erase: 100%;
+  }
 }
-
-/* musicと釣り用のフッターの制御 */
-.page-template-page-profile-php .site-footer.music-footer,
-.page-template-page-profile-php .site-footer.fishing-footer {
-  display: block !important;
-}
-
 .page-template-default.page.page-id-37 .hamburger span {
   background: #03121F;
 }
@@ -4098,6 +4114,24 @@ body.is-modal-open {
     padding: 17px 18px;
   }
 }
+.contact-box .wpcf7 form.invalid .wpcf7-response-output,
+.contact-box .wpcf7 form.unaccepted .wpcf7-response-output,
+.contact-box .wpcf7 form.payment-required .wpcf7-response-output {
+  color: #ff383c;
+  border: none;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 10px 0.5em 0;
+  padding: 10px 4%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .contact-box .wpcf7 form.invalid .wpcf7-response-output,
+  .contact-box .wpcf7 form.unaccepted .wpcf7-response-output,
+  .contact-box .wpcf7 form.payment-required .wpcf7-response-output {
+    padding: 10px 5px;
+  }
+}
 .contact-box .form-item p {
   font-size: 15px;
   font-weight: 500;
@@ -4110,14 +4144,50 @@ body.is-modal-open {
     font-size: 16px;
   }
 }
+.contact-box .form-item.tx-center .wpcf7-form-control-wrap {
+  justify-content: center;
+}
+.contact-box .form-item.tx-center .wpcf7-not-valid-tip {
+  text-align: center;
+}
+.contact-box .form-item.tx-center .wpcf7-acceptance label {
+  cursor: pointer;
+}
+.contact-box .form-item.tx-center .wpcf7-acceptance a {
+  color: #496ccc;
+  transition: all 0.3s;
+}
+.contact-box .form-item.tx-center .wpcf7-acceptance a.col-wh {
+  color: #efefef;
+}
+.contact-box .form-item.tx-center .wpcf7-acceptance a:hover {
+  opacity: 0.6;
+}
+.contact-box .form-item.tx-center .wpcf7-acceptance input {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.contact-box .wpcf7-form-control-wrap > .wpcf7-not-valid-tip {
+  display: none;
+  margin-top: 10px;
+}
+.contact-box .wpcf7-form-control-wrap.is-show > .wpcf7-not-valid-tip {
+  display: block;
+}
 .contact-box .form-item .wpcf7-form-control-wrap {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 @media (min-width: 768px) {
   .contact-box .form-item .wpcf7-form-control-wrap {
     margin-bottom: 40px;
   }
+}
+.contact-box .form-item .wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  color: #ff383c;
+  margin-top: 10px;
+  width: 100%;
 }
 .contact-box .wpcf7-list-item-label {
   font-size: 15px;

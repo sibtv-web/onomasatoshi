@@ -5,79 +5,41 @@
   <!-- KV -->
 <section class="kv-mask">
 
-  <picture class="">
-    <source
-      media="(min-width: 821px)"
-      srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp"
-    >
-    <img
-      src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp"
-      alt="小野正利"
-    >
+  <picture>
+    <source media="(min-width:821px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp">
+    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp" alt="小野正利">
   </picture>
 
-  <!-- マスク用SVG（スポット透過用） -->
-  <svg class="mask-svg">
-    <mask id="spot-mask">
-      <!-- 白＝暗幕が見える部分 -->
-      <rect width="100%" height="100%" fill="white"/>
-      <!-- 黒＝透けるスポット -->
-      <circle id="spot" cx="50%" cy="50%" r="50" fill="black" fill-opacity="0.2"/>
+        <svg class="mask-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+          <defs>
 
-    </mask>
-    <!-- 暗幕 -->
-    <rect width="100%" height="100%" fill="black" mask="url(#spot-mask)" opacity="0.3"/>
-  </svg>
+            <filter id="blur">
+              <feGaussianBlur stdDeviation="1.2"/>
+            </filter>
 
-</section>
- 
-  <!-- ローディング演出 -->
-<!--
-  <div class="kv-loading">
-    <svg class="kv-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <mask id="spot-mask">
+              <!-- 見せる：暗幕全体 -->
+              <rect x="0" y="0" width="100" height="100" fill="white"/>
 
-      <defs>
-        <mask id="spotMask">
-          <rect width="100%" height="100%" fill="white" />
-          <circle id="maskCircle" cx="50" cy="50" r="25" fill="black" filter="url(#maskBlur)" />
-        </mask>
+              <!-- 抜く：スポット -->
+              <circle id="spot" cx="0" cy="0" r="0" fill="black" filter="url(#blur)"/>           
+           </mask>
 
-        <filter id="blur">
-          <feGaussianBlur stdDeviation="3" />
-        </filter>
+          </defs>
 
-        <filter id="maskBlur">
-          <feGaussianBlur stdDeviation="1" />
-        </filter>
+          <rect
+            class="overlay"
+            x="0"
+            y="0"
+            width="100"
+            height="100"
+            fill="black"
+            opacity="0.85"
+            mask="url(#spot-mask)"
+          />
+        </svg>
 
-        <radialGradient id="lightGrad1">
-          <stop offset="0%" stop-color="#ffe298" stop-opacity="0.3"/>
-          <stop offset="35%" stop-color="#ffe298" stop-opacity="0.6"/>
-          <stop offset="50%" stop-color="#ffe298" stop-opacity="0"/>
-        </radialGradient>
-
-        <radialGradient id="lightGrad2">
-          <stop offset="0%" stop-color="#dbba97" stop-opacity="0.3"/>
-          <stop offset="35%" stop-color="#dbba97" stop-opacity="0.6"/>
-          <stop offset="50%" stop-color="#dbba97" stop-opacity="0"/>
-        </radialGradient>
-
-        <radialGradient id="lightGradWhite">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-        </radialGradient>
-
-      </defs>
-
-      <rect width="100%" height="100%" fill="rgba(0,0,0,0.82)" mask="url(#spotMask)" />
-
-      <rect class="light-rect1" width="100%" height="100%" fill="url(#lightGrad1)" filter="url(#blur)" />
-      <rect class="light-rect2" width="100%" height="100%" fill="url(#lightGrad2)" filter="url(#blur)" />
-
-    </svg>
-  </div>
--->
-
+    </section>
 
   <div class="container">
 
