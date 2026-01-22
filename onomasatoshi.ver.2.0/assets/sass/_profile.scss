@@ -308,12 +308,45 @@
 
 
   .btn-profile {
-    width: 50px; // 好きなサイズに調整
+    aspect-ratio: 1 / 1;
+    position: relative;
+    width: 50px;
     height: auto;
     cursor: pointer;
+    transition: all 0.4s;
     @include bp-m(){
       width: 7.4vw;
-
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &.fishing {
+        // z-index: 2;
+        backface-visibility: hidden;
+        transition : transform 1s;
+      }
+      &.music {
+        backface-visibility: hidden;
+        transform: rotateY(-180deg);
+        transition : transform 1s;
+        // z-index: 1;
+      }
+    }
+    &.active {
+      img {
+        &.fishing {
+          // z-index: 1;
+          transform: rotateY(180deg);
+          // visibility: hidden;
+        }
+        &.music {
+          // z-index: 2;
+          // visibility: visible;
+          transform: rotateY(0);
+          // backface-visibility: visible;
+        }
+      }
     }
   }
 }
@@ -345,14 +378,12 @@
   height: 254px;
   margin-top: 10px;
   object-fit: cover; 
-
-  @include bp-m(){
-    width: 21.9vw;
-    margin-top: 20px;
-    height: 316px;
-   }
+    @include bp-m(){
+      width: 21.9vw;
+      margin-top: 20px;
+      height: 316px;
+    }
   }
-  
 }
 
 /* ===== プロフィール切替 ===== */
@@ -364,13 +395,18 @@
 
 /* プロフ本体 */
 .profile-panel {
-  position: absolute;
+  position: relative;
   inset: 0;
+  z-index: 2;
+  &.hidden {
+    position: absolute;
+    z-index: 1;
+  }
 }
 
 /* 前後の重なり順だけで制御 */
-.is-front { z-index: 2; }
-.is-back  { z-index: 1; }
+// .is-front { z-index: 2; }
+// .is-back  { z-index: 1; }
 
 /* ===== 消しゴムアニメーション ===== */
 .profile-eraser {
@@ -471,3 +507,22 @@
 // .page-template-page-profile-php .site-footer.fishing-footer {
 //   display: block !important;
 // }
+
+.close-slice {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 10%;
+  overflow: hidden;
+  transition: all 6s linear;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  @include bp-m(){
+    transition: all 3s ease;
+  }
+  .profile-panel {
+    height: 100%;
+    .archive-container {
+      height: 100%;
+    }
+  }
+}

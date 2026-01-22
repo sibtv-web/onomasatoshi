@@ -2,20 +2,18 @@
 
 
 <?php
-/*
-Template Name: Profile
-*/
-get_header();
+  /*
+  Template Name: Profile
+  */
+  get_header();
 ?>
-
 <main class="profile-wrapper">
-  <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
-  <div class="header-blur"></div>      
-
-  <!-- <div class="profile-flip"> -->
-    
+  <!-- <div class="header-name">
+    <a href="<?php echo home_url(); ?>">ONO MASATOSHI</a>
+  </div> -->
+  <!-- <div class="header-blur"></div> -->
   <!-- 通常プロフィール -->
-  <div class="profile-panel profile-panel--normal is-front" data-profile="normal">
+  <div class="profile-panel profile-panel--normal active" data-profile="normal">
     <div class="profile-eraser"></div>
     <div class="archive-container">
       <div class="profile archive-header">
@@ -205,27 +203,24 @@ get_header();
             </div>
           </div>
         </section>
-
       </article>
     </div>
-  </div> <!-- /normal -->
-
+  </div>
   <!-- 釣りプロフィール -->
-  <div class="profile-panel profile-panel--fishing is-back" data-profile="fishing">
-  <div class="profile-eraser"></div>
-    <div class="archive-container">
-      <div class="profile archive-header">
-        <!-- <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div> -->
-        <div class="archive-header-tx">
-          <picture>
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_fishing-pc.webp"alt="">
-          </picture>
+  <div class="profile-panel profile-panel--fishing hidden" data-profile="fishing">
+    <div class="profile-eraser"></div>
+      <div class="archive-container">
+        <div class="profile archive-header">
+          <div class="archive-header-tx">
+            <picture>
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/text/h_profile_fishing-pc.webp"alt="">
+            </picture>
+          </div>
+          <div class="circle-blur-orange"></div>
         </div>
-        <div class="circle-blur-orange"></div>
-      </div>
-      <article class="article-profile">
-        <section class="archive-news archive-discography">
-          <div class="section-title">FISHING PROFILE</div>
+        <article class="article-profile">
+          <section class="archive-news archive-discography">
+            <div class="section-title">FISHING PROFILE</div>
             <div class="profile-inner">
               <div class="main-profile-box">
                 <div class="main-img">
@@ -368,22 +363,20 @@ get_header();
           </section>
         </article>
       </div>
-    </div><!--archive-container-->
-  </div><!-- 釣りプロフィール profile-panel profile-panel--fishing is-back -->
-<!-- </div>profile-flip -->
-
- <!-- 切替ボタン -->
+    </div>
+  </div>
   <div class="profile-switcher">
-    <img 
+    <div class="btn-profile">
+      <img class="fishing" src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/parts_profile_fishing.png" alt="釣りページへ">
+      <img class="music" src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/parts_profile_music.png" alt="音楽ページへ">
+    </div>
+    <!-- <img 
       class="btn-profile"
       src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/parts_profile_fishing.png"
       data-normal="<?php echo get_theme_file_uri(); ?>/assets/images/parts/parts_profile_fishing.png"
       data-fishing="<?php echo get_theme_file_uri(); ?>/assets/images/parts/parts_profile_music.png"
-      alt="">
+      alt=""> -->
   </div>
-
-
 </main>
-
 <?php get_footer(); ?>
 

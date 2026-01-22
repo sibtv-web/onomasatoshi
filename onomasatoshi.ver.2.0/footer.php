@@ -78,6 +78,9 @@
     <!-- 自作JS -->
     <!--<script src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>-->
     <!--<script src="<?php echo get_template_directory_uri(); ?>/assets/js/player.js"></script>-->
+    <?php if(is_front_page() || is_home()): ?>
+      <script src="<?php echo get_template_directory_uri(); ?>/assets/js/idx.js"></script>
+    <?php endif; ?>
 
     <?php wp_footer(); ?>
   </body>

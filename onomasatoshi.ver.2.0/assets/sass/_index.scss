@@ -3,8 +3,14 @@ html{
   margin-top: 0 !important;
   overflow-x: hidden;
   &:has(body.is-modal-open),
-  &:has(nav.site-nav.active) {
+  &:has(nav.site-nav.active),
+  &:has(header.front) {
     overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 main{
@@ -29,6 +35,12 @@ section {
 
 .inner{
   margin: 0 auto;
+}
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: none;
 }
 p {
   font-family: 'Noto Sans JP';

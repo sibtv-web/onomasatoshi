@@ -34,12 +34,11 @@
 <!-- splide.js -->
 <script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide.min.js"></script>
 <script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide-extension-auto-scroll.min.js"></script>
-
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 
-<header class="site-header">
+<header class="site-header <?php if(is_front_page() || is_home()){echo "front";} ?>">
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>

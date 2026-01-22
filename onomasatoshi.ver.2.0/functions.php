@@ -325,3 +325,28 @@ function set_pre_get_posts($query) {
 }
 add_action('pre_get_posts', 'set_pre_get_posts');
 
+
+function enqueue_threejs() {
+  wp_enqueue_script(
+    'three',
+    'https://unpkg.com/three@0.160.0/build/three.min.js',
+    [],
+    null,
+    true
+  );
+  wp_enqueue_script(
+    'html2canvas',
+    'https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js',
+    [],
+    null,
+    true
+  );
+  wp_enqueue_script(
+    'three-app',
+    get_template_directory_uri() . '/js/three-app.js',
+    ['three', 'html2canvas'],
+    null,
+    true
+  );
+}
+add_action('wp_enqueue_scripts', 'enqueue_threejs');
