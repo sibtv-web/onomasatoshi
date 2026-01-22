@@ -564,20 +564,20 @@ const btnClick = (el) => {
   const btnFlip = el.querySelector(".btn-profile");
   btnFlip.classList.toggle("active");
   if(window.innerWidth > 750) {
-    slices = 10;
+    slices = 13;
   } else {
-    slices = 5;
+    slices = 13;
   }
   const target = document.querySelector(".profile-panel.active");
   for (let i = 0; i < slices; i++) {
     const slice = document.createElement('div');
     slice.className = 'close-slice';
     if(window.innerWidth > 750) {
-      slice.style.left = `calc(${i * 10}%)`;
-      slice.style.width = `11%`;
+      slice.style.left = `calc(${i} * (100% / 13))`;
+      slice.style.width = `calc(100% / 13)`;
     } else {
-      slice.style.left = `${i * 20}%`;
-      slice.style.width = `21%`;
+      slice.style.left = `calc(${i} * (100% / 13))`;
+      slice.style.width = `calc(100% / 13)`;
     }
     // slice.style.left = `${i * 10}%`;
     slice.style.zIndex= "99";
@@ -585,9 +585,9 @@ const btnClick = (el) => {
     const clone = target.cloneNode(true);
     clone.style.width = `100vw`;
     if(window.innerWidth > 750) {
-      clone.style.transform = `translateX(-${i * 10}vw)`;
+      clone.style.transform = `translateX(calc(${i} * (100vw / 13) * -1 ))`;
     } else {
-      clone.style.transform = `translateX(-${i * 20}vw)`;
+      clone.style.transform = `translateX(calc(${i} * (100vw / 13) * -1 ))`;
     }
     slice.appendChild(clone);
     target.parentNode.appendChild(slice);
