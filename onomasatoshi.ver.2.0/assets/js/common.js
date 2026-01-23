@@ -570,20 +570,20 @@ const btnClick = (el) => {
   const btnFlip = el.querySelector(".btn-profile");
   btnFlip.classList.toggle("active");
   if(window.innerWidth > 750) {
-    slices = 13;
+    slices = 18;
   } else {
-    slices = 13;
+    slices = 12;
   }
   const target = document.querySelector(".profile-panel.active");
   for (let i = 0; i < slices; i++) {
     const slice = document.createElement('div');
     slice.className = 'close-slice';
     if(window.innerWidth > 750) {
-      slice.style.left = `calc(${i} * (100% / 13))`;
-      slice.style.width = `calc(100% / 13)`;
+      slice.style.left = `calc(${i} * (100% / 18))`;
+      slice.style.width = `calc((100% / 18) + 1%)`;
     } else {
-      slice.style.left = `calc(${i} * (100% / 13))`;
-      slice.style.width = `calc(100% / 13)`;
+      slice.style.left = `calc(${i} * (100% / 12))`;
+      slice.style.width = `calc((100% / 12) + 1%)`;
     }
     // slice.style.left = `${i * 10}%`;
     slice.style.zIndex= "99";
@@ -591,9 +591,9 @@ const btnClick = (el) => {
     const clone = target.cloneNode(true);
     clone.style.width = `100vw`;
     if(window.innerWidth > 750) {
-      clone.style.transform = `translateX(calc(${i} * (100vw / 13) * -1 ))`;
+      clone.style.transform = `translateX(calc(${i} * (100vw / 18) * -1 ))`;
     } else {
-      clone.style.transform = `translateX(calc(${i} * (100vw / 13) * -1 ))`;
+      clone.style.transform = `translateX(calc(${i} * (100vw / 12) * -1 ))`;
     }
     slice.appendChild(clone);
     target.parentNode.appendChild(slice);
