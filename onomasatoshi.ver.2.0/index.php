@@ -292,7 +292,7 @@
     </section>
 
     <!-- Q&A -->
-    <section class="qa-section">
+    <section class="qa-section" id="anchor-qa">
       <div class="inner">
         <div class="qa-image-wrap fade-anime" data-fade="fade-left">
           <div class="qa-image">

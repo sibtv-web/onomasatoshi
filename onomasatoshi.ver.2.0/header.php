@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 
-<?php if(is_front_page() || is_home()): ?>
+<!-- <?php if(is_front_page() || is_home()): ?>
   <title><?php bloginfo('name'); ?>｜最新情報サイト</title>
   <meta name="description" content="サイトのトップページ説明文をここに入れます。最新情報やお知らせをお届け。">
 <?php else: ?>
   <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
   <meta name="description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
-<?php endif; ?>
+<?php endif; ?> -->
 
 <!-- OGP / SNS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
@@ -66,7 +66,7 @@
                 <li><a href="<?php echo esc_url(home_url('/news/')); ?>">ニュース</a></li>
                 <li><a href="<?php echo esc_url(home_url('/profile/')); ?>">プロフィール</a></li>
                 <li><a href="<?php echo esc_url(home_url('/discography/')); ?>">ディスコグラフィ</a></li>
-                <li><a href="<?php echo esc_url(home_url('/qa/')); ?>">小野正利への質問</a></li>
+                <li><a href="<?php echo esc_url( home_url('/#anchor-qa') ); ?>">小野正利への質問</a></li>
                 <li><a href="https://goodsshop.onomasatoshi.com/" target="_blank">グッズ</a></li>
                 <li><a href="https://fanicon.net/fancommunities/4196" target="_blank">ファンクラブ</a></li>
                 <li><a href="https://www.galneryus.jp/" target="_blank">GALNERYUS</a></li>
