@@ -71,11 +71,17 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           detailModal.querySelector('.modal-date').textContent = '';
         }
-        // リンク
+        // リンク（音楽アプリ）
         detailModal.querySelector('.modal-apple').href = item.dataset.apple;
         detailModal.querySelector('.modal-line').href = item.dataset.line;
         detailModal.querySelector('.modal-itunes').href = item.dataset.itunes;
         detailModal.querySelector('.modal-spotify').href = item.dataset.spotify;
+        detailModal.querySelector('.modal-spotify').href = item.dataset.amazonmusic;
+        detailModal.querySelector('.modal-spotify').href = item.dataset.youtubemusic;
+        detailModal.querySelector('.modal-spotify').href = item.dataset.awa;
+        detailModal.querySelector('.modal-spotify').href = item.dataset.recochoku;
+        
+        // リンク（物販）
         detailModal.querySelector('.modal-amazon').href = item.dataset.amazon;
         detailModal.querySelector('.modal-tower').href = item.dataset.tower;
         detailModal.querySelector('.modal-hmv').href = item.dataset.hmv;

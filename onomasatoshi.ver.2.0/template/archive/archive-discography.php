@@ -46,13 +46,20 @@
                 $number = get_field('disc_number');
                 $price = get_field('price');
                 $type = get_field('type');
+
                 $apple = get_field('apple_music_url');
                 $line = get_field('line_music_url');
                 $itunes = get_field('itunes_store_url');
                 $spotify = get_field('spotify_url');
+                $amazonmusic = get_field('amazon_music_url');
+                $youtubemusic = get_field('youtube_music_url');
+                $awa = get_field('awa_url');
+                $recochoku = get_field('recochoku_url');
+
                 $amazon = get_field('amazon_url');
                 $tower = get_field('tower_url');
                 $hmv = get_field('hmv_url');
+
                 $description = get_field('description');
                 $tour     = get_field('tour');
                 $songs1      = get_field('disc-1');
@@ -66,14 +73,22 @@
                 data-price="<?php echo esc_attr($price); ?>"
                 data-number="<?php echo esc_attr($number); ?>"
                 data-type="<?php echo esc_attr($type); ?>"
+
                 data-apple="<?php echo esc_url($apple); ?>"
                 data-itunes="<?php echo esc_url($itunes); ?>"
                 data-line="<?php echo esc_url($line); ?>"
                 data-spotify="<?php echo esc_url($spotify); ?>"
+                data-amazonmusic="<?php echo esc_url($amazonmusic); ?>"
+                data-youtubemusic="<?php echo esc_url($youtubemusic); ?>"
+                data-awa="<?php echo esc_url($awa); ?>"
+                data-recochoku="<?php echo esc_url($recochoku); ?>"
+                
                 data-link="<?php echo esc_url(get_permalink()); ?>"
+
                 data-amazon="<?php echo esc_url($amazon); ?>"
                 data-tower="<?php echo esc_url($tower); ?>"
                 data-hmv="<?php echo esc_url($hmv); ?>"
+
                 data-description="<?php echo esc_attr( wp_kses_post( $description ) ); ?>" 
                 data-tour="<?php echo esc_attr( wp_kses_post( $tour ) ); ?>" 
                 data-songs1="<?php echo esc_attr( wp_kses_post( $songs1 ) ); ?>" 
@@ -175,6 +190,31 @@
                   <span>Spotify</span>
                 </a>
               </li>
+              <li class="news-tags">
+                <a class="modal-amazon_music" href="#" target="_blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_amazonmusic.svg" alt="">
+                  <span>Apple Music</span>
+                </a>
+              </li>
+              <li class="news-tags">
+                <a class="modal-youtube_music" href="#" target="_blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_youtubemusic.svg" alt="">
+                  <span>Apple Music</span>
+                </a>
+              </li>
+              <li class="news-tags">
+                <a class="modal-awa" href="#" target="_blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_awa.svg" alt="">
+                  <span>Apple Music</span>
+                </a>
+              </li>
+              <li class="news-tags">
+                <a class="modal-recochoku" hrecochokuref="#" target="_blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_recochoku.svg" alt="">
+                  <span>Apple Music</span>
+                </a>
+              </li>
+
             </ul>
           </div>
           <div class="modal-body-right">
