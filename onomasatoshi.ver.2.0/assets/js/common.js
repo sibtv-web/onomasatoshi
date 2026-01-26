@@ -2,30 +2,27 @@ document.addEventListener('DOMContentLoaded', function () {
   jQuery(function ($) {
       $('main').fadeTo(400, 1);
   });
-  // =========================
-  // ハンバーガー
-  // =========================
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('site-nav');
-  if (hamburger && nav) {
-    hamburger.addEventListener('click', function (e) {
-      e.stopPropagation(); // クリック伝播を止める
-      nav.classList.toggle('active');       // メニュー表示
-      hamburger.classList.toggle('active'); // 3本線 → ×
-    });
+// =========================
+// ハンバーガー
+// =========================
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('site-nav');
 
-    nav.addEventListener('click', function (e) {
-      e.stopPropagation(); // メニュー内クリックは閉じない
-    });
+if (hamburger && nav) {
+  // ハンバーガー（×）で開閉
+  hamburger.addEventListener('click', e => {
+    e.stopPropagation();
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
 
-    // メニュー外クリックで閉じる
-    document.addEventListener('click', function () {
-      if (nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        hamburger.classList.remove('active');
-      }
-    });
-  }
+  // メニュー内クリックはすべて素通し（遷移させる）
+  nav.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+
+  
+}
   // =========================
   // アーカイブ詳細モーダル
   // =========================
@@ -40,16 +37,24 @@ document.addEventListener('DOMContentLoaded', function () {
         detailModal.querySelector('.modal-title').textContent = item.dataset.title;
         detailModal.querySelector('.modal-desc').innerHTML = item.dataset.description;
         detailModal.querySelector('.modal-tour').innerHTML =  item.dataset.tour;
-        detailModal.querySelector('.disc-1').innerHTML = item.dataset.songs1;
-        detailModal.querySelector('.disc-2').innerHTML = item.dataset.songs2;
-        detailModal.querySelector('.modal-number').textContent = item.dataset.number;
-        //金額の￥ + 税　表示
-        const price = item.dataset.price;
-        if (price && price !== '') {
-          const formattedPrice = Number(price).toLocaleString();
-          detailModal.querySelector('.modal-price').textContent = `／￥${formattedPrice} + 税`;
-        } else {
-          detailModal.querySelector('.modal-price').textContent = '';
+        detailModal.querySelector('.disc-1').innerHTML = item.dataset.disc1 || '';
+        detailModal.querySelector('.disc-2').innerHTML = item.dataset.disc2 || '';
+        detailModal.querySelector('.modal-number').innerHTML = item.dataset.number;
+        detailModal.querySelector('.modal-price').innerHTML = item.dataset.price;
+        // //金額の￥ + 税　表示
+        // const price = item.dataset.price;
+        // if (price && price !== '') {
+        //   const formattedPrice = Number(price).toLocaleString();
+        //   detailModal.querySelector('.modal-price').textContent = `／￥${formattedPrice} + 税`;
+        // } else {
+        //   detailModal.querySelector('.modal-price').textContent = '';
+        // }
+
+        //品番と金額（品番が未入力の場合、左に詰める）
+        const number = document.querySelector('.modal-number');
+
+        if (number && number.textContent.trim() === '') {
+          number.style.display = 'none';
         }
         // タイプ
         let typeLabel = '';
@@ -73,13 +78,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // リンク（音楽アプリ）
         detailModal.querySelector('.modal-apple').href = item.dataset.apple;
-        detailModal.querySelector('.modal-line').href = item.dataset.line;
-        detailModal.querySelector('.modal-itunes').href = item.dataset.itunes;
         detailModal.querySelector('.modal-spotify').href = item.dataset.spotify;
-        detailModal.querySelector('.modal-spotify').href = item.dataset.amazonmusic;
-        detailModal.querySelector('.modal-spotify').href = item.dataset.youtubemusic;
-        detailModal.querySelector('.modal-spotify').href = item.dataset.awa;
-        detailModal.querySelector('.modal-spotify').href = item.dataset.recochoku;
+        // // リンク（音楽アプリ使用しない）
+        // detailModal.querySelector('.modal-line').href = item.dataset.line;
+        // detailModal.querySelector('.modal-itunes').href = item.dataset.itunes;
+        // detailModal.querySelector('.modal-amazon_music').href = item.dataset.amazonmusic;
+        // detailModal.querySelector('.modal-youtube_music').href = item.dataset.youtubemusic;
+        // detailModal.querySelector('.modal-awa').href = item.dataset.awa;
+        // detailModal.querySelector('.modal-recochoku').href = item.dataset.recochoku;
         
         // リンク（物販）
         detailModal.querySelector('.modal-amazon').href = item.dataset.amazon;
@@ -513,51 +519,19 @@ if(txtSlideAnime.length > 0){
 // ニュース　シングルからアーカイブに戻るとき同じ位置に
 // =========================
 document.addEventListener('DOMContentLoaded', () => {
-  const newsLinks = document.querySelectorAll(
-    '.archive-news-list li.news a'
-  );
+  const backLink = document.querySelector('.js-back');
 
-  if (!newsLinks.length) return;
+  if (!backLink) return;
 
-  newsLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      sessionStorage.setItem('archiveNewsScrollY', window.scrollY);
-      sessionStorage.setItem('archiveNewsUrl', window.location.href);
-    });
-  });
-});
+  backLink.addEventListener('click', (e) => {
+    e.preventDefault();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const backBtn = document.getElementById('js-news-back');
-  const backUrl = sessionStorage.getItem('archiveNewsUrl');
-
-  if (!backBtn) return;
-
-  backBtn.addEventListener('click', () => {
-    if (backUrl) {
-      window.location.href = backUrl;
+    if (window.history.length > 1) {
+      history.back();
     } else {
-      // 直アクセス時の保険
       window.location.href = '/news/';
     }
   });
-});
-
-window.addEventListener('load', () => {
-  if (!document.querySelector('.archive-news-list')) return;
-
-  const scrollY = sessionStorage.getItem('archiveNewsScrollY');
-
-  if (scrollY !== null) {
-    setTimeout(() => {
-      window.scrollTo({
-        top: parseInt(scrollY, 10),
-        behavior: 'auto'
-      });
-      sessionStorage.removeItem('archiveNewsScrollY');
-      sessionStorage.removeItem('archiveNewsUrl');
-    }, 100);
-  }
 });
 
 // ========================================

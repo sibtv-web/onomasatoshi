@@ -1311,7 +1311,7 @@ body.loading .hamburger {
 .site-header .hamburger span {
   display: block;
   width: 100%;
-  height: 1px;
+  height: 2px !important;
   background: #fff;
   transition: 0.3s ease;
   transform-origin: center;
@@ -2157,13 +2157,13 @@ body.loading .hamburger {
 .sec-news-single .news-text {
   letter-spacing: unset;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 1.6;
 }
 @media (min-width: 768px) {
   .sec-news-single .news-text {
     letter-spacing: 0.64px;
     font-size: 16px;
-    font-weight: 700;
   }
 }
 .sec-news-single .news-text p {
@@ -2385,8 +2385,8 @@ body.loading .hamburger {
 }
 @media (min-width: 768px) {
   .circle-blur-light-blue {
-    top: 27%;
-    left: 15%;
+    top: 43%;
+    left: 6%;
     transform: none;
     width: 19.69vw;
     height: 19.69vw;
@@ -2451,7 +2451,7 @@ body.loading .hamburger {
 @media (min-width: 768px) {
   .qa-section .qa-image {
     width: 60vw;
-    margin-bottom: 34px;
+    margin-bottom: 120px;
   }
 }
 .qa-section .qa-item {
@@ -3003,7 +3003,8 @@ body.is-modal-open {
   }
 }
 .detail-modal.player-modal.active .number-price-flex {
-  display: flex;
+  display: grid;
+  gap: 10px;
   margin-bottom: 30px;
   font-size: 12px;
   font-weight: 500;
@@ -3012,8 +3013,10 @@ body.is-modal-open {
 }
 @media (min-width: 768px) {
   .detail-modal.player-modal.active .number-price-flex {
+    display: flex;
     margin-bottom: 40px;
     font-size: 16px;
+    gap: 4vw;
   }
 }
 .detail-modal.player-modal.active .modal-title {
@@ -3178,19 +3181,6 @@ body.is-modal-open {
   .detail-modal.player-modal.active .modal-tour img {
     margin: 20px 0;
     width: 50%;
-  }
-}
-.detail-modal.player-modal.active .modal-tour::before {
-  content: "【ツアー情報】";
-  display: block;
-  font-size: 14px;
-  margin-bottom: 4px;
-  left: 0;
-  white-space: nowrap;
-}
-@media (min-width: 768px) {
-  .detail-modal.player-modal.active .modal-tour::before {
-    font-size: 16px;
   }
 }
 
@@ -4537,12 +4527,12 @@ body.is-modal-open {
   }
 }
 
-.page-template-page-privacy .site-header .hamburger span {
-  background: #03121F;
-}
-
 .page-template-page-privacy .site-header .hamburger.active span {
   background: #EFEFEF;
+}
+
+.wp-singular.page-template-default.page.page-id-39 .site-header .hamburger span {
+  background: #03121F;
 }
 
 .privacy-container {
@@ -4694,13 +4684,13 @@ body.is-modal-open {
 
 .release-title__box {
   position: absolute;
-  top: 15%;
+  top: 51%;
   z-index: -1;
   mix-blend-mode: multiply;
 }
 @media (min-width: 768px) {
   .release-title__box {
-    top: 15%;
+    top: 63%;
   }
 }
 

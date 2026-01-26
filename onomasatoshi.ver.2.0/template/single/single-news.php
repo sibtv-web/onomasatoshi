@@ -24,7 +24,7 @@
                         <?php
                           $news_tags = get_the_terms( get_the_ID(), 'news-category' );
                           $tag_labels = [
-                            'live'  => '公演',
+                            'live'  => 'ライブ',
                             'event' => 'イベント',
                             'media' => 'メディア',
                             'other' => 'その他',
@@ -102,10 +102,10 @@
                     </div>
                 </div>
                 <div class="circle-arrow--left">
-                    <a href="javascript:void(0)" id="js-news-back">
-                        <span class="arrow"></span>
-                        <span class="label">Back</span>
-                    </a>
+                <a href="#" class="js-back">
+                    <span class="arrow"></span>
+                    <span class="label">Back</span>
+                </a>
                 </div>
         </section>
     </article>

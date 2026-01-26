@@ -5,21 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 
-<!-- <?php if(is_front_page() || is_home()): ?>
-  <title><?php bloginfo('name'); ?>｜最新情報サイト</title>
-  <meta name="description" content="サイトのトップページ説明文をここに入れます。最新情報やお知らせをお届け。">
-<?php else: ?>
-  <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
-  <meta name="description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
-<?php endif; ?> -->
 
+<!-- favicon -->
+<link rel="icon" href="<?php echo esc_url( home_url('/favicon.ico') ); ?>">
 <!-- OGP / SNS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>">
 <meta property="og:description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
 <meta property="og:url" content="<?php echo esc_url( home_url( add_query_arg( array(), $wp->request ) ) ); ?>">
-<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/ogp.png">
+<meta property="og:image" content="<?php echo get_theme_file_uri(); ?>/assets/images/kv/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Twitterアカウント">
 <!-- CSS -->

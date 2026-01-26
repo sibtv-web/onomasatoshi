@@ -46,15 +46,16 @@
                 $number = get_field('disc_number');
                 $price = get_field('price');
                 $type = get_field('type');
-
+                //音楽アプリ（使用中）
                 $apple = get_field('apple_music_url');
-                $line = get_field('line_music_url');
-                $itunes = get_field('itunes_store_url');
                 $spotify = get_field('spotify_url');
-                $amazonmusic = get_field('amazon_music_url');
-                $youtubemusic = get_field('youtube_music_url');
-                $awa = get_field('awa_url');
-                $recochoku = get_field('recochoku_url');
+                // //音楽アプリ（使用しない）
+                // $line = get_field('line_music_url');
+                // $itunes = get_field('itunes_store_url');
+                // $amazonmusic = get_field('amazon_music_url');
+                // $youtubemusic = get_field('youtube_music_url');
+                // $awa = get_field('awa_url');
+                // $recochoku = get_field('recochoku_url');
 
                 $amazon = get_field('amazon_url');
                 $tower = get_field('tower_url');
@@ -170,8 +171,15 @@
                   <span>Apple Music</span>
                 </a>
               </li>
-              
+
               <li class="news-tags">
+                <a class="modal-spotify" href="#" target="_blank">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
+                  <span>Spotify</span>
+                </a>
+              </li>
+
+              <!-- <li class="news-tags">
                 <a class="modal-line" href="#" target="_blank">
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line-music.svg" alt="">
                   <span>Line Music</span>
@@ -184,12 +192,6 @@
                 </a>
               </li>
 
-              <li class="news-tags">
-                <a class="modal-spotify" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
-                  <span>Spotify</span>
-                </a>
-              </li>
               <li class="news-tags">
                 <a class="modal-amazon_music" href="#" target="_blank">
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_amazonmusic.svg" alt="">
@@ -214,7 +216,7 @@
                   <span>Apple Music</span>
                 </a>
               </li>
-
+ -->
             </ul>
           </div>
           <div class="modal-body-right">

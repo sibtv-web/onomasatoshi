@@ -35,7 +35,7 @@
             <a href="<?php echo home_url("/news/#tab") ;?>">ALL</a>
           </li>
           <li class="news-tags <?php if($category == "live"){ echo 'active'; }?>" data-category="live" data-paged="<?php echo $paged;?>">
-            <a href="<?php echo home_url("/news/category/live/#tab") ;?>">公演</a>
+            <a href="<?php echo home_url("/news/category/live/#tab") ;?>">ライブ</a>
           </li>
           <li class="news-tags <?php if($category == "event"){ echo 'active'; }?>" data-category="event" data-paged="<?php echo $paged;?>">
             <a href="<?php echo home_url("/news/category/event/#tab") ;?>">イベント</a>
@@ -61,7 +61,7 @@
               );
               $the_query = new WP_Query($args);
               $tag_labels = [
-                'live'  => '公演',
+                'live'  => 'ライブ',
                 'event' => 'イベント',
                 'media' => 'メディア',
                 'other' => 'その他',

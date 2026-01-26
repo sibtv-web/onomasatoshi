@@ -92,7 +92,7 @@
                 $week = ['日', '月', '火', '水', '木', '金', '土'];
                 $day_of_week = $week[$date->format('w')];
                 echo '<p class="release-date">';
-                echo $date->format('Y年n月j日') . '（' . $day_of_week . '）発売';
+                echo $date->format('Y年n月j日') . '（' . $day_of_week . '）';
                 echo '</p>';
               }
               ?>
@@ -154,7 +154,7 @@
                         <?php
                           $news_tags = get_the_terms( get_the_ID(), 'news-category' );
                           $tag_labels = [
-                            'live'  => '公演',
+                            'live'  => 'ライブ',
                             'event' => 'イベント',
                             'media' => 'メディア',
                             'other' => 'その他',
@@ -307,7 +307,7 @@
           </div>
 
           <div class="qa-right-column">
-            <div class="section-title">QUESTION</div>
+            <div class="section-title">PERSONAL QUESTION</div>
             <ul class="qa-list">
               <?php
               $qa_query = new WP_Query([

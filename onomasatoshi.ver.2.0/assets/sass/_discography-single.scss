@@ -76,12 +76,12 @@
 
   .release-title__box{
     position: absolute;
-    top:15%;
+    top:51%;
     z-index: -1;
     mix-blend-mode: multiply;
   
     @include bp-m(){
-      top:15%
+      top:63%
     }
   }
 

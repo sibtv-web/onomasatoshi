@@ -193,15 +193,18 @@ overflow: hidden;
   }
 
   .number-price-flex{
-    display: flex;
+    display: grid;
+    gap: 10px;
     margin-bottom: 30px;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.04em;
     @include bp-m(){
+      display: flex;
       margin-bottom: 40px;
       font-size: 16px;
+      gap:4vw
     }
   }
 
@@ -367,20 +370,6 @@ overflow: hidden;
         margin: 20px 0;
         width: 50%;
       }
-    }
-    &::before {
-        content: '【ツアー情報】';
-        display: block;
-        // position: absolute;
-        font-size: 14px;
-        // top: -2em;   // 好みで調整
-        margin-bottom: 4px;
-        left: 0;
-        white-space: nowrap;
-        @include bp-m(){
-          // top: -2.3em;
-          font-size: 16px;
-        }
     }
 
   }

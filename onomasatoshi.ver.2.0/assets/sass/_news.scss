@@ -348,11 +348,11 @@
   .news-text{
     letter-spacing:unset;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 1.6;
     @include bp-m(){
     letter-spacing: 0.64px;
     font-size: 16px;
-    font-weight: 700;
     }
     p{
       margin-bottom: 15px;

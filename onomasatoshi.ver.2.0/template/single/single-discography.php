@@ -34,10 +34,12 @@
               'flyer' => get_field('tour_images'),
               'tour'  => get_field('tour'),
               'ticket'  => get_field('ticket'),
+              //音楽アプリ（使用中）
             'apple'   => get_field('apple_music_url'),
-            'line'    => get_field('line_music_url'),
-            'itunes'  => get_field('itunes_store_url'),
             'spotify' => get_field('spotify_url'),
+            // 音楽アプリ（使用しない）
+            // 'line'    => get_field('line_music_url'),
+            // 'itunes'  => get_field('itunes_store_url'),
             ];
 
             wp_reset_postdata();
@@ -60,51 +62,12 @@
         </div>
       </div>
 
-
-
     <div class="simple-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
     </div>
 
 
     <div class="latest-release-inner">
-          <?php
-          $latest_discography_data = null;
-
-          $latest_discography = new WP_Query([
-            'post_type'      => 'discography',
-            'posts_per_page' => 1,
-            'orderby'        => 'date',
-            'order'          => 'DESC',
-          ]);
-
-          if ( $latest_discography->have_posts() ) {
-            $latest_discography->the_post();
-
-            $latest_discography_data = [
-              'jacket' => get_field('jacket_images'),
-              'price'  => get_field('price'),
-              'number'  => get_field('disc_number'),
-              'disc1'  => get_field('disc-1'),
-              'disc2'  => get_field('disc-2'),
-              'title'  => get_the_title(),
-              'link'   => get_permalink(),
-              'amazon' => get_field('amazon_url'),
-              'tower'  => get_field('tower_url'),
-              'hmv'    => get_field('hmv_url'),
-              'mv'    => get_field('music-video'),
-              'flyer' => get_field('tour_images'),
-              'tour'  => get_field('tour'),
-              'ticket'  => get_field('ticket'),
-            'apple'   => get_field('apple_music_url'),
-            'line'    => get_field('line_music_url'),
-            'itunes'  => get_field('itunes_store_url'),
-            'spotify' => get_field('spotify_url'),
-            ];
-
-            wp_reset_postdata();
-          }
-          ?>
       
       <section class="sec-latest-release"><!-- latest-release --> 
       <div class="release-section-title">LATEST<br>RELEASE</div>
@@ -136,7 +99,16 @@
                   </li>
                 <?php endif; ?>
 
-                <?php if (!empty($latest_discography_data['line'])) : ?>
+                <?php if (!empty($latest_discography_data['spotify'])) : ?>
+                  <li class="music-tags">
+                    <a href="<?php echo esc_url($latest_discography_data['spotify']); ?>" target="_blank">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
+                      <span>Spotify</span>
+                    </a>
+                  </li>
+                <?php endif; ?>
+
+                <!-- <?php if (!empty($latest_discography_data['line'])) : ?>
                   <li class="music-tags">
                     <a href="<?php echo esc_url($latest_discography_data['line']); ?>" target="_blank">
                       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line-music.svg" alt="">
@@ -151,16 +123,8 @@
                       <span>iTunes Store</span>
                     </a>
                   </li>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
-                <?php if (!empty($latest_discography_data['spotify'])) : ?>
-                  <li class="music-tags">
-                    <a href="<?php echo esc_url($latest_discography_data['spotify']); ?>" target="_blank">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
-                      <span>Spotify</span>
-                    </a>
-                  </li>
-                <?php endif; ?>
 
               </ul>
             <!-- SP用のディスクリプション -->
@@ -187,7 +151,7 @@
                 $day_of_week = $week[$date->format('w')];
 
                 echo '<p class="release-date">';
-                echo $date->format('Y年n月j日') . '（' . $day_of_week . '）発売';
+                echo $date->format('Y年n月j日') . '（' . $day_of_week . '）';
                 echo '</p>';
               }
               ?>
@@ -195,9 +159,9 @@
                 <!-- 品番 -->
                 <div class=""><?php the_field('disc_number'); ?></div>
                 <!-- 金額 -->
-                <?php if ($latest_discography_data['price'] !== ''): ?>
+                <?php if (!empty($latest_discography_data['price'])): ?>
                   <div class="release-price">
-                    ／￥<?php echo number_format((int)$latest_discography_data['price']); ?> + 税
+                    <?php echo wp_kses_post($latest_discography_data['price']); ?>
                   </div>
                 <?php endif; ?>
               </div>
@@ -235,15 +199,15 @@
 
         <div class="disc-flex">
             
-            <?php if ($disc1 !== '') : ?>
+            <?php if (!empty($disc1)) : ?>
               <div class="disc-1">
-                <?php echo nl2br(esc_html($disc1)); ?>
+                <?php echo apply_filters('the_content', $disc1); ?>
               </div>
             <?php endif; ?>
 
-            <?php if ($disc2 !== '') : ?>
+            <?php if (!empty($disc2)) : ?>
               <div class="disc-2">
-                <?php echo nl2br(esc_html($disc2)); ?>
+                <?php echo apply_filters('the_content', $disc2); ?>
               </div>
             <?php endif; ?>
 
