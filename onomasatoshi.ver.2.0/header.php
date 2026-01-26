@@ -7,7 +7,7 @@
 
 
 <!-- favicon -->
-<link rel="icon" href="<?php echo esc_url( home_url('/favicon.ico') ); ?>">
+<link rel="icon" href="<?php echo esc_url( get_theme_file_uri('favicon.ico') ); ?>">
 <!-- OGP / SNS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
 <meta property="og:type" content="website">

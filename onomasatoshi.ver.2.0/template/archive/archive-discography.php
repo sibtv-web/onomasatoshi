@@ -63,9 +63,8 @@
 
                 $description = get_field('description');
                 $tour     = get_field('tour');
-                $songs1      = get_field('disc-1');
-                $songs2      = get_field('disc-2');
-                $tour = get_field('tour');
+                $disc1      = get_field('disc-1');
+                $disc2      = get_field('disc-2');
               ?>
               <li class="disc-item"
                 data-title="<?php echo esc_attr(get_the_title()); ?>"
@@ -92,8 +91,9 @@
 
                 data-description="<?php echo esc_attr( wp_kses_post( $description ) ); ?>" 
                 data-tour="<?php echo esc_attr( wp_kses_post( $tour ) ); ?>" 
-                data-songs1="<?php echo esc_attr( wp_kses_post( $songs1 ) ); ?>" 
-                data-songs2="<?php echo esc_attr( wp_kses_post( $songs2 ) ); ?>"                
+                data-songs="<?php echo esc_attr( wp_kses_post( $songs ) ); ?>" 
+                data-disc1="<?php echo esc_attr( wp_kses_post( $disc1 ) ); ?>" 
+                data-disc2="<?php echo esc_attr( wp_kses_post( $disc2 ) ); ?>"                
                 >
 
                 <div class="jacket-image">
@@ -221,10 +221,6 @@
           </div>
           <div class="modal-body-right">
             <p class="modal-desc"></p>
-            <div class="modal-songs">
-              <p class="disc-1"></p>
-              <p class="disc-2"></p>
-            </div>
             <div class="sale-links">
               <a class="modal-amazon" href="#" target="_blank">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_amazon.png" alt="">
@@ -237,6 +233,11 @@
               </a>
             </div>
             <p class="modal-tour"></p>
+            <div class="modal-songs">
+              <p class="disc-1"></p>
+              <p class="disc-2"></p>
+            </div>
+
           </div>
         </div><!--modal-body-flex-->
     </div><!-- modal-body -->

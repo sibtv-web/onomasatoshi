@@ -189,14 +189,13 @@ if (hamburger && nav) {
     /* =========
       DISC情報　非表示判定
     ========= */
-    // 曲情報（modal-songs）
-    const songs = detailModal.querySelector('.modal-songs');
-    if (songs) {
-      // 両方のdiscが空なら非表示
-      const disc1 = songs.querySelector('.disc-1')?.textContent.trim();
-      const disc2 = songs.querySelector('.disc-2')?.textContent.trim();
+const songs = detailModal.querySelector('.modal-songs');
+if (songs) {
+  const disc1HTML = songs.querySelector('.disc-1')?.innerHTML.trim();
+  const disc2HTML = songs.querySelector('.disc-2')?.innerHTML.trim();
 
-      songs.style.display = (disc1 === '' && disc2 === '') ? 'none' : '';
+  songs.style.display =
+    (!disc1HTML && !disc2HTML) ? 'none' : '';
     }
   }
   // =========================
