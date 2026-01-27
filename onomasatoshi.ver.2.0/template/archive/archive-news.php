@@ -58,6 +58,7 @@
                 'live'  => 'ライブ',
                 'event' => 'イベント',
                 'media' => 'メディア',
+                'release' => 'リリース',
                 'other' => 'その他',
               ];
               if ($the_query->have_posts()):

@@ -76,7 +76,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     ?>
                 <li><a href="<?php echo esc_url($latest_discography_url); ?>" class="release-btn">最新リリース情報</a></li>
                 <li><a href="<?php echo esc_url(home_url('/news/')); ?>">ニュース</a></li>
-                <li><a href="<?php echo esc_url(home_url('/profile/')); ?>">プロフィール</a></li>
+                <li><a href="<?php echo esc_url( home_url('/news/category/live/') ); ?>#tab">スケジュール</a></li>
+                <li><a href="<?php echo esc_url(home_url('/profile/')); ?>">バイオグラフィ</a></li>
                 <li><a href="<?php echo esc_url(home_url('/discography/')); ?>">ディスコグラフィ</a></li>
                 <li><a href="<?php echo esc_url( home_url('/#anchor-qa') ); ?>">小野正利への質問</a></li>
                 <li><a href="https://goodsshop.onomasatoshi.com/" target="_blank">グッズ</a></li>

@@ -28,7 +28,7 @@
 
       <article class="article-profile">
         <section class="archive-news archive-discography">
-          <div class="section-title">PROFILE</div>
+          <div class="section-title">BIOGRAPHY</div>
 
           <div class="profile-inner">
             <div class="profile-content">
@@ -220,7 +220,7 @@
         </div>
         <article class="article-profile">
           <section class="archive-news archive-discography">
-            <div class="section-title">FISHING PROFILE</div>
+            <div class="section-title">FISHING BIOGRAPHY</div>
             <div class="profile-inner">
               <div class="main-profile-box">
                 <div class="main-img">
