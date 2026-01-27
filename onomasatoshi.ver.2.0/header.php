@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
+<!-- Google Tag Manager -->
+	<script async="" src="https://scripts.clarity.ms/0.8.51/clarity.js"></script><script type="text/javascript" async="" src="https://www.clarity.ms/tag/v7dtow7mlv?ref=gtm"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-9C3G516BNF&amp;cx=c&amp;gtm=4e61m0"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TJTGHWRK"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TJTGHWRK');</script>
+	<!-- End Google Tag Manager -->
+
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 
+<!-- favicon、touch-icon -->
+<!-- <link rel="icon" href="<?php echo esc_url( get_theme_file_uri('favicon.png') ); ?>"> -->
+<link rel="apple-touch-icon" sizes="180x180"
+      href="<?php echo esc_url( get_theme_file_uri('assets/images/icon/apple-touch-icon.png') ); ?>">
+<link rel="icon" sizes="192x192"
+      href="<?php echo esc_url( get_theme_file_uri('assets/images/icon/android-chrome.png') ); ?>">
 
-<!-- favicon -->
-<link rel="icon" href="<?php echo esc_url( get_theme_file_uri('favicon.ico') ); ?>">
 <!-- OGP / SNS -->
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-<meta property="og:type" content="website">
-<meta property="og:title" content="<?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>">
-<meta property="og:description" content="<?php echo get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true); ?>">
-<meta property="og:url" content="<?php echo esc_url( home_url( add_query_arg( array(), $wp->request ) ) ); ?>">
-<meta property="og:image" content="<?php echo get_theme_file_uri(); ?>/assets/images/kv/ogp.jpg">
+<meta property="og:image" content="<?php echo esc_url( get_theme_file_uri('assets/images/kv/ogp.jpg') ); ?>">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Twitterアカウント">
+
 <!-- CSS -->
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/reset.css">
 <link rel="stylesheet" href="https://use.typekit.net/ybk1yun.css">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
 <link href="<?php echo get_theme_file_uri(); ?>/assets/css/splide.min.css" rel="stylesheet">
+
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
 <!-- splide.js -->
 <script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide.min.js"></script>
 <script type="text/javascript" src="<?php echo get_theme_file_uri(); ?>/assets/js/splide-extension-auto-scroll.min.js"></script>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJTGHWRK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="site-header <?php if(is_front_page() || is_home()){echo "front";} ?>">
   <div class="hamburger" id="hamburger">

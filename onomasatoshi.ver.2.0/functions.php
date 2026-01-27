@@ -73,7 +73,7 @@ add_action('init', function() {
         'capability_type'    => 'post',
         'hierarchical'       => false,
         'menu_position'      => 15,
-        'supports'           => array('title','editor','thumbnail'),
+        'supports' => array('title','editor','excerpt','thumbnail'),
         'has_archive'        => true,
     );
 
@@ -98,6 +98,23 @@ add_filter('archive_template', function($archive) {
     }
     return $archive;
 });
+
+// 詳細ページのディスクリプションを本文の抜粋にする
+
+add_filter('aioseo_description', function($description) {
+    if (is_singular('news') && empty($description)) {
+        $post = get_post();
+        if ($post) {
+            return wp_trim_words(
+                wp_strip_all_tags($post->post_content),
+                120,
+                ''
+            );
+        }
+    }
+    return $description;
+});
+
 
 /**
  * カスタム投稿タイプ（Discography）
