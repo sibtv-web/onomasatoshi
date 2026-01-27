@@ -22,10 +22,10 @@
         <div class="section-title">DISCOGRAPHY</div>
         <!-- タブ切替 -->
         <ul class="news-tabs">
-          <li class="news-tags is-active" data-filter="all">ALL</li>
-          <li class="news-tags" data-filter="single">シングル</li>
-          <li class="news-tags" data-filter="album">アルバム</li>
-          <li class="news-tags" data-filter="dvd">DVD</li>
+          <li class="news-tags is-active" data-filter="all"><span>ALL</span></li>
+          <li class="news-tags" data-filter="single"><span>シングル</span></li>
+          <li class="news-tags" data-filter="album"><span>アルバム</span></li>
+          <li class="news-tags" data-filter="dvd"><span>DVD</span></li>
         </ul>
         <div class="archive-discography-inner">
           <?php 

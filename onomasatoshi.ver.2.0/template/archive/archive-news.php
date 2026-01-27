@@ -35,6 +35,9 @@
           <li class="news-tags <?php if($category == "media"){ echo 'active'; }?>" data-category="media" data-paged="<?php echo $paged;?>">
             <a href="<?php echo home_url("/news/category/media/#tab") ;?>">メディア</a>
           </li>
+          <li class="news-tags <?php if($category == "release"){ echo 'active'; }?>" data-category="release" data-paged="<?php echo $paged;?>">
+            <a href="<?php echo home_url("/news/category/release/#tab") ;?>">リリース</a>
+          </li>
           <li class="news-tags <?php if($category == "other"){ echo 'active'; }?>" data-category="other" data-paged="<?php echo $paged;?>">
             <a href="<?php echo home_url("/news/category/other/#tab") ;?>">その他</a>
           </li>

@@ -115,12 +115,13 @@
     justify-content: center;
     flex-shrink: 0;
     padding: unset;
+    transition: all 0.3s;
     @include bp-m(){
       font-size: 0.83vw;
       width: 8.7vw;
       height: auto;
     }
-  & a{
+  & a,& span{
     padding: 4px;
     @include bp-m(){
       padding: 8px 16px;
