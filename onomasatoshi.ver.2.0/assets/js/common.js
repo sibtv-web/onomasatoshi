@@ -20,9 +20,16 @@ if (hamburger && nav) {
   nav.addEventListener('click', e => {
     e.stopPropagation();
   });
-
   
 }
+
+nav.querySelectorAll('a[href*="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    hamburger.classList.remove('active');
+  });
+});
+
   // =========================
   // アーカイブ詳細モーダル
   // =========================
@@ -592,4 +599,36 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btn){
     btn.addEventListener("click", () => btnClick(btn));
   }
+});
+
+
+//トップのみヘッダーのボカシ調整
+
+document.addEventListener('DOMContentLoaded', () => {
+  // トップページ以外は既存挙動を壊さない
+  if (!document.body.classList.contains('home')) return;
+
+  const headerBlur = document.querySelector('.header-blur');
+  const trigger = document.querySelector('.container-trigger');
+
+  if (!headerBlur || !trigger) return;
+
+  const headerHeight =
+    window.matchMedia('(max-width: 820px)').matches ? 95 : 70;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.boundingClientRect.top <= headerHeight) {
+        headerBlur.classList.add('is-active');
+      } else {
+        headerBlur.classList.remove('is-active');
+      }
+    },
+    {
+      root: null,
+      threshold: 0
+    }
+  );
+
+  observer.observe(trigger);
 });

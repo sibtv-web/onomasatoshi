@@ -8,10 +8,10 @@
   get_header();
 ?>
 <main class="profile-wrapper">
-  <!-- <div class="header-name">
+  <div class="header-name">
     <a href="<?php echo home_url(); ?>">ONO MASATOSHI</a>
-  </div> -->
-  <!-- <div class="header-blur"></div> -->
+  </div>
+  <div class="header-blur"></div>
   <!-- 通常プロフィール -->
   <div class="profile-panel profile-panel--normal active" data-profile="normal">
     <div class="profile-eraser"></div>

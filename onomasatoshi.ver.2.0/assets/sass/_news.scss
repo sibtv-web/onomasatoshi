@@ -114,11 +114,19 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    padding: unset;
     @include bp-m(){
       font-size: 0.83vw;
       width: 8.7vw;
       height: auto;
     }
+  & a{
+    padding: 4px;
+    @include bp-m(){
+      padding: 8px 16px;
+    }
+  }
+
     &:hover{
       background-color:#0A1836 ;
       border: 1px solid #efefef;

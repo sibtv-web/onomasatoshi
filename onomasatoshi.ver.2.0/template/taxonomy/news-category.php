@@ -16,6 +16,7 @@
   }
 ?>
 <main>
+  <div class="header-blur"></div> 
   <div class="archive-container">
     <div class="news archive-header">
         <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>

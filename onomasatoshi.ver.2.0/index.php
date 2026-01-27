@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
 <body>
+    <div class="header-blur"></div> 
+
 <main>
   <!-- KV -->
 <section class="kv-mask">
@@ -40,7 +42,7 @@
         </svg>
 
     </section>
-
+    <div class="container-trigger"></div>
   <div class="container">
 
 <!-- Release -->
