@@ -16,7 +16,7 @@
                     ]);
                     $latest_discography_url = !empty($latest_discography) ? get_permalink($latest_discography[0]->ID) : '';
                     ?>
-                <li><a href="<?php echo esc_url($latest_discography_url); ?>" class="release-btn">最新リリース情報</a></li>
+                <li><a href="<?php echo esc_url($latest_discography_url); ?>" class="release-btn">リリース</a></li>
                 <li><a href="<?php echo esc_url(home_url('/news/')); ?>">ニュース</a></li>
                 <li><a href="<?php echo esc_url( home_url('/news/category/live/') ); ?>#tab">スケジュール</a></li>
                 <li><a href="<?php echo esc_url(home_url('/profile/')); ?>">バイオグラフィ</a></li>

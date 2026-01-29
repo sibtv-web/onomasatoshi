@@ -4662,6 +4662,9 @@ body.is-modal-open {
   position: relative;
   z-index: 1;
 }
+.discography-template-default.single.single-discography .header-blur {
+  z-index: 2;
+}
 
 .bg-layer {
   position: fixed;
