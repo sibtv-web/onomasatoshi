@@ -28,7 +28,7 @@ get_header();
 皆様からのご質問をお待ちしております。</div>
                 <div class="contact-box">
                   <p class="asterisk">※入力必須項目</p>
-                    <?php echo do_shortcode('[contact-form-7 id="82dafb4" title="QUESTION（質問フォーム）"]'); ?>
+                    <?php echo do_shortcode('[contact-form-7 id="6c115b5" title="QUESTION（質問フォーム）"]'); ?>
                 </div>
         </section>
     </article>

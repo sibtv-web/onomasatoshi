@@ -484,11 +484,17 @@ document.addEventListener('wpcf7mailsent', function(event) {
   if (event.detail.contactFormId === 350) {
     window.location.href = '/onomasatoshi_3_wp/contact-thanks/';
   }
-
   if (event.detail.contactFormId === 354) {
       window.location.href = '/onomasatoshi_3_wp/qa-thanks';
     }
+  if (event.detail.contactFormId === 997) {
+    window.location.href = '/qa-thanks';
+  }
+  if (event.detail.contactFormId === 996) {
+    window.location.href = '/contact-thanks/';
+  }
 }, false);
+
 
 
 

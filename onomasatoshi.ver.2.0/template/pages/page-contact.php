@@ -24,7 +24,8 @@ get_header();
               <p class="asterisk">※入力必須項目</p>
                 <?php
                 // Contact Form 7 のショートコードを呼び出すだけ
-                echo do_shortcode('[contact-form-7 id="b7c291d" title="お問い合わせ"]');
+                echo do_shortcode('[contact-form-7 id="fc45b16" title="お問い合わせ"]');
+
                 ?>
             </div>
         </section>
