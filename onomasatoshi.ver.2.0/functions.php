@@ -99,21 +99,37 @@ add_filter('archive_template', function($archive) {
     return $archive;
 });
 
-// 詳細ページのディスクリプションを本文の抜粋にする
-
-add_filter('aioseo_description', function($description) {
-    if (is_singular('news') && empty($description)) {
+// News詳細ページ：本文から強制的に meta description を出す（検証用）
+add_action('wp_head', function () {
+    if (is_singular('news')) {
         $post = get_post();
         if ($post) {
-            return wp_trim_words(
-                wp_strip_all_tags($post->post_content),
-                120,
-                ''
-            );
+            echo '<meta name="description" content="'
+               . esc_attr(
+                   wp_trim_words(
+                       wp_strip_all_tags($post->post_content),
+                       120,
+                       ''
+                   )
+               )
+               . '">' . "\n";
         }
     }
-    return $description;
-});
+}, 99);
+
+
+//ニュースのタグ別にディスクリプションを設定
+
+add_action('wp_head', function() {
+    if (is_tax()) {
+        $term = get_queried_object();
+        if ($term && !empty($term->description)) {
+            echo '<meta name="description" content="' . esc_attr(
+                wp_strip_all_tags($term->description)
+            ) . '">' . "\n";
+        }
+    }
+}, 1);
 
 
 /**
