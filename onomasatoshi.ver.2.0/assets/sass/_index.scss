@@ -1281,6 +1281,7 @@ body.loading .hamburger {
   right: 18px;
   z-index: 9999;
   display: flex;
+  align-items: flex-start;
   @include bp-m(){
     top: 37px;
     right: 25px;

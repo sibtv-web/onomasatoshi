@@ -608,46 +608,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-//トップのみヘッダーのボカシ調整
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // トップページ以外は既存挙動を壊さない
-//   if (!document.body.classList.contains('home')) return;
-
-//   const headerBlur = document.querySelector('.header-blur');
-//   const trigger = document.querySelector('.container-trigger');
-
-//   if (!headerBlur || !trigger) return;
-
-//   const headerHeight =
-//     window.matchMedia('(max-width: 820px)').matches ? 95 : 70;
-
-//   const observer = new IntersectionObserver(
-//     ([entry]) => {
-//       if (entry.boundingClientRect.top <= headerHeight) {
-//         headerBlur.classList.add('is-active');
-//       } else {
-//         headerBlur.classList.remove('is-active');
-//       }
-//     },
-//     {
-//       root: null,
-//       threshold: 0
-//     }
-//   );
-
-//   observer.observe(trigger);
-// });
+// ========================================
+// ヘッダーのぼかし（KV上は表示させない）
+// ========================================
 
 document.addEventListener('DOMContentLoaded', () => {
   if (!document.body.classList.contains('home')) return;
 
-  const headerBlur = document.querySelector('.header-blur');
+  const headerTargets = document.querySelectorAll('.header-blur, .header-name');
   const container = document.querySelector('.container');
   const kv = document.querySelector('.kv-mask');
 
-  if (!headerBlur || !container || !kv) return;
+  if (!headerTargets.length || !container || !kv) return;
 
   const headerHeight =
     window.matchMedia('(max-width: 820px)').matches ? 95 : 70;
@@ -656,24 +628,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerTop = container.getBoundingClientRect().top;
     const kvBottom = kv.getBoundingClientRect().bottom;
 
-    // KVが見えている間は絶対にblurしない
+    // KVが見えている間は表示しない
     if (kvBottom > 0) {
-      headerBlur.classList.remove('is-active');
+      headerTargets.forEach(el => el.classList.remove('is-active'));
       return;
     }
 
-    // KVが完全に抜けた後、containerが上に来たら
+    // KVが完全に抜けた後
     if (containerTop <= headerHeight) {
-      headerBlur.classList.add('is-active');
+      headerTargets.forEach(el => el.classList.add('is-active'));
     } else {
-      headerBlur.classList.remove('is-active');
+      headerTargets.forEach(el => el.classList.remove('is-active'));
     }
   };
 
   onScroll();
   window.addEventListener('scroll', onScroll);
 });
-
 
 
 // Facebookリンクコピー

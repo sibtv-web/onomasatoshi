@@ -6,7 +6,7 @@
 
     <!-- アーカイブヘッダー -->
     <div class="discography archive-header">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a></div>
         <div class="archive-header-tx fade-anime" data-fade="fade-left">
             <picture>
             <source
