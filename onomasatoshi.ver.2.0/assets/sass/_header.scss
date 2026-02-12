@@ -91,3 +91,22 @@
   height: 1px;
 }
 
+/* 横並びSNS */
+.header-sns{
+  display: flex;
+  padding-top: 25px;
+  gap:4.2vw;
+  @include bp-m(){
+    padding-top: 37px;
+    gap:1.71vw;
+  }
+  .x{
+    width: ;
+    height: auto;
+    @include bp-m(){
+      width: ;
+      height: auto;
+    }
+  }
+}
+

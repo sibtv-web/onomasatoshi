@@ -1294,6 +1294,7 @@ body.loading .hamburger {
   top: 22px;
   right: 18px;
   z-index: 9999;
+  display: flex;
 }
 @media (min-width: 768px) {
   .site-header {
@@ -3270,13 +3271,13 @@ body.is-modal-open {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  padding: 25px 21px;
+  padding: 32px 21px;
 }
 @media (min-width: 768px) {
   .site-header .hamburger {
     width: 70px;
     height: 18px;
-    padding: 37px 25px;
+    padding: 39px 25px 25px 1.71vw;
   }
 }
 .site-header .hamburger span {
@@ -3533,6 +3534,19 @@ body.is-modal-open {
   position: relative;
   width: 100%;
   height: 1px;
+}
+
+/* 横並びSNS */
+.header-sns {
+  display: flex;
+  padding-top: 25px;
+  gap: 4.2vw;
+}
+@media (min-width: 768px) {
+  .header-sns {
+    padding-top: 37px;
+    gap: 1.71vw;
+  }
 }
 
 .profile.archive-header {

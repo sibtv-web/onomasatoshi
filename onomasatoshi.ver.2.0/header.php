@@ -51,6 +51,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <header class="site-header <?php if(is_front_page() || is_home()){echo "front";} ?>">
+  <ul class="header-sns">
+    <li class="x"><a href="https://x.com/onomasatoshi_of" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg" alt="X"></a></li>
+    <li class="tiktok"><a href="https://www.tiktok.com/@masatoshiono_official" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_tiktok.svg" alt="TikTok"></a></li>
+    <li class="youtube"><a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_youtube.svg" alt="Youtube"></a></li>
+  </ul>
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
@@ -59,7 +64,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="site-nav" id="site-nav">
   <div class="footer-contents">
     <div class="footer-box">
-      <div class="footer-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+      <div class="footer-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a></div>
       <div class="footer-box__inner">
         <nav class="footer-nav-1">
           <div class="footer-title">Contents</div>

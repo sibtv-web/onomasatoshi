@@ -9,7 +9,7 @@ Template Name: Privacy Policy
   <div class="page-container privacy-container">
 
     <div class="simple-header-black">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a></div>
     </div>
 
     <article>

@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   jQuery(function ($) {
       $('main').fadeTo(400, 1);
@@ -673,3 +674,22 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
 });
 
+
+
+// Facebookリンクコピー
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.js-copy-url').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const url = btn.dataset.url;
+
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: url
+        });
+      } else {
+        alert('この端末では共有できません。URLをコピーしてください。\n' + url);
+      }
+    });
+  });
+});

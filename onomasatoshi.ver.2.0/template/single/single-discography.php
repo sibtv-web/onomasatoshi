@@ -63,7 +63,7 @@
       </div>
 
     <div class="simple-header">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a></div>
     </div>
 
 

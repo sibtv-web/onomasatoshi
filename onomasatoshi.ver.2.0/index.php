@@ -4,6 +4,10 @@
     <div class="header-blur"></div> 
 
 <main>
+  <div class="header-name">
+    <a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a>
+  </div>
+
   <!-- KV -->
 <section class="kv-mask">
 

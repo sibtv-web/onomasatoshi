@@ -4,7 +4,7 @@
 <main>
   <div class="single-container">
     <div class="simple-header">
-        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI</a></div>
+        <div class="header-name"><a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a></div>
     </div>
 
     <article>
@@ -57,16 +57,22 @@
             </div>
 
                 <!-- シェアボタン -->
+
+                <?php
+                $share_url   = urlencode( get_permalink() );
+                $share_title = urlencode( get_the_title() );
+                ?>
+
                 <div class="sns-share">
 
                     <!-- X -->
                     <div class="sns-share-item">
-                        <a
-                            href="https://twitter.com/intent/tweet?url=<?php echo $share_url; ?>&text=<?php echo $share_title; ?>"
-                            target="_blank"
-                            rel="noopener"
-                            class="sns-btn x"
-                        >
+                      <a
+                        href="https://twitter.com/intent/tweet?text=<?php echo $share_title; ?>&url=<?php echo $share_url; ?>"
+                        target="_blank"
+                        rel="noopener"
+                        class="sns-btn x"
+                      >
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg"alt="">
                             <span class="text">Xにポスト</span>
                             <span class="sns-share-chevron"></span>
@@ -74,28 +80,27 @@
                         </a>
                     </div>
 
-                        <!-- Facebook -->
+                    <!-- Facebook（URLコピー） -->
                     <div class="sns-share-item">
-                        <a
-                            href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url; ?>"
-                            target="_blank"
-                            rel="noopener"
-                            class="sns-btn facebook"
-                        >
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_facebook.svg"alt="">
-                            <span class="text">Facebookでシェア</span>
-                            <span class="sns-share-chevron"></span>
-                        </a>
+                      <button
+                        type="button"
+                        class="sns-btn facebook js-copy-url"
+                        data-url="<?php echo esc_url( get_permalink() ); ?>"
+                      >
+                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_facebook.svg" alt="">
+                        <span class="text">Facebookでシェア</span>
+                        <span class="sns-share-chevron"></span>
+                      </button>
                     </div>
 
                     <!-- LINE -->
                     <div class="sns-share-item">
-                        <a
-                            href="https://line.me/R/msg/text/?<?php echo $share_title; ?>%0A<?php echo $share_url; ?>"
-                            target="_blank"
-                            rel="noopener"
-                            class="sns-btn line"
-                        >
+                      <a
+                        href="https://social-plugins.line.me/lineit/share?url=<?php echo $share_url; ?>"
+                        target="_blank"
+                        rel="noopener"
+                        class="sns-btn line"
+                      >
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg" alt="">
                             <span class="text">LINEでシェア</span>
                             <span class="sns-share-chevron"></span>

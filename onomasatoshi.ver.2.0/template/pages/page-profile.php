@@ -9,7 +9,7 @@
 ?>
 <main class="profile-wrapper">
   <div class="header-name">
-    <a href="<?php echo home_url(); ?>">ONO MASATOSHI</a>
+    <a href="<?php echo home_url(); ?>">ONO MASATOSHI<br>OFFICIAL SITE</a>
   </div>
   <div class="header-blur"></div>
   <!-- 通常プロフィール -->

@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="inner">
-      <div class="footer-name">ONO MASATOSHI</div>
+      <div class="footer-name">ONO MASATOSHI<br>OFFICIAL SITE</div>
       <div class="footer-box">
         <nav class="footer-nav-1">
           <div class="footer-title">Contents</div>
