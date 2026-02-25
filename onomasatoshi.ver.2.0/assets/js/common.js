@@ -664,3 +664,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+
+const hamburger = document.getElementById('hamburger');
+const headerIcons = document.querySelectorAll('.js-header-sns-icon');
+
+// 🔑 元のsrcを記憶する
+headerIcons.forEach(icon => {
+  icon.dataset.originalSrc = icon.getAttribute('src');
+});
+
+hamburger.addEventListener('click', () => {
+  const isOpen = document.body.classList.toggle('is-menu-open');
+
+  headerIcons.forEach(icon => {
+    if (isOpen) {
+      // OPEN時 → 白にする
+      icon.setAttribute(
+        'src',
+        icon.dataset.originalSrc.replace('_blk', '')
+      );
+    } else {
+      // CLOSE時 → 元の画像に戻す
+      icon.setAttribute('src', icon.dataset.originalSrc);
+    }
+  });
+});

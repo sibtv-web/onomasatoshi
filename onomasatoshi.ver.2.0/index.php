@@ -74,7 +74,7 @@
             <div class="release-left-inner">
               <?php if ($jacket_images): ?>
                 <div class="release-jacket">
-                  <img src="<?php echo esc_url($jacket_images); ?>" alt="<?php the_title(); ?>">
+                  <img src="<?php echo esc_url($jacket_images); ?>" alt="<?php the_title(); ?>のジャケット写真">
                 </div>
               <?php endif; ?>
 
@@ -230,7 +230,7 @@
           <div class="circle-wrap fade-anime" data-fade="fade-up">
             <div class="circle-image">
               <a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/img_movie_circle.webp"alt="">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/parts/img_movie_circle.webp"alt="小野正利のYouTubeへ">
               </a>
             </div>
             <span class="movie-circle-arrow"></span>
@@ -244,7 +244,7 @@
       <div class="inner">
         <div class="link-list fade-anime" data-fade="fade-up-cont">
             <a href="https://goodsshop.onomasatoshi.com/" class="banner-item" target="_blank" rel="noopener">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_ono's-shop.png" alt="goods">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_ono's-shop.png" alt="ONO'S SHOPへ">
               <div class="banner-content">
                 <p class="banner-sub-title">Official Goods</p>
                 <p class="banner-title">ONO'S SHOP</p>
@@ -257,7 +257,7 @@
             </a>
 
             <a href="https://fanicon.net/fancommunities/4196" class="banner-item" target="_blank" rel="noopener">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_voice.png" alt="fan club">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_voice.png" alt="Official Fun Clubサイトへ">
               <div class="banner-content">
                 <p class="banner-sub-title">Official Fun Club</p>
                 <p class="banner-title">VOICE</p>
@@ -270,7 +270,7 @@
             </a>
 
             <a href="https://www.galneryus.jp/" class="banner-item" target="_blank" rel="noopener">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_galneryus.png" alt="ガルネリウス">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_galneryus.png" alt="ガルネリウスの公式サイトへ">
               <div class="banner-content">
                 <p class="banner-sub-title">Heavy Metal Band</p>
                 <p class="banner-title">GALNERYUS</p>
@@ -283,7 +283,7 @@
             </a>
 
             <a href="http://sound-s.jp/" class="banner-item" target="_blank" rel="noopener">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_bese.png" alt="Bese">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_bese.png" alt="ボーカルスクールBeseへ">
               <div class="banner-content">
                 <p class="banner-sub-title">Vocal School</p>
                 <p class="banner-title">Bese</p>

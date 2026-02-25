@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -50,7 +51,55 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<header class="site-header <?php if(is_front_page() || is_home()){echo "front";} ?>">
+
+
+<?php
+$is_black = is_page([
+  'contact',
+  'contact-thanks',
+  'privacy'
+]);
+
+$icon_suffix = $is_black ? '_blk' : '';
+?>
+<header class="site-header <?php if (is_front_page() || is_home()) { echo 'front'; } ?>">
+  <ul class="header-sns">
+
+    <li class="x">
+      <a href="https://x.com/onomasatoshi_of" target="_blank">
+        <img class="js-header-sns-icon"
+          src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x<?php echo $icon_suffix; ?>.svg"
+          alt="X">
+      </a>
+    </li>
+
+    <li class="tiktok">
+      <a href="https://www.tiktok.com/@masatoshiono_official" target="_blank">
+        <img class="js-header-sns-icon"
+          src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_tiktok<?php echo $icon_suffix; ?>.svg"
+          alt="TikTok">
+      </a>
+    </li>
+
+    <li class="youtube">
+      <a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="_blank">
+        <img class="js-header-sns-icon"
+          src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_youtube<?php echo $icon_suffix; ?>.svg"
+          alt="YouTube">
+      </a>
+    </li>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+    </div>
+  </ul>
+
+</header>
+
+
+
+
+<!-- <header class="site-header <?php if(is_front_page() || is_home()){echo "front";} ?>">
   <ul class="header-sns">
     <li class="x"><a href="https://x.com/onomasatoshi_of" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg" alt="X"></a></li>
     <li class="tiktok"><a href="https://www.tiktok.com/@masatoshiono_official" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_tiktok.svg" alt="TikTok"></a></li>
@@ -60,7 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span></span>
     <span></span>
   </div>
-</header>
+</header> -->
 <nav class="site-nav" id="site-nav">
   <div class="footer-contents">
     <div class="footer-box">

@@ -81,7 +81,7 @@
                     </div>
 
                     <!-- Facebook（URLコピー） -->
-                    <div class="sns-share-item">
+                    <!-- <div class="sns-share-item">
                       <button
                         type="button"
                         class="sns-btn facebook js-copy-url"
@@ -91,7 +91,7 @@
                         <span class="text">Facebookでシェア</span>
                         <span class="sns-share-chevron"></span>
                       </button>
-                    </div>
+                    </div> -->
 
                     <!-- LINE -->
                     <div class="sns-share-item">

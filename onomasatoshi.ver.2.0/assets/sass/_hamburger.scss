@@ -4,15 +4,11 @@
   top: 1px;
   right: 2px;
   z-index: 9999;
-  transition: opacity 0.5s ease; 
 
   @include bp-m(){
     top: 5px;
     right: 25px;
   }
-    &:hover {
-      opacity: 0.6;
-    }
 
   .hamburger {
     width: 35px;
@@ -21,12 +17,23 @@
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    padding: 28px 21px;
+    padding: 28px 21px 28px 24px;
+    transition: opacity 0.5s ease; 
+
     @include bp-m(){
       width: 70px;
       height: 18px;
-      padding: 39px 25px 25px 1.71vw;
+      padding: 25px 25px 25px 2.45vw;
     }
+    &:hover {
+    opacity: 0.6;
+    }
+
+    &.active span{
+     background: #ffffff !important;
+    }
+
+
 
     span {
       display: block;
@@ -35,6 +42,7 @@
       background: #fff;
       transition: 0.3s ease;
       transform-origin: center;
+
     }
 
     &.active span:nth-child(1) {
@@ -113,10 +121,13 @@
       text-align: left;
       z-index: 1;
       @include bp-m(){
-        font-size: 32px;
+        font-size: 1.67vw;
         margin-top: 0;
         padding-bottom: 174px;
         width: 100%;
+      }
+      & a{
+        font-size: unset;
       }
   }
   .footer-box{

@@ -51,6 +51,7 @@
     font-size: clamp(43px, 6.25vw, 120px);
     text-align: center;
     padding: 50px 0 47px 0;
+    line-height: 94%;
     @include bp-m(){
       letter-spacing: -0.06em;
       text-align: unset;

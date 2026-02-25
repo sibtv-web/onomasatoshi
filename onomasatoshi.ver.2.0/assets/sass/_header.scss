@@ -33,13 +33,31 @@
     font-size: 16px;
     left: 4.6%;
     z-index: 2;
+    line-height: 94%;
       @include bp-m(){
-        font-size: 1.67vw;
+        font-size: 1.25vw;
         top: 37px;
         left: 5.2%;
 
       }
+
 }
+
+.header-name{
+  transition: opacity 0.5s ease; 
+        &:hover {
+      opacity: 0.6;
+    }
+
+}
+
+.header-name.is-active{
+  transition: opacity 0.5s ease; 
+        &:hover {
+      opacity: 0.6 !important;
+    }
+}
+
 
 
 //ヘッダーぼかし
@@ -69,7 +87,7 @@
   );
 
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
   @include bp-m(){
   height: 150px;
   }
@@ -80,13 +98,19 @@
 .home .header-name {
   opacity: 0;
   transition: opacity .4s ease;
+  cursor: default;
+  pointer-events: none;
+
 }
 
 /* KVを抜けたら表示 */
 .header-blur.is-active,
 .header-name.is-active {
   opacity: 1;
-  z-index: 2;
+  z-index: 3;
+  cursor: pointer;
+pointer-events: auto;
+
 }
 
 .container-trigger {
@@ -98,12 +122,27 @@
 /* 横並びSNS */
 .header-sns{
   display: flex;
-  padding-top: 17px;
-  gap:16px;
+  margin-top: 10px;
   align-items: center;
   @include bp-m(){
-    padding-top: 37px;
-    gap:1.71vw;
+    margin-top: 30px;
+  }
+
+  & li{
+    margin-right: 4.3vw;
+    transition: opacity 0.5s ease; 
+
+    @include bp-m(){
+    margin-right: 1.6vw;
+    }
+      &:hover {
+      opacity: 0.6;
+    }
+
+  }
+
+  & img{
+    display: block;
   }
   .x{
     width:4.5vw ;
@@ -124,11 +163,10 @@
   .youtube{
     width:5.3vw ;
     height: auto;
-    padding-bottom: 5px;
+    margin-right: 0;
     @include bp-m(){
       width: 1.6vw;
       height: auto;
-    padding-bottom: 0px;
     }
   }
 }

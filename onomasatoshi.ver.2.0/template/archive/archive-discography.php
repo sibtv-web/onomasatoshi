@@ -97,7 +97,7 @@
                 >
 
                 <div class="jacket-image">
-                  <img src="<?php echo esc_url($jacket); ?>" alt="<?php the_title(); ?>">
+                  <img src="<?php echo esc_url($jacket); ?>" alt="<?php the_title(); ?>のジャケット写真">
                   <button class="plus-btn">＋</button>
                 </div>
 
@@ -162,7 +162,7 @@
       </div>
         <div class="modal-body-flex">
           <div class="modal-body-left">
-            <div class="modal-image"><img class="modal-jacket" src="" alt=""></div><!-- 画像 -->
+            <div class="modal-image"><img class="modal-jacket" src="" alt="ジャケット写真"></div><!-- 画像 -->
             <ul class="modal-links">
 
               <li class="news-tags">
