@@ -1376,6 +1376,11 @@ body.loading .hamburger {
   position: fixed;
 }
 
+/* googleリキャプチャのロゴ非表示 */
+.grecaptcha-badge {
+  display: none;
+}
+
 .site-footer {
   background-color: #03121F;
   position: relative;
@@ -4090,7 +4095,8 @@ body.is-modal-open {
   height: 100%;
 }
 
-.page-template-default.page.page-id-37 .hamburger span {
+.page-template-default.page.page-id-37 .hamburger span,
+.page-template-default.page.page-id-13 .hamburger span {
   background: #03121F;
 }
 
@@ -4688,7 +4694,8 @@ body.is-modal-open {
   background: #EFEFEF;
 }
 
-.wp-singular.page-template-default.page.page-id-39 .site-header .hamburger span {
+.wp-singular.page-template-default.page.page-id-39 .site-header .hamburger span,
+.wp-singular.page-template-default.page.page-id-26 .site-header .hamburger span {
   background: #03121F;
 }
 

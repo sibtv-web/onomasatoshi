@@ -647,25 +647,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Facebookリンクコピー
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.js-copy-url').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const url = btn.dataset.url;
-
-      if (navigator.share) {
-        navigator.share({
-          title: document.title,
-          url: url
-        });
-      } else {
-        alert('この端末では共有できません。URLをコピーしてください。\n' + url);
-      }
-    });
-  });
-});
-
-
 
 const hamburger = document.getElementById('hamburger');
 const headerIcons = document.querySelectorAll('.js-header-sns-icon');

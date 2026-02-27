@@ -1356,3 +1356,8 @@ body.loading .hamburger {
     position: fixed;
   }
 }
+
+/* googleリキャプチャのロゴ非表示 */
+.grecaptcha-badge{
+  display: none;
+}
