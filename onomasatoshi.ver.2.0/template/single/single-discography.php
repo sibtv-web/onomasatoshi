@@ -82,7 +82,7 @@
                 <div class="release-jacket">
                   <img
                     src="<?php echo esc_url($latest_discography_data['jacket']); ?>"
-                    alt="<?php echo esc_attr($latest_discography_data['title']); ?>"
+                    alt="<?php echo esc_attr($latest_discography_data['title']); ?>のジャケット写真"
                   >
                 </div>
               <?php endif; ?>
@@ -93,7 +93,7 @@
                 <?php if (!empty($latest_discography_data['apple'])) : ?>
                   <li class="music-tags">
                     <a href="<?php echo esc_url($latest_discography_data['apple']); ?>" target="_blank">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="Apple Musicへ">
                       <span>Apple Music</span>
                     </a>
                   </li>
@@ -102,7 +102,7 @@
                 <?php if (!empty($latest_discography_data['spotify'])) : ?>
                   <li class="music-tags">
                     <a href="<?php echo esc_url($latest_discography_data['spotify']); ?>" target="_blank">
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="Spotifyへ">
                       <span>Spotify</span>
                     </a>
                   </li>

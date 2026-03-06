@@ -80,10 +80,15 @@
                     ?>
                     <div class="news-thumbnail" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
                       <?php 
-                        if ( $thumb_url ) {
-                          the_post_thumbnail('full');
+                        if ( has_post_thumbnail() ) {
+                          the_post_thumbnail(
+                            'full',
+                            [
+                              'alt' => esc_attr( get_the_title() . 'のサムネイル' )
+                            ]
+                          );
                         } else {
-                          echo '<img src="' . esc_url($default_url) . '" alt="デフォルト画像">';
+                          echo '<img src="' . esc_url($default_url) . '" alt="' . esc_attr( get_the_title() . 'のサムネイル' ) . '">';
                         }
                       ?>
                     </div>

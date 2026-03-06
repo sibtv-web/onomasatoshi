@@ -12,8 +12,8 @@
 <section class="kv-mask">
 
   <picture>
-    <source media="(min-width:821px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp">
-    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp" alt="小野正利">
+    <source media="(min-width:821px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_pc.webp"alt="小野正利の写真">
+    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/kv_sp.webp" alt="小野正利の写真">
   </picture>
 
         <svg class="mask-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">

@@ -167,14 +167,14 @@
 
               <li class="news-tags">
                 <a class="modal-apple" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="AppleMusicへ">
                   <span>Apple Music</span>
                 </a>
               </li>
 
               <li class="news-tags">
                 <a class="modal-spotify" href="#" target="_blank">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="Spotifyへ">
                   <span>Spotify</span>
                 </a>
               </li>
@@ -223,13 +223,13 @@
             <p class="modal-desc"></p>
             <div class="sale-links">
               <a class="modal-amazon" href="#" target="_blank">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_amazon.png" alt="">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_amazon.png" alt="Amazonへ">
               </a>
               <a class="modal-tower" href="#" target="_blank">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_tower-records.png" alt="">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_tower-records.png" alt="タワーレコードへ">
               </a>
               <a class="modal-hmv" href="#" target="_blank">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_hmv.png" alt="">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/bnr/bnr_hmv.png" alt="HMVへ">
               </a>
             </div>
             <p class="modal-tour"></p>

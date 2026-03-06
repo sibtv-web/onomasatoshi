@@ -34,7 +34,7 @@
             <div class="profile-content">
               <div class="main-profile-box">
                 <div class="main-img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-main.jpg" alt="小野正利">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-main.jpg" alt="小野正利の写真">
                 </div>
                 <p class="profile-name">小野正利</p>
                 <p class="profile-birthday">1967年1月29日誕生</p>
@@ -116,7 +116,7 @@
                   <div class="timeline-year">2009</div>
                     <div class="timeline-text">
                       ヘヴィ・メタルバンドGALNERYUS のゲスト• ボーカルとして『PURE ROCK JAPAN LIVE 2009』へ参加。同年9月、GALNERYUS のヴォーカリストとして正式加入。
-                      <img class="img-music-2009" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2009.webp" alt="">
+                      <img class="img-music-2009" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2009.webp" alt="2009年の小野正利">
                     </div>
                 </li>
 
@@ -124,7 +124,7 @@
                   <div class="timeline-year">2010</div>
                   <div class="timeline-text">
                     『total voice traning　ボーカルスクールビッセ〜美声（Bese）〜』を開校。自身の確かな歌唱力とハイトーンに憧れる様々な生徒を指導。適確な指導と親しみやすい人柄で好評を博す。
-                      <img class="img-music-2010" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2010.webp" alt="">
+                      <img class="img-music-2010" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2010.webp" alt="2010年の小野正利">
                   </div>
                 </li>
 
@@ -139,7 +139,7 @@
                   <div class="timeline-year">2012</div>
                   <div class="timeline-text">
                     同アニメED テーマにGALNERYUS が起用され、前代未聞OP/ED 共に同じボーカルが務めるという快挙を成し遂げる。また5月にはリットーミュージックより自身初の著書『限界を超えるハイ・トーンが出せる本』を出版。こちらも教則本として各方面から高い評価を得る。現在も変わらぬハイトーンボイスでソロボーカリスト、GALNERYUS、またヴォーカル講師として精力的に活動中。
-                    <img class="img-music-2012" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2012.webp" alt="">
+                    <img class="img-music-2012" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_music_2012.webp" alt="2012年の小野正利">
                   </div>
                 </li>
 
@@ -224,7 +224,7 @@
             <div class="profile-inner">
               <div class="main-profile-box">
                 <div class="main-img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-fishing.jpg" alt="小野正利">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/kv/profile-fishing.jpg" alt="釣りの小野正利">
                 </div>
                 <p class="profile-name">小野正利</p>
                 <p class="profile-birthday">1967年1月29日誕生</p>
@@ -326,7 +326,7 @@
                   <div class="timeline-year">2019</div>
                   <div class="timeline-text">
                     小野正利52歳。朝6時から釣りを開始。「年齢より1つ上のサイズを釣る！」という謎に具体的な目標を掲げて河口湖に挑み、開始から約2時間後の8時頃、自己最高となる53cmのバスをキャッチ！有言実行である。小魚を追うバスの動きを読み切れたことが勝因と振り返る。
-                    <img class="img-fishing-2019" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2019.webp" alt="">
+                    <img class="img-fishing-2019" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2019.webp" alt="2019年の小野正利">
                   </div>
                 </li>
 
@@ -334,7 +334,7 @@
                   <div class="timeline-year">2020</div>
                   <div class="timeline-text">
                     昨年、大物を釣り上げたときのルアーを、ゲン担ぎとして使い続ける。同年、バースデーライブの際に村上マネージャーから竿を贈られる。性能は申し分ないものの、まだこの竿で大物を釣り上げるには至っていない。そろそろ結果を出さねば…。
-                    <img class="img-fishing-2020" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2020.webp" alt="">
+                    <img class="img-fishing-2020" src="<?php echo get_theme_file_uri(); ?>/assets/images/others/img_profile_fishing_2020.webp" alt="2020年の小野正利">
                   </div>
                 </li>
 

@@ -41,16 +41,16 @@
           <div class="footer-nav-link">
             <div class="footer-title">SNS</div>
             <ul class="footer-nav-col">
-              <li><a href="https://x.com/onomasatoshi_of" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg" alt="">X</a></li>
-              <li><a href="https://www.tiktok.com/@masatoshiono_official" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_tiktok.svg" alt="">TikTok</a></li>
-              <li><a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_youtube.svg" alt="">Youtube</a></li>
+              <li><a href="https://x.com/onomasatoshi_of" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg" alt="Xへ">X</a></li>
+              <li><a href="https://www.tiktok.com/@masatoshiono_official" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_tiktok.svg" alt="TikTokへ">TikTok</a></li>
+              <li><a href="https://www.youtube.com/channel/UCtA4OYVdyh0F4HcHFUgZ1_A" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_youtube.svg" alt="Youtubeへ">Youtube</a></li>
             </ul>
           </div>
           <div>
             <div class="footer-title">Music</div>
             <ul class="footer-nav-col">
-              <li><a href="https://music.apple.com/jp/artist/%E5%B0%8F%E9%87%8E%E6%AD%A3%E5%88%A9/585568726" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="">Apple Music</a></li>
-              <li><a href="https://open.spotify.com/intl-ja/artist/2R1ubdXY4sUiDqsCtoAVUE" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="">Spotify</a></li>
+              <li><a href="https://music.apple.com/jp/artist/%E5%B0%8F%E9%87%8E%E6%AD%A3%E5%88%A9/585568726" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_applemusic.svg" alt="Apple Musicへ">Apple Music</a></li>
+              <li><a href="https://open.spotify.com/intl-ja/artist/2R1ubdXY4sUiDqsCtoAVUE" target="blank"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_spotify.svg" alt="Spotifyへ">Spotify</a></li>
             </ul>
           </div>
         </nav>

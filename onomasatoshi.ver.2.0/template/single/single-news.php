@@ -73,7 +73,7 @@
                         rel="noopener"
                         class="sns-btn x"
                       >
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg"alt="">
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_x.svg"alt="Xにポストする">
                             <span class="text">Xにポスト</span>
                             <span class="sns-share-chevron"></span>
 
@@ -101,7 +101,7 @@
                         rel="noopener"
                         class="sns-btn line"
                       >
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg" alt="">
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/logo/logo_line.svg" alt="LINEでシェアする">
                             <span class="text">LINEでシェア</span>
                             <span class="sns-share-chevron"></span>
                         </a>
