@@ -310,11 +310,11 @@
 
         <div class="qa-block-flex fade-anime" data-fade="fade-up">
           <div class="circle-arrow">
-            <a href="<?php echo esc_url(home_url('/qa/')); ?>">Send a Question<span class="arrow"></span></a>
+            <a href="<?php echo home_url('/faq/'); ?>">View All<span class="arrow"></span></a>
           </div>
-
           <div class="qa-right-column">
             <div class="section-title">PERSONAL QUESTION</div>
+            <p class="qa-lead-text">小野正利に聞きたいことを募集しています。<br>みなさまからお送りいただいた質問に、小野正利が気ままに答えていきます。質問は<a href="<?php echo esc_url(home_url('/qa/')); ?>">こちら</a>から受け付けております。</p>
             <ul class="qa-list">
               <?php
               $qa_query = new WP_Query([
@@ -353,79 +353,6 @@
 </div>
 
 <?php get_footer(); ?>
-
-<!-- 
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  gsap.registerPlugin(MotionPathPlugin);
-
-  const kvLoading = document.querySelector('.kv-loading');
-  const maskCircle = document.getElementById('maskCircle');
-  const kvFinal = document.querySelector('.kv-final');
-  const lightRects = [
-    document.querySelector('.light-rect1'),
-    document.querySelector('.light-rect2')
-  ];
-
-  if (!maskCircle || !kvFinal || lightRects.some(r => !r)) {
-    console.error("KVの要素が取得できません！");
-    return;
-  }
-
-  kvFinal.style.opacity = 0;             // KV初期非表示
-  document.body.classList.add('loading'); // スクロール停止
-
-  const tl = gsap.timeline({
-    onComplete: () => {
-      kvLoading.style.display = 'none';  
-      document.body.classList.remove('loading');
-    }
-  });
-
-  // 1. 8の字動作（2秒）
-  tl.to(maskCircle, {
-    motionPath: {
-      path: [
-        {x: 0, y: 0},
-        {x: 10, y: -10},
-        {x: -10, y: 10},
-        {x: 0, y: 0}
-      ],
-      align: maskCircle,
-      autoRotate: false
-    },
-    duration: 2,
-    ease: "power1.inOut"
-  });
-
-  // 2. 円を拡大
-  tl.to(maskCircle, {
-    scale: 30,
-    transformOrigin: "50% 50%",
-    duration: 0.5,
-    ease: "power2.in"
-  });
-
-  // 3. ライトを白に切り替え（同時）
-  tl.to(lightRects, {
-    attr: { fill: "url(#lightGradWhite)" },
-    duration: 0.5
-  }, "<");
-
-  // 4. KVフェードイン
-  tl.to(kvFinal, {
-    opacity: 1,
-    duration: 0.5
-  }, "<");
-});
-
-
-
-
-</script> -->
-
-
 
 
 </body>

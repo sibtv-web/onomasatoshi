@@ -211,12 +211,12 @@ function qna_post() {
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array('slug' => 'q-a'),
+        'rewrite' => array('slug' => 'faq'),
         'capability_type'    => 'post',
         'hierarchical'       => false,
         'menu_position'      => 6,
         'supports'           => array('title'),
-        'has_archive'        => true
+        'has_archive'        => 'faq'
     );
 
     register_post_type('q-a', $args);
@@ -257,6 +257,15 @@ add_action('save_post', function($post_id, $post, $update) {
     ]);
 
 }, 10, 3);
+
+// Q&A 一覧ページ用テンプレート
+add_filter('archive_template', function($archive) {
+    if (is_post_type_archive('q-a')) {
+        $template = get_template_directory() . '/template/archive/archive-q-a.php';
+        if (file_exists($template)) return $template;
+    }
+    return $archive;
+});
 
 
 //モーダル開閉

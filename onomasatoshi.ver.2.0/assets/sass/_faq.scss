@@ -38,8 +38,26 @@
   }
 
   .section-title{
+    margin-bottom: 40px !important;
     @include bp-m(){
+      margin-bottom: 60px !important;
       text-indent: -0.7em;
+    }
+  }
+  .qa-lead-text{
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+    margin-left: 0;
+
+    @include bp-m(){
+      font-size: 16px;
+      margin-bottom: 28px;
+      margin-left: -27px;
+    }
+    a{
+      border-bottom: 1px solid #EFEFEF;
     }
   }
 
