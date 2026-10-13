@@ -7,14 +7,14 @@
 .footer-box{
   display: block;
   gap:50px;
-  padding: 0 20px 75px;
+  padding: 0 20px 45px;
   margin: auto;
   font-size:  clamp(14px, 4.2vw, 16px);  
     @include bp-m(){
     display: flex;
     padding-bottom: 112px;
     max-width: 1129px;
-    padding: 0 0 193px 10.4%;
+    padding: 0 0 150px 10.4%;
   }
   & a{
     transition: opacity 0.5s ease; 
@@ -63,10 +63,11 @@
   font-size:  clamp(16px, 5.3vw, 20px);  
   font-family:  'Pathway Gothic One';
   font-weight: 400;
-  margin: 50px 0 40px;
+  margin: 50px 0 20px;
   letter-spacing: 0.64px;
   @include bp-m(){
     letter-spacing: 0.8px;
+    margin: 50px 0 40px;
     }
   }
 }
@@ -112,6 +113,28 @@
   grid-template-columns: 1fr 1fr; 
   @include bp-m(){
     display: block;
+    }
+  }
+  &-4 ul{
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    margin-bottom: 22px;
+    @include bp-m(){
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap:3.125vw;
+    margin-bottom: 24px;
+    }
+    & li{
+    border-bottom: 1px solid #C9C9C9;
+    margin: 0 auto 8px;
+    display: table;
+    @include bp-m(){
+    margin: 0;
+    }
     }
   }
 }

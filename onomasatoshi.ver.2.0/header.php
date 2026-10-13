@@ -57,6 +57,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 $is_black = is_page([
   'contact',
   'contact-thanks',
+  'customer-harassment',
+  'recruitment-harassment',
   'privacy'
 ]);
 
@@ -144,7 +146,7 @@ $icon_suffix = $is_black ? '_blk' : '';
           <div class="footer-title">Information</div>
             <ul class="footer-nav-col">
               <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
-              <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
+              <!-- <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li> -->
             </ul>
         </nav>
         <nav class="footer-nav-3">

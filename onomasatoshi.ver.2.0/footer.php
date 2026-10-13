@@ -33,7 +33,6 @@
           <div class="footer-title">Information</div>
             <ul class="footer-nav-col">
               <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">お問い合わせ</a></li>
-              <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
             </ul>
         </nav>
 
@@ -55,6 +54,12 @@
           </div>
         </nav>
       </div>
+      <nav class="footer-nav-4">
+        <ul>
+          <li><a href="<?php echo esc_url(home_url('/privacy/')); ?>">プライバシーポリシー</a></li>
+          <li><a href="<?php echo esc_url(home_url('/customer-harassment/')); ?>">カスタマーハラスメントに対する基本指針</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 </footer>

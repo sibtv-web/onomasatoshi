@@ -837,9 +837,6 @@ p {
 .movie-section-title {
   position: relative;
   margin-bottom: 15px;
-  /* space */
-  /* space */
-  /* space */
 }
 @media (min-width: 768px) {
   .movie-section-title {
@@ -906,6 +903,7 @@ p {
 .movie-section-title span:nth-child(12) {
   letter-spacing: -0.25em;
 }
+.movie-section-title { /* space */ }
 .movie-section-title span:nth-child(13) {
   letter-spacing: -0.25em;
 }
@@ -927,6 +925,7 @@ p {
 .movie-section-title span:nth-child(19) {
   letter-spacing: -0.25em;
 }
+.movie-section-title { /* space */ }
 .movie-section-title span:nth-child(20) {
   letter-spacing: -0.25em;
 }
@@ -936,6 +935,7 @@ p {
 .movie-section-title span:nth-child(22) {
   letter-spacing: -0.35em;
 }
+.movie-section-title { /* space */ }
 .movie-section-title span:nth-child(23) {
   letter-spacing: -0.25em;
 }
@@ -986,7 +986,8 @@ p {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   animation: rotateCircle 30s linear infinite;
 }
 
@@ -1004,7 +1005,6 @@ p {
   pointer-events: none;
   z-index: 2;
   /* 斜めの軸 */
-  /* 矢印の先端 */
 }
 .movie-circle-arrow::before {
   content: "";
@@ -1015,6 +1015,9 @@ p {
   left: 50%;
   top: 0;
   transform: translateX(-50%) rotate(45deg);
+}
+.movie-circle-arrow {
+  /* 矢印の先端 */
 }
 .movie-circle-arrow::after {
   content: "";
@@ -1096,7 +1099,8 @@ p {
 .links-section .banner-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   transition: filter 0.3s ease;
 }
@@ -1188,14 +1192,15 @@ p {
   display: inline-block;
   transform: rotate(180deg);
   overflow: hidden;
-  /* ===== 中央に出る小丸 ===== */
-  /* ===== 矢印「＞」 ===== */
 }
 @media (min-width: 768px) {
   .chevron-icon {
     width: 40px;
     height: 40px;
   }
+}
+.chevron-icon {
+  /* ===== 中央に出る小丸 ===== */
 }
 .chevron-icon::after {
   content: "";
@@ -1210,6 +1215,9 @@ p {
   opacity: 0;
   transition: transform 0.4s ease, opacity 0.4s ease;
   z-index: 1;
+}
+.chevron-icon {
+  /* ===== 矢印「＞」 ===== */
 }
 .chevron-icon::before,
 .chevron-icon span {
@@ -1390,7 +1398,7 @@ body.loading .hamburger {
 .footer-box {
   display: block;
   gap: 50px;
-  padding: 0 20px 75px;
+  padding: 0 20px 45px;
   margin: auto;
   font-size: clamp(14px, 4.2vw, 16px);
 }
@@ -1399,7 +1407,7 @@ body.loading .hamburger {
     display: flex;
     padding-bottom: 112px;
     max-width: 1129px;
-    padding: 0 0 193px 10.4%;
+    padding: 0 0 150px 10.4%;
   }
 }
 .footer-box a {
@@ -1410,11 +1418,13 @@ body.loading .hamburger {
   transition: 0.5s;
 }
 .footer-box ul {
-  column-gap: 35px;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
 }
 @media (min-width: 768px) {
   .footer-box ul {
-    column-gap: unset;
+    -moz-column-gap: unset;
+         column-gap: unset;
   }
 }
 .footer-box li {
@@ -1451,12 +1461,13 @@ body.loading .hamburger {
   font-size: clamp(16px, 5.3vw, 20px);
   font-family: "Pathway Gothic One";
   font-weight: 400;
-  margin: 50px 0 40px;
+  margin: 50px 0 20px;
   letter-spacing: 0.64px;
 }
 @media (min-width: 768px) {
   .footer-title {
     letter-spacing: 0.8px;
+    margin: 50px 0 40px;
   }
 }
 
@@ -1506,6 +1517,32 @@ body.loading .hamburger {
 @media (min-width: 768px) {
   .footer-nav-3 {
     display: block;
+  }
+}
+.footer-nav-4 ul {
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+  margin-bottom: 22px;
+}
+@media (min-width: 768px) {
+  .footer-nav-4 ul {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 3.125vw;
+    margin-bottom: 24px;
+  }
+}
+.footer-nav-4 ul li {
+  border-bottom: 1px solid #C9C9C9;
+  margin: 0 auto 8px;
+  display: table;
+}
+@media (min-width: 768px) {
+  .footer-nav-4 ul li {
+    margin: 0;
   }
 }
 
@@ -1739,7 +1776,8 @@ body.loading .hamburger {
 .archive-news .discography-list .jacket-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .archive-news .release-date {
   font-family: meno-banner, serif;
@@ -2034,7 +2072,8 @@ body.loading .hamburger {
 .archive-news-inner .news-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
   position: relative;
   z-index: 1;
@@ -2181,7 +2220,8 @@ body.loading .hamburger {
 .sec-news-single .news-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
 }
 .sec-news-single .news-text {
@@ -2270,7 +2310,9 @@ body.loading .hamburger {
   flex-shrink: 0;
   box-sizing: border-box;
   /* buttonリセット */
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background: #0A1836;
   width: 250px;
   height: 45px;
@@ -2327,8 +2369,6 @@ body.loading .hamburger {
   height: 10px;
   margin-left: 12px;
   flex-shrink: 0;
-  /* 上の線 */
-  /* 下の線 */
 }
 .sns-share-chevron::before, .sns-share-chevron::after {
   content: "";
@@ -2340,8 +2380,14 @@ body.loading .hamburger {
   background-color: #EFEFEF;
   transform-origin: right center;
 }
+.sns-share-chevron {
+  /* 上の線 */
+}
 .sns-share-chevron::before {
   transform: translateY(-50%) rotate(-45deg);
+}
+.sns-share-chevron {
+  /* 下の線 */
 }
 .sns-share-chevron::after {
   transform: translateY(-50%) rotate(45deg);
@@ -2678,8 +2724,6 @@ body.loading .hamburger {
 
 .sec-qa {
   padding: 0 20px;
-  /* 利用規約チェック全体を中央に */
-  /* チェックボックス＋テキストを横並び＆中央揃え */
 }
 @media (min-width: 768px) {
   .sec-qa {
@@ -2733,10 +2777,16 @@ body.loading .hamburger {
 .sec-qa .contact-box .agree-label {
   color: #EFEFEF;
 }
+.sec-qa {
+  /* 利用規約チェック全体を中央に */
+}
 .sec-qa .wpcf7-form-control-wrap[data-name=agree] {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+}
+.sec-qa {
+  /* チェックボックス＋テキストを横並び＆中央揃え */
 }
 .sec-qa .wpcf7-checkbox label {
   display: inline-flex;
@@ -3226,7 +3276,8 @@ body.is-modal-open {
   }
 }
 .detail-modal.player-modal.active .modal-image img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   height: 100%;
 }
 .detail-modal.player-modal.active .modal-links {
@@ -3903,7 +3954,8 @@ body.is-modal-open {
   display: grid;
   grid-template-columns: 72px 1fr;
   row-gap: 20px;
-  column-gap: 12px;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
   margin-bottom: 40px;
 }
 @media (min-width: 768px) {
@@ -4135,7 +4187,8 @@ body.is-modal-open {
   width: 100%;
   height: 254px;
   margin-top: 10px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (min-width: 768px) {
   .profile-panel--fishing .img-fishing-2020 {
@@ -4335,18 +4388,9 @@ body.is-modal-open {
 
 .contact-box {
   color: #03121F;
+}
+.contact-box {
   /* ----- CF7フォーム全体 ----- */
-  /* ----- 各入力欄のラッパー ----- */
-  /* ----- 利用規約に相違するのラッパー ----- */
-  /* ----- input / textarea / select 全体 ----- */
-  /* ----- 入力例（placeholder）のスタイル ----- */
-  /* 送信ボタンを包んでいる p */
-  /* ----- ラベル部分 ----- */
-  /* ----- 必須項目のラベル ----- */
-  /* ----- 必須マーク（※） ----- */
-  /* ----- テキスト入力欄の下線 ----- */
-  /* ----- 項目タイトル（form-item内pタグ） ----- */
-  /* ----- ラジオボタンの項目テキスト ----- */
 }
 .contact-box .wpcf7.js {
   padding: 40px 0 60px;
@@ -4355,6 +4399,9 @@ body.is-modal-open {
   .contact-box .wpcf7.js {
     padding: 0 120px 120px;
   }
+}
+.contact-box {
+  /* ----- 各入力欄のラッパー ----- */
 }
 .contact-box .wpcf7-form-control-wrap {
   display: block;
@@ -4366,8 +4413,14 @@ body.is-modal-open {
     margin-bottom: unset;
   }
 }
+.contact-box {
+  /* ----- 利用規約に相違するのラッパー ----- */
+}
 .contact-box .wpcf7-form-control-wrap[data-name=agree] {
   justify-content: center;
+}
+.contact-box {
+  /* ----- input / textarea / select 全体 ----- */
 }
 .contact-box .form-box input,
 .contact-box textarea,
@@ -4387,6 +4440,14 @@ body.is-modal-open {
   .contact-box textarea {
     padding: 20px 0 0 26px;
   }
+}
+.contact-box {
+  /* ----- 入力例（placeholder）のスタイル ----- */
+}
+.contact-box ::-moz-placeholder {
+  color: #B9B9B9;
+  font-size: 14px;
+  opacity: 1;
 }
 .contact-box ::placeholder {
   color: #B9B9B9;
@@ -4410,11 +4471,17 @@ body.is-modal-open {
     width: 21vw;
   }
 }
+.contact-box {
+  /* 送信ボタンを包んでいる p */
+}
 .contact-box .wpcf7-form p:has(.wpcf7-submit) {
   text-align: center;
 }
 .contact-box .wpcf7-spinner {
   display: none;
+}
+.contact-box {
+  /* ----- ラベル部分 ----- */
 }
 .contact-box .form-label {
   width: 80vw;
@@ -4428,9 +4495,15 @@ body.is-modal-open {
   position: relative;
   display: inline-block;
 }
+.contact-box {
+  /* ----- 必須項目のラベル ----- */
+}
 .contact-box .form-item.is-required .form-label {
   position: relative;
   display: inline-block;
+}
+.contact-box {
+  /* ----- 必須マーク（※） ----- */
 }
 .contact-box .form-item.is-required .label-text::after {
   content: "※";
@@ -4441,6 +4514,9 @@ body.is-modal-open {
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1;
+}
+.contact-box {
+  /* ----- テキスト入力欄の下線 ----- */
 }
 .contact-box .wpcf7-form-control.wpcf7-text {
   border: 1px solid #C9C9C9;
@@ -4453,6 +4529,9 @@ body.is-modal-open {
     border-radius: 10px;
     padding: 17px 18px;
   }
+}
+.contact-box {
+  /* ----- 項目タイトル（form-item内pタグ） ----- */
 }
 .contact-box .wpcf7 form.invalid .wpcf7-response-output,
 .contact-box .wpcf7 form.unaccepted .wpcf7-response-output,
@@ -4529,6 +4608,9 @@ body.is-modal-open {
   margin-top: 10px;
   width: 100%;
 }
+.contact-box {
+  /* ----- ラジオボタンの項目テキスト ----- */
+}
 .contact-box .wpcf7-list-item-label {
   font-size: 15px;
 }
@@ -4560,7 +4642,6 @@ body.is-modal-open {
 .wpcf7-radio.radio-style {
   display: block;
   gap: 4.1vw;
-  /* ここでラベルの文字サイズを変える */
 }
 @media (min-width: 768px) {
   .wpcf7-radio.radio-style {
@@ -4584,7 +4665,8 @@ body.is-modal-open {
 .wpcf7-radio.radio-style .wpcf7-list-item input[type=radio] {
   transform: scale(2);
   margin-right: 15px;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
   -webkit-appearance: none;
   width: 10px !important;
   height: 10px !important;
@@ -4614,6 +4696,9 @@ body.is-modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.wpcf7-radio.radio-style {
+  /* ここでラベルの文字サイズを変える */
 }
 .wpcf7-radio.radio-style .wpcf7-list-item-label {
   font-size: 15px !important;
@@ -4827,16 +4912,13 @@ body.is-modal-open {
 }
 
 .wp-singular.page-template-default.page.page-id-39 .site-header .hamburger span,
-.wp-singular.page-template-default.page.page-id-26 .site-header .hamburger span {
+.wp-singular.page-template-default.page.page-id-26 .site-header .hamburger span,
+.wp-singular.page-template-default.page.page-id-968 .site-header .hamburger span,
+.wp-singular.page-template-default.page.page-id-970 .site-header .hamburger span,
+.wp-singular.page-template-default.page.page-id-1129 .site-header .hamburger span {
   background: #03121F;
 }
 
-.privacy-container {
-  /* h2直後のp */
-  /* h2直後のul */
-  /* h3 を1文字分下げる */
-  /* h3直後のpは本文として字下げ */
-}
 .privacy-container.page-container {
   padding: 0 20px;
 }
@@ -4894,14 +4976,26 @@ body.is-modal-open {
 .privacy-container h2 {
   font-weight: 700;
 }
+.privacy-container {
+  /* h2直後のp */
+}
 .privacy-container h2 + p {
   padding-left: 1.4em;
+}
+.privacy-container {
+  /* h2直後のul */
 }
 .privacy-container h2 + ul {
   padding-left: 1.1em;
 }
+.privacy-container {
+  /* h3 を1文字分下げる */
+}
 .privacy-container h3 {
   padding-left: 1em;
+}
+.privacy-container {
+  /* h3直後のpは本文として字下げ */
 }
 .privacy-container h3 + p {
   padding-left: 1.2em;
